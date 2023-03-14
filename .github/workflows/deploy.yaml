@@ -1,0 +1,25 @@
+name: Deploy to Cloudflare Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - run: pnpm config set auto-install-peers true
+      - run: pnpm install
+      - run: pnpm run build && pnpm run export
+      - uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          workingDirectory: 'out'
+          command: pages publish --project-name=yunagi-next .
