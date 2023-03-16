@@ -10,7 +10,7 @@ export default function Article() {
         {list.articles.map((element, index, array) => {
           return (
             <li key={index}>
-              <Link key={index} href={"articles/" + element.title}>
+              <Link key={index} href={"articles/" + element.link}>
                 {element.title}
               </Link>
             </li>
