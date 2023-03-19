@@ -13,11 +13,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 [X] 页面锚点滚动定位 & 导航栏
 [X] 图片渲染
 [ ] 图片懒加载
-[ ] 代码高亮
-[ ] 代码块复制
-[ ] 代码块行号
+[ ] 图片放大显示
+[X] 代码高亮
+[X] 代码块复制
+[X] 代码块行号
 [X] CI/CD
 [x] 字体渲染
+[X] 评论区
 
 ## Getting Started
 

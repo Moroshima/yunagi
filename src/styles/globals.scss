@@ -1,0 +1,103 @@
+@import "themes/prism-one-dark.css";
+
+/* 修复在 PrismJS 支持列表之外 code block 的 pre 样式支持 */
+pre {
+  background: hsl(220, 13%, 18%);
+  color: hsl(220, 14%, 71%);
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
+    monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+pre *::-moz-selection {
+  background: hsl(220, 13%, 28%);
+  color: inherit;
+  text-shadow: none;
+}
+
+pre *::selection {
+  background: hsl(220, 13%, 28%);
+  color: inherit;
+  text-shadow: none;
+}
+
+/* 行数显示 */
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  color: hsl(220, 14%, 71%); /* Line number color */
+  content: attr(line);
+}
+
+/* 复制按钮绝对定位 */
+pre {
+  position: relative;
+}
+
+/* 复制按钮按下前样式 */
+.copy-to-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+  background: hsl(220, 13%, 24%);
+  font-size: 14px;
+  border: 1.5px solid;
+  border-radius: 6px;
+  border-color: hsl(220, 14%, 71%);
+  vertical-align: middle;
+  padding: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  svg {
+    fill: hsl(220, 14%, 71%);
+    margin: 8px;
+    vertical-align: text-bottom;
+  }
+}
+
+/* 复制按钮按下后 */
+.copy-button-clicked {
+  border-color: #3fb950;
+  svg {
+    fill: #3fb950;
+  }
+}
+
+/* hover code block 时显示按钮 */
+pre > .copy-to-clipboard {
+  display: none;
+  animation: fade-out 200ms both;
+}
+
+pre:hover > .copy-to-clipboard {
+  display: block;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -148,7 +148,7 @@ e.g. <https://t.bilibili.com/707596502137045049?spm_id_from=333.999.0.0>
 
 文件树
 
-```filetree
+```bash
 ./src
 ├── index.tsx
 ├── App.tsx
@@ -275,28 +275,28 @@ e.g. <https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1>
 
 ## 参考
 
-- SPA 路由三部曲之核心原理 ★ <https://mp.weixin.qq.com/s/BDS9ule4OGUHiH2RaWtVVQ>
-- 单页应用 - 维基百科，自由的百科全书 ★ <https://zh.wikipedia.org/zh-cn/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8>
-- React-router - 如何在 url 中带参数？在 url 中带参数的几种方法 朱知知的博客-CSDN 博客 url 带参数 ★ <https://blog.csdn.net/zrq1210/article/details/108350008>
-- 前端发展简史 - 掘金 <https://juejin.cn/post/6963606416066265125>
-- 后端路由（后端渲染）、前后端分离（前端渲染）、单页面富应用（前端路由） wx628f07bcba852 的技术博客 51CTO 博客 <https://blog.51cto.com/u_15657677/5358264>
-- MVC - 维基百科，自由的百科全书 <https://zh.wikipedia.org/zh-hans/MVC>
-- 前后端分离架构：Web 实现前后端分离，前后端解耦 - 知乎 <https://zhuanlan.zhihu.com/p/87855907>
-- Server-side scripting - Wikipedia <https://en.wikipedia.org/wiki/Server-side_scripting>
-- SSR 与当年的 JSP、PHP 有什么区别？ | 黯羽轻扬 <http://www.ayqy.net/blog/diference-between-ssr-and-jsp-php/>
-- 浅谈前端路由原理 hash 和 history - 掘金 <https://juejin.cn/post/6993840419041706014>
-- 如何理解Web应用程序的MVC模型？ - 知乎 <https://www.zhihu.com/question/27897315>
-- 表现层状态转换 - 维基百科，自由的百科全书 <https://zh.wikipedia.org/zh-cn/%E8%A1%A8%E7%8E%B0%E5%B1%82%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2>
-- Routing - Laravel - The PHP Framework For Web Artisans <https://laravel.com/docs/9.x/routing>
-- 路由 · ThinkPHP6.0完全开发手册 · 看云 <https://www.kancloud.cn/manual/thinkphp6_0/1037494>
-- 通用网关接口 - 维基百科，自由的百科全书 <https://zh.wikipedia.org/zh-cn/%E9%80%9A%E7%94%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3>
-- MVVM - 维基百科，自由的百科全书 <https://zh.wikipedia.org/zh-cn/MVVM>
-- 如何认识前后端分离开发中的MVVM 模式 - 知乎 <https://zhuanlan.zhihu.com/p/79941516>
-- MVC - 维基百科，自由的百科全书 <https://zh.wikipedia.org/zh-hans/MVC#Windows_Forms>
-- MVC - 术语表 | MDN <https://developer.mozilla.org/zh-CN/docs/Glossary/MVC>
-- 怎样通俗的讲解 PHP 和 Apache 的关系？ - 知乎 <https://www.zhihu.com/question/19896544/answer/13284800>
-- 前端路由的发展史 · GitBook <http://www.caoyuanpeng.com/Frame/Vue/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2.html>
-- 前端发展历程，前端路由和后端路由，到底有什么区别？_还差的远呢!的博客-CSDN博客 <https://blog.csdn.net/qq_45598024/article/details/119299441>
-- 前端和后端 - 维基百科，自由的百科全书 <https://zh.wikipedia.org/wiki/%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF>
-- ~~对于现代开发来说，JavaScript就是一种垃圾语言（转）_weixin_34049032的博客-CSDN博客 <https://blog.csdn.net/weixin_34049032/article/details/86274988>~~
-- java - 前后端分离架构：Web 实现前后端分离，前后端解耦_个人文章 - SegmentFault 思否 <https://segmentfault.com/a/1190000039765982>
+- [SPA 路由三部曲之核心原理](https://mp.weixin.qq.com/s/BDS9ule4OGUHiH2RaWtVVQ) ★
+- [单页应用 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8) ★
+- [React-router - 如何在 url 中带参数？在 url 中带参数的几种方法 朱知知的博客-CSDN 博客 url 带参数](https://blog.csdn.net/zrq1210/article/details/108350008) ★
+- [前端发展简史 - 掘金](https://juejin.cn/post/6963606416066265125)
+- [后端路由（后端渲染）、前后端分离（前端渲染）、单页面富应用（前端路由） wx628f07bcba852 的技术博客 51CTO 博客](https://blog.51cto.com/u_15657677/5358264)
+- [MVC - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-hans/MVC)
+- [前后端分离架构：Web 实现前后端分离，前后端解耦 - 知乎](https://zhuanlan.zhihu.com/p/87855907)
+- [Server-side scripting - Wikipedia](https://en.wikipedia.org/wiki/Server-side_scripting)
+- [SSR 与当年的 JSP、PHP 有什么区别？ | 黯羽轻扬](http://www.ayqy.net/blog/diference-between-ssr-and-jsp-php/)
+- [浅谈前端路由原理 hash 和 history - 掘金](https://juejin.cn/post/6993840419041706014)
+- [如何理解Web应用程序的MVC模型？ - 知乎](https://www.zhihu.com/question/27897315)
+- [表现层状态转换 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E8%A1%A8%E7%8E%B0%E5%B1%82%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2)
+- [Routing - Laravel - The PHP Framework For Web Artisans](https://laravel.com/docs/9.x/routing)
+- [路由 · ThinkPHP6.0完全开发手册 · 看云](https://www.kancloud.cn/manual/thinkphp6_0/1037494)
+- [通用网关接口 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E9%80%9A%E7%94%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3)
+- [MVVM - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/MVVM)
+- [如何认识前后端分离开发中的MVVM 模式 - 知乎](https://zhuanlan.zhihu.com/p/79941516)
+- [MVC - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-hans/MVC#Windows_Forms)
+- [MVC - 术语表 | MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/MVC)
+- [怎样通俗的讲解 PHP 和 Apache 的关系？ - 知乎](https://www.zhihu.com/question/19896544/answer/13284800)
+- [前端路由的发展史 · GitBook](http://www.caoyuanpeng.com/Frame/Vue/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2.html)
+- [前端发展历程，前端路由和后端路由，到底有什么区别？_还差的远呢!的博客-CSDN博客](https://blog.csdn.net/qq_45598024/article/details/119299441)
+- [前端和后端 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF)
+- ~~[对于现代开发来说，JavaScript就是一种垃圾语言（转）_weixin_34049032的博客-CSDN博客](https://blog.csdn.net/weixin_34049032/article/details/86274988)~~
+- [java - 前后端分离架构：Web 实现前后端分离，前后端解耦_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000039765982)
