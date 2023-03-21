@@ -6,20 +6,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Why Yunagi?
 
-~~Yunagi is a Japanese word that means "evening calm". It is a beautiful word that describes the calmness of the evening. I hope that this blog system can bring you the same feeling.~~ The name y unagi is from [one of nine Kamikaze-class destroyers built for the Imperial Japanese Navy (IJN) during the 1920s](https://en.wikipedia.org/wiki/Japanese_destroyer_Y%C5%ABnagi_(1924)).
+~~Yunagi is a Japanese word that means "evening calm". It is a beautiful word that describes the calmness of the evening. I hope that this blog system can bring you the same feeling.~~ The name yunagi is from [one of nine Kamikaze-class destroyers built for the Imperial Japanese Navy (IJN) during the 1920s](https://en.wikipedia.org/wiki/Japanese_destroyer_Y%C5%ABnagi_(1924)).
 
 ## TODO
 
-[X] 页面锚点滚动定位 & 导航栏
-[X] 图片渲染
-[ ] 图片懒加载
-[ ] 图片放大显示
-[X] 代码高亮
-[X] 代码块复制
-[X] 代码块行号
-[X] CI/CD
-[x] 字体渲染
-[X] 评论区
+- [x] 页面锚点滚动定位 & 导航栏
+- [x] 图片渲染
+- [ ] 图片放大显示
+- [ ] 图片懒加载
+- [x] 代码高亮
+- [x] 代码块复制
+- [x] 代码块行号
+- [x] CI/CD
+- [x] 字体渲染
+- [x] 评论区
 
 ## Getting Started
 

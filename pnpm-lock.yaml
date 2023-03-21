@@ -18,10 +18,10 @@ specifiers:
   rehype-katex: ^6.0.2
   rehype-prism-plus: ^1.5.1
   rehype-raw: ^6.1.1
+  rehype-slug: ^5.1.0
   rehype-toc: ^3.0.2
   remark-gfm: ^3.0.1
   remark-math: ^5.1.1
-  remark-slug: ^7.0.1
   sass: ^1.59.3
   typescript: 4.9.5
   unist-util-visit: ^4.1.2
@@ -44,10 +44,10 @@ dependencies:
   rehype-katex: 6.0.2
   rehype-prism-plus: 1.5.1
   rehype-raw: 6.1.1
+  rehype-slug: 5.1.0
   rehype-toc: 3.0.2
   remark-gfm: 3.0.1
   remark-math: 5.1.1
-  remark-slug: 7.0.1
   sass: 1.59.3
   typescript: 4.9.5
   unist-util-visit: 4.1.2
@@ -1667,8 +1667,8 @@ packages:
       lit: 2.6.1
     dev: false
 
-  /github-slugger/1.5.0:
-    resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
+  /github-slugger/2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
     dev: false
 
   /glob-parent/5.1.2:
@@ -3328,6 +3328,18 @@ packages:
       unified: 10.1.2
     dev: false
 
+  /rehype-slug/5.1.0:
+    resolution: {integrity: sha512-Gf91dJoXneiorNEnn+Phx97CO7oRMrpi+6r155tTxzGuLtm+QrI4cTwCa9e1rtePdL4i9tSO58PeSS6HWfgsiw==}
+    dependencies:
+      '@types/hast': 2.3.4
+      github-slugger: 2.0.0
+      hast-util-has-property: 2.0.1
+      hast-util-heading-rank: 2.1.1
+      hast-util-to-string: 2.0.0
+      unified: 10.1.2
+      unist-util-visit: 4.1.2
+    dev: false
+
   /rehype-toc/3.0.2:
     resolution: {integrity: sha512-DMt376+4i1KJGgHJL7Ezd65qKkJ7Eqp6JSB47BJ90ReBrohI9ufrornArM6f4oJjP2E2DVZZHufWucv/9t7GUQ==}
     engines: {node: '>=10'}
@@ -3381,17 +3393,6 @@ packages:
       '@types/mdast': 3.0.10
       mdast-util-to-hast: 12.3.0
       unified: 10.1.2
-    dev: false
-
-  /remark-slug/7.0.1:
-    resolution: {integrity: sha512-NRvYePr69LdeCkEGwL4KYAmq7kdWG5rEavCXMzUR4qndLoXHJAOLSUmPY6Qm4NJfKix7/EmgObyVaYivONAFhg==}
-    dependencies:
-      '@types/hast': 2.3.4
-      '@types/mdast': 3.0.10
-      github-slugger: 1.5.0
-      mdast-util-to-string: 3.1.1
-      unified: 10.1.2
-      unist-util-visit: 4.1.2
     dev: false
 
   /resolve-from/4.0.0:

@@ -4,7 +4,6 @@ import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
 import Link from "next/link";
 import { MDXProvider } from "@mdx-js/react";
 import Giscus from "@giscus/react";
-import Copy from "@/assets/copy.svg";
 import { useState } from "react";
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
@@ -44,12 +43,18 @@ const PreLayout = ({ children, raw, ...props }: any) => {
         <button
           className="copy-to-clipboard"
           onClick={() => {
-            navigator.clipboard.writeText(raw).then(() => {
-              setCopy(true);
-            });
-            setTimeout(() => {
-              setCopy(false);
-            }, 2000);
+            navigator.clipboard.writeText(raw).then(
+              () => {
+                setCopy(true);
+                setTimeout(() => {
+                  setCopy(false);
+                }, 2000);
+              },
+              () => {
+                console.log("copy failed!");
+                alert("copy failed!");
+              }
+            );
           }}
         >
           <svg

@@ -1,7 +1,7 @@
 // next.config.mjs
 import withMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
-import remarkSlug from "remark-slug";
+import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeToc from "rehype-toc";
 import rehypeKatex from "rehype-katex";
@@ -26,7 +26,7 @@ export default withMDX({
     // If you use remark-gfm, you'll need to use next.config.mjs
     // as the package is ESM only
     // https://github.com/remarkjs/remark-gfm#install
-    remarkPlugins: [remarkGfm, remarkSlug, remarkMath],
+    remarkPlugins: [remarkGfm, remarkMath],
     rehypePlugins: [
       /* 介入dom生成，将代码块原始内容绑定至对应节点 */
       () => (tree) => {
@@ -41,6 +41,7 @@ export default withMDX({
       rehypeCodeTitles,
       [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
       rehypeKatex,
+      rehypeSlug,
       [rehypeToc, { headings: ["h2", "h3", "h4", "h5", "h6"] }],
       [
         rehypeAutolinkHeadings,
