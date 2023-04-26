@@ -79,23 +79,25 @@ const components = {
   img: ResponsiveImage,
   /* giscus 评论区 */
   wrapper: (props: any) => (
-    <div>
+    <div className="post">
       <main {...props} />
-      <Giscus
-        id="comments"
-        repo="Moroshima/open-discussion"
-        repoId="R_kgDOJLaQvw"
-        category="Announcements"
-        categoryId="DIC_kwDOJLaQv84CU-QA"
-        mapping="pathname"
-        strict="1"
-        reactionsEnabled="1"
-        emitMetadata="0"
-        inputPosition="top"
-        theme="light"
-        lang="zh-CN"
-        loading="lazy"
-      />
+      <div style={{padding: "0 32px",marginBottom: "16px"}}>
+        <Giscus
+          id="comments"
+          repo="Moroshima/open-discussion"
+          repoId="R_kgDOJLaQvw"
+          category="Announcements"
+          categoryId="DIC_kwDOJLaQv84CU-QA"
+          mapping="pathname"
+          strict="1"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme="light"
+          lang="zh-CN"
+          loading="lazy"
+        />
+      </div>
     </div>
   ),
   pre: PreLayout,
@@ -104,24 +106,46 @@ const components = {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MDXProvider components={components}>
-      <>
-        <style jsx global>{`
-          html {
-            font-family: ${eb_garamond.style.fontFamily},
-              ${noto_serif_sc.style.fontFamily}, serif;
-            scroll-behavior: smooth;
-          }
-        `}</style>
-        <div>
-          <Link href="/">Moroshima&apos;s Blog</Link>
+      <style jsx global>{`
+        html {
+          font-family: ${eb_garamond.style.fontFamily},
+            ${noto_serif_sc.style.fontFamily}, serif;
+          scroll-behavior: smooth;
+        }
+      `}</style>
+      <div className="topbar">
+        <Link href="/">Moroshima&apos;s Blog</Link>
+        <div className="topbar-link-group">
+          <Link href="/">首页</Link>
           <Link href="/articles">文章</Link>
           <Link href="/archives">归档</Link>
           <Link href="/categories">分类</Link>
           <Link href="/friends">友链</Link>
           <Link href="/about">关于</Link>
         </div>
+      </div>
+      <div className="container">
         <Component {...pageProps} />
-      </>
+      </div>
+      <footer className="footer">
+        <p>
+          <a href="https://github.com/Moroshima/yunagi-next">Yunagi</a> |
+          Powered by <a href="https://nextjs.org">Next.js</a>
+        </p>
+        <p>
+          若非特别注明，本站所有内容都遵从{" "}
+          <a
+            href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+            rel="license"
+          >
+            CC BY-NC-SA 4.0
+          </a>{" "}
+          授权条款。
+        </p>
+        <p>
+          Copyright © 2023 Ver0.1.0 @ <Link href="/about">Moroshima</Link>
+        </p>
+      </footer>
     </MDXProvider>
   );
 }

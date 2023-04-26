@@ -9,7 +9,18 @@ export default function Index() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>hello</h1>
+      <p>
+        受民族主义教育 无政府主义 反威权主义 反对集权专制 和平主义者 绥靖支持者
+        存在民族主义教育导致的感性情况下种族歧视以及极端民族主义倾向、战争狂热
+      </p>
+      <p>新自由主义倾向</p>
+      <p>共产主义</p>
+      <p>反对资本主义</p>
+      <p>理想主义者</p>
+      <p>支持地区自治民族自决</p>
+      <p>地区自决</p>
+      <p>去政府化</p>
+      <p>支持外蒙古、西藏、新疆、台湾、云南自治</p>
     </>
   );
 }

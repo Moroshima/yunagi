@@ -1,4 +1,5 @@
 import Head from "next/head";
+import styles from "../styles/index.module.scss";
 
 export default function Home() {
   return (
@@ -9,7 +10,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main><h1>hello中文渲染测试</h1></main>
+      <main className={styles.main}>
+        <div className={styles.phrase}>
+          <p>Everything faded into mist.</p>
+          <p>
+            The past was erased, the erasure was forgotten, the lie became
+            truth.
+          </p>
+          <p>
+            George Orwell. <i>Nineteen Eighty-Four</i>.
+          </p>
+        </div>
+      </main>
     </>
   );
 }
