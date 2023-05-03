@@ -8,11 +8,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ~~Yunagi is a Japanese word that means "evening calm". It is a beautiful word that describes the calmness of the evening. I hope that this blog system can bring you the same feeling.~~ The name yunagi is from [one of nine Kamikaze-class destroyers built for the Imperial Japanese Navy (IJN) during the 1920s](https://en.wikipedia.org/wiki/Japanese_destroyer_Y%C5%ABnagi_(1924)).
 
+## Color
+
+The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](https://semi.design/zh-CN/basic/tokens). Other colors are only pure white and black with different alpha channel values.
+
 ## TODO
 
 - [x] 页面锚点滚动定位 & 导航栏
+- [ ] 返回页面顶部
 - [x] 图片渲染
-- [ ] 图片放大显示
+- [ ] 图片放大显示（模态框 :target）
 - [ ] 图片懒加载
 - [x] 代码高亮
 - [x] 代码块复制
@@ -20,6 +25,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [x] CI/CD
 - [x] 字体渲染
 - [x] 评论区
+- [ ] RSS 订阅支持
+- [ ] 修改 TOC 目录显示位置
+- [ ] markdown excel 样式修改
+
+## Issues
+
+- [ ] 复制按钮存在复制按钮随代码滚动的问题
+- [ ] 锚点需要给定偏移量
+
+### Content Issues
+
+- [ ] 文章 & 说说 tag 区分分类于文章页面（归档界面按时间，分类界面按 tag）
+- [ ] 关于界面内容填充
+- [ ] 文档内容空格缺失导致加粗无法正常显示
 
 ## Getting Started
 

@@ -95,4 +95,6 @@
 
 ## 性能优化
 
-清除不需要的 CSS [Next.js | PurgeCSS](https://purgecss.com/guides/next.html)
+~~清除不需要的 CSS [Next.js | PurgeCSS](https://purgecss.com/guides/next.html)~~
+
+不建议使用，在配合 Sass 使用的情况下存在伪元素被错误清除的问题

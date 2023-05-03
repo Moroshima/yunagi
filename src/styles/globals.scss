@@ -1,7 +1,21 @@
 @import "themes/prism-one-dark.css";
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
 body {
   margin: 0;
+  overflow-y: overlay;
   a {
     text-decoration: none;
     &:link {
@@ -11,15 +25,16 @@ body {
       color: black;
     }
     &:hover {
-      color: #384549;
+      color: #555b61;
     }
     &:active {
-      color: #798183;
+      color: #888d92;
     }
   }
 }
 
 .topbar {
+  z-index: 1;
   position: sticky;
   top: 0;
   background: linear-gradient(
@@ -45,6 +60,48 @@ body {
   }
 }
 
+.post {
+  width: 100%;
+  a {
+    &:link {
+      color: #2e3238;
+    }
+    &:visited {
+      color: #2e3238;
+    }
+    &:hover {
+      text-decoration: underline;
+      color: #555b61;
+    }
+    &:active {
+      color: #888d92;
+    }
+  }
+  .toc,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      &:link {
+        color: black;
+      }
+      &:visited {
+        color: black;
+      }
+      &:hover {
+        text-decoration: none;
+        color: #555b61;
+      }
+      &:active {
+        color: #888d92;
+      }
+    }
+  }
+}
+
 .container {
   min-height: calc(
     100vh - 64px - 96.67px - 16px - 32px - 1px
@@ -60,21 +117,22 @@ body {
   margin: 0 32px 32px 32px;
 }
 
-.post {
-  a {
-    &:link {
-      color: #3c484c;
-    }
-    &:visited {
-      color: #475154;
-    }
-    &:hover {
-      color: #6b7273;
-    }
-    &:active {
-      color: #8a8d90;
-    }
-  }
+blockquote {
+  padding: 0 1em;
+  color: #656d76;
+  border-left: 0.25em solid #d0d7de;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.common-post-image {
+  max-width: 100%;
+  justify-self: center;
+}
+
+p:has(> img) {
+  display: grid;
+  width: 100%;
 }
 
 /* 修复在 PrismJS 支持列表之外 code block 的 pre 样式支持 */
@@ -113,6 +171,22 @@ pre *::selection {
   background: hsl(220, 13%, 28%);
   color: inherit;
   text-shadow: none;
+}
+
+pre {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  &::-webkit-scrollbar-thumb {
+    margin: 2px;
+    border-radius: 0.3em;
+    background: rgba(255, 255, 255, 0.3);
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
 }
 
 /* 行数显示 */

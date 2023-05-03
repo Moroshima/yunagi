@@ -4,7 +4,7 @@ import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
 import Link from "next/link";
 import { MDXProvider } from "@mdx-js/react";
 import Giscus from "@giscus/react";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
 const noto_serif_sc = Noto_Serif_SC({
@@ -16,7 +16,7 @@ const noto_serif_sc = Noto_Serif_SC({
 const ResponsiveImage = (props: any) => {
   return (
     <img
-      style={{ maxWidth: "100%" }}
+      className="common-post-image"
       src={props.src.replace("./assets", "/images")}
       alt={props.alt}
     />
@@ -24,7 +24,7 @@ const ResponsiveImage = (props: any) => {
 };
 
 /* 代码块复制按钮 */
-const PreLayout = ({ children, raw, ...props }: any) => {
+const Pre = ({ children, raw, ...props }: any) => {
   const [copy, setCopy] = useState(false);
   return (
     <pre {...props}>
@@ -68,7 +68,6 @@ const PreLayout = ({ children, raw, ...props }: any) => {
           </svg>
         </button>
       )}
-
       {children}
     </pre>
   );
@@ -81,26 +80,24 @@ const components = {
   wrapper: (props: any) => (
     <div className="post">
       <main {...props} />
-      <div style={{padding: "0 32px",marginBottom: "16px"}}>
-        <Giscus
-          id="comments"
-          repo="Moroshima/open-discussion"
-          repoId="R_kgDOJLaQvw"
-          category="Announcements"
-          categoryId="DIC_kwDOJLaQv84CU-QA"
-          mapping="pathname"
-          strict="1"
-          reactionsEnabled="1"
-          emitMetadata="0"
-          inputPosition="top"
-          theme="light"
-          lang="zh-CN"
-          loading="lazy"
-        />
-      </div>
+      <Giscus
+        id="comments"
+        repo="Moroshima/open-discussion"
+        repoId="R_kgDOJLaQvw"
+        category="Announcements"
+        categoryId="DIC_kwDOJLaQv84CU-QA"
+        mapping="pathname"
+        strict="1"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme="light"
+        lang="zh-CN"
+        loading="lazy"
+      />
     </div>
   ),
-  pre: PreLayout,
+  pre: Pre,
 };
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -143,7 +140,7 @@ export default function App({ Component, pageProps }: AppProps) {
           授权条款。
         </p>
         <p>
-          Copyright © 2023 Ver0.1.0 @ <Link href="/about">Moroshima</Link>
+          Copyright © 2023 Ver 0.1.0 @ <Link href="/about">Moroshima</Link>
         </p>
       </footer>
     </MDXProvider>
