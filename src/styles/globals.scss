@@ -1,5 +1,6 @@
 @import "themes/prism-one-dark.css";
 
+/* 个性化滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -13,9 +14,16 @@
   }
 }
 
+/* 全局使用 border-box */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  /* 设置滚动条类型 */
   overflow-y: overlay;
+  /* 全局修改 a link 标签样式 */
   a {
     text-decoration: none;
     &:link {
@@ -33,6 +41,7 @@ body {
   }
 }
 
+/* 顶栏 */
 .topbar {
   z-index: 1;
   position: sticky;
@@ -54,14 +63,19 @@ body {
     font-size: medium;
   }
   .topbar-link-group {
+    margin: 0 -6px;
     a {
       margin: 6px;
     }
   }
 }
 
+/* 针对文章页面渲染内容的样式修改 */
 .post {
-  width: 100%;
+  width: 70%;
+  p {
+    line-height: 1.75em;
+  }
   a {
     &:link {
       color: #2e3238;
@@ -102,6 +116,7 @@ body {
   }
 }
 
+/* 页面主容器 */
 .container {
   min-height: calc(
     100vh - 64px - 96.67px - 16px - 32px - 1px
@@ -113,10 +128,12 @@ body {
   padding: 0 32px;
 }
 
+/* 页脚 */
 .footer {
   margin: 0 32px 32px 32px;
 }
 
+/* 引用内容块样式 */
 blockquote {
   padding: 0 1em;
   color: #656d76;
@@ -125,17 +142,7 @@ blockquote {
   margin-bottom: 16px;
 }
 
-.common-post-image {
-  max-width: 100%;
-  justify-self: center;
-}
-
-p:has(> img) {
-  display: grid;
-  width: 100%;
-}
-
-/* 修复在 PrismJS 支持列表之外 code block 的 pre 样式支持 */
+/* 修复在 PrismJS 支持列表之外 code block 的 pre 样式支持（源自 themes 中样式文件未修改的原始代码） */
 pre {
   background: hsl(220, 13%, 18%);
   color: hsl(220, 14%, 71%);
@@ -200,7 +207,7 @@ pre {
 }
 
 /* 复制按钮绝对定位 */
-pre {
+.code-block-wrapper {
   position: relative;
 }
 
@@ -235,20 +242,205 @@ pre {
 }
 
 /* hover code block 时显示按钮 */
-pre > .copy-to-clipboard {
+.code-block-wrapper > .copy-to-clipboard {
   display: none;
-  animation: fade-out 200ms both;
+  animation: fade-in 200ms both;
 }
 
-pre:hover > .copy-to-clipboard {
+.code-block-wrapper:hover > .copy-to-clipboard {
   display: block;
 }
 
-@keyframes fade-out {
+/* 网页中的图片 */
+.image-wrapper {
+  cursor: zoom-in;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  max-width: 100%;
+}
+
+/* 图片遮罩（模态框） */
+.image-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(16px);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: calc(32px + 24px);
+  box-sizing: border-box;
+  animation: fade-in 0.2s both;
+}
+
+/* 放大后图片遮罩的关闭按钮 */
+.image-modal-close {
+  position: absolute;
+  padding: 16px;
+  top: 0;
+  right: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: black;
+}
+
+/* 放大后的图片 */
+.image-zoom {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 图片遮罩情况下禁用背景网页滚动 */
+body:has(section > img) {
+  overflow: hidden;
+}
+
+/* 表格样式（ Typora GitHub 主题） */
+table {
+  padding: 0;
+  word-break: initial;
+}
+
+table tr {
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+  background-color: #f8f8f8;
+}
+
+table th {
+  font-weight: bold;
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table td {
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table th:first-child,
+table td:first-child {
+  margin-top: 0;
+}
+
+table th:last-child,
+table td:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  max-width: 100%;
+  border-spacing: 0px;
+  overflow: scroll;
+}
+
+/* 左上角元素上方与左侧画线 */
+table th:first-child {
+  border-top: 1px solid #dfe2e5;
+  border-left: 1px solid #dfe2e5;
+}
+
+/* 第一排元素上方画线 */
+table th {
+  border-top: 1px solid #dfe2e5;
+}
+
+/* 第一列元素左侧画线 */
+table td:first-child {
+  border-left: 1px solid #dfe2e5;
+}
+
+table th,
+td {
+  border-right: 1px solid #dfe2e5;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.table {
+  margin: 0.8em 0;
+  overflow-x: overlay;
+}
+
+/* 强制覆盖代码块的 overflow */
+.pre[class*="language-"] {
+  overflow: overlay;
+}
+
+/* 文章各级标题 hover 样式*/
+.post {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:has(a:hover)::after {
+      content: " #";
+      text-decoration: none;
+      color: #9e9e9ea6;
+      text-decoration: none;
+    }
+    a {
+      &:link {
+        color: black;
+      }
+      &:visited {
+        color: black;
+      }
+      &:hover {
+        text-decoration: underline;
+        color: black;
+        &::after {
+          visibility: visible;
+        }
+      }
+      &:active {
+        color: black;
+      }
+    }
+  }
+}
+
+hr {
+  width: 100%;
+  border-image: linear-gradient(90deg, black, transparent) 1;
+  border-style: solid;
+  border-width: 1px 0 0 0;
+}
+
+@keyframes fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

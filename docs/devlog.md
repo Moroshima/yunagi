@@ -98,3 +98,11 @@
 ~~清除不需要的 CSS [Next.js | PurgeCSS](https://purgecss.com/guides/next.html)~~
 
 不建议使用，在配合 Sass 使用的情况下存在伪元素被错误清除的问题
+
+## useHover
+
+[react-hook浅谈 · Issue #297 · frontend9/fe9-library · GitHub](https://github.com/frontend9/fe9-library/issues/297)
+
+## 动态引入避免 Error: Hydration failed
+
+[Advanced Features: Dynamic Import | Next.js (nextjs.org)](https://nextjs.org/docs/advanced-features/dynamic-import)

@@ -17,7 +17,7 @@ The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](
 - [x] 页面锚点滚动定位 & 导航栏
 - [ ] 返回页面顶部
 - [x] 图片渲染
-- [ ] 图片放大显示（模态框 :target）
+- [x] 图片放大显示（模态框或 :target）
 - [ ] 图片懒加载
 - [x] 代码高亮
 - [x] 代码块复制
@@ -31,7 +31,7 @@ The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](
 
 ## Issues
 
-- [ ] 复制按钮存在复制按钮随代码滚动的问题
+- [x] 复制按钮存在复制按钮随代码滚动的问题
 - [ ] 锚点需要给定偏移量
 
 ### Content Issues
@@ -39,6 +39,7 @@ The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](
 - [ ] 文章 & 说说 tag 区分分类于文章页面（归档界面按时间，分类界面按 tag）
 - [ ] 关于界面内容填充
 - [ ] 文档内容空格缺失导致加粗无法正常显示
+- [ ] 纯字符标题锚点无法正确工作
 
 ## Getting Started
 
