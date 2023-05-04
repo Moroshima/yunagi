@@ -46,7 +46,7 @@ export default withMDX({
       [
         rehypeAutolinkHeadings,
         {
-          behavior: "append",
+          behavior: "wrap",
           content: { type: "text", value: "#" },
         },
       ],

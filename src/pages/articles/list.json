@@ -6,7 +6,7 @@
       "tags": ["tag1", "tag2"],
       "date": "2016-01-01",
       "updated": "2016-01-01",
-      "categories": ["category1", "category2"]
+      "categories": ["article", "category2"]
     },
     {
       "title": "test",
@@ -14,7 +14,7 @@
       "tags": ["tag1", "tag2"],
       "date": "2016-01-01",
       "updated": "2016-01-01",
-      "categories": ["category1", "category2"]
+      "categories": ["article", "category2"]
     },
     {
       "title": "test2",
@@ -22,7 +22,7 @@
       "tags": ["tag1", "tag2"],
       "date": "2016-01-01",
       "updated": "2016-01-01",
-      "categories": ["category1", "category2"]
+      "categories": ["article", "category2"]
     },
     {
       "title": "路由设计哲学",
@@ -30,7 +30,7 @@
       "tags": ["tag1", "tag2"],
       "date": "2016-01-01",
       "updated": "2016-01-01",
-      "categories": ["category1", "category2"]
+      "categories": ["article", "category2"]
     }
   ]
 }
