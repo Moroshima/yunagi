@@ -1,4 +1,4 @@
-@import "themes/prism-one-dark.css";
+@import "prism-themes/prism-one-dark.css";
 
 /* 个性化滚动条 */
 ::-webkit-scrollbar {
@@ -72,7 +72,7 @@ body {
 
 /* 针对文章页面渲染内容的样式修改 */
 .post {
-  width: 70%;
+  width: 50%;
   p {
     line-height: 1.75em;
   }
@@ -387,7 +387,22 @@ td {
 
 /* 文章各级标题 hover 样式*/
 .post {
-  h1,
+  h1 {
+    a {
+      &:link {
+        color: black;
+      }
+      &:visited {
+        color: black;
+      }
+      &:hover {
+        color: black;
+      }
+      &:active {
+        color: black;
+      }
+    }
+  }
   h2,
   h3,
   h4,
@@ -436,11 +451,22 @@ hr {
   }
 }
 
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+.post nav {
+  position: fixed;
+  top: calc(64px + 16px + 0.67em + 2em + 0.67em + 0.83em);
+  left: calc(50% + 32px);
+}
+
+.scroll-to-top {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  animation: fade-in 200ms both;
+  padding: 12px;
+  backdrop-filter: blur(16px);
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+  color: black;
+  border-radius: 6px;
 }

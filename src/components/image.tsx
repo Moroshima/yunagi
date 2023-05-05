@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { XIcon } from "@primer/octicons-react";
 
-const Image = (props: any) => {
-  console.log(props);
+function Image(props: any) {
   const [modal, setModal] = useState(false);
   return (
-    <div>
-      <div
+    <>
+      <span
         className="image-wrapper"
         onClick={() => {
           setModal(true);
@@ -17,7 +16,7 @@ const Image = (props: any) => {
           src={props.src.replace("./assets", "/images")}
           alt={props.alt}
         />
-      </div>
+      </span>
       {modal ? (
         <section className="image-modal">
           <button
@@ -35,8 +34,8 @@ const Image = (props: any) => {
           />
         </section>
       ) : null}
-    </div>
+    </>
   );
-};
+}
 
 export default Image;
