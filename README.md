@@ -12,13 +12,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](https://semi.design/zh-CN/basic/tokens). Other colors are only pure white and black with different alpha channel values.
 
+## Code Block Theme
+
+The theme is from [GitHub - PrismJS/prism-themes: A wider selection of Prism themes](https://github.com/PrismJS/prism-themes).
+
 ## TODO
 
 - [x] 页面锚点滚动定位 & 导航栏
-- [ ] 返回页面顶部
+- [x] 返回页面顶部
 - [x] 图片渲染
 - [x] 图片放大显示（模态框或 :target）
-- [ ] 图片懒加载
 - [x] 代码高亮
 - [x] 代码块复制
 - [x] 代码块行号
@@ -26,13 +29,15 @@ The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](
 - [x] 字体渲染
 - [x] 评论区
 - [ ] RSS 订阅支持
-- [ ] 修改 TOC 目录显示位置
-- [ ] markdown excel 样式修改
+- [x] 修改 TOC 目录显示位置
+- [x] markdown excel 样式修改
+- [ ] 多文章翻页
+- [ ] 在文章页面显示详细信息
 
 ## Issues
 
 - [x] 复制按钮存在复制按钮随代码滚动的问题
-- [ ] 锚点需要给定偏移量
+- [x] 锚点需要给定偏移量
 
 ### Content Issues
 

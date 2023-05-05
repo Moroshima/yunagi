@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 import type { AppProps } from "next/app";
 import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
 import { MDXProvider } from "@mdx-js/react";
-import Giscus from "@giscus/react";
+import { useEffect, useState } from "react";
+import { ChevronUpIcon } from "@primer/octicons-react";
 
 const PreDynamicComponent = dynamic(() => import("../components/pre"), {
   ssr: false,
@@ -15,6 +16,7 @@ const ImageDynamicComponent = dynamic(() => import("../components/image"), {
 const TableDynamicComponent = dynamic(() => import("../components/table"), {
   ssr: false,
 });
+const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"));
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
 const noto_serif_sc = Noto_Serif_SC({
@@ -28,30 +30,59 @@ const components = {
   pre: PreDynamicComponent,
   img: ImageDynamicComponent,
   table: TableDynamicComponent,
-  /* giscus 评论区 */
-  wrapper: (props: any) => (
-    <div className="post">
-      <main {...props} />
-      <Giscus
-        id="comments"
-        repo="Moroshima/open-discussion"
-        repoId="R_kgDOJLaQvw"
-        category="Announcements"
-        categoryId="DIC_kwDOJLaQv84CU-QA"
-        mapping="pathname"
-        strict="1"
-        reactionsEnabled="1"
-        emitMetadata="0"
-        inputPosition="top"
-        theme="light"
-        lang="zh-CN"
-        loading="lazy"
-      />
-    </div>
+  wrapper: WrapperDynamicComponent,
+  h2: ({ children, ...props }: any) => (
+    <h2>
+      <span id={props.id} style={{ paddingTop: "calc(64px + 0.83em)" }}></span>
+      {children}
+    </h2>
+  ),
+  h3: ({ children, ...props }: any) => (
+    <h3>
+      <span id={props.id} style={{ paddingTop: "calc(64px + 1em)" }}></span>
+      {children}
+    </h3>
+  ),
+  h4: ({ children, ...props }: any) => (
+    <h4>
+      <span id={props.id} style={{ paddingTop: "calc(64px + 1.33em)" }}></span>
+      {children}
+    </h4>
+  ),
+  h5: ({ children, ...props }: any) => (
+    <h5>
+      <span id={props.id} style={{ paddingTop: "calc(64px + 1.67em)" }}></span>
+      {children}
+    </h5>
+  ),
+  h6: ({ children, ...props }: any) => (
+    <h6>
+      <span id={props.id} style={{ paddingTop: "calc(64px + 2.33em)" }}></span>
+      {children}
+    </h6>
+  ),
+  nav: ({ children, ...props }: any) => (
+    <nav {...props}>
+      <p>
+        <strong>文章目录</strong>
+      </p>
+      {children}
+    </nav>
   ),
 };
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    setHidden(window.scrollY > 0 ? true : false);
+    const handleScroll: any = () => {
+      if (window.scrollY > 0) {
+        setHidden(false);
+      } else setHidden(true);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <MDXProvider components={components}>
       <style jsx global>{`
@@ -69,7 +100,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Link href="/archives">归档</Link>
           <Link href="/categories">分类</Link>
           <Link href="/friends">友链</Link>
-          <Link href="/about">关于我</Link>
+          <Link href="/about">关于</Link>
         </div>
       </div>
       <div className="container">
@@ -94,6 +125,19 @@ export default function App({ Component, pageProps }: AppProps) {
           Copyright © 2023 Ver 0.1.0 @ <Link href="/about">Moroshima</Link>
         </p>
       </footer>
+      {hidden ? null : (
+        <button
+          className="scroll-to-top"
+          onClick={() => {
+            document.documentElement.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          <ChevronUpIcon size={16} />
+        </button>
+      )}
     </MDXProvider>
   );
 }

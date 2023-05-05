@@ -14,14 +14,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.phrase}>
+        <div>
           <p>Everything faded into mist.</p>
           <p>
             The past was erased, the erasure was forgotten, the lie became
             truth.
           </p>
           <p>
-            George Orwell. <i>Nineteen Eighty-Four</i>.
+            George Orwell. <em>Nineteen Eighty-Four</em>.
           </p>
         </div>
       </main>

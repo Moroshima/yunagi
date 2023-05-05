@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useHover } from "../utils";
+import { useHover } from "../utils/useHover";
 import { CheckIcon, CopyIcon } from "@primer/octicons-react";
 
-const Pre = ({ children, raw, ...props }: any) => {
+function Pre({ children, raw, ...props }: any) {
   const [copy, setCopy] = useState(false);
   const [ref, value] = useHover();
 
@@ -42,6 +42,6 @@ const Pre = ({ children, raw, ...props }: any) => {
       <pre {...props}>{children}</pre>
     </div>
   );
-};
+}
 
 export default Pre;
