@@ -4,6 +4,7 @@ import generateRssFeed from "@/utils/feed";
 
 export async function getStaticProps() {
   await generateRssFeed();
+  return { props: { rssFeedGererationSuccess: true } };
 }
 
 export default function Home() {

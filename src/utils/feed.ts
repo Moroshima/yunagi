@@ -4,7 +4,7 @@ import RSS from "rss";
 import { getSortedArticleData } from "./posts";
 
 export default async function generateRssFeed() {
-  const site_url = "kuroshima.eu.org";
+  const site_url = "https://kuroshima.eu.org";
 
   const feedOptions = {
     title: "RSS Feed | Moroshima's Blog",
@@ -21,7 +21,7 @@ export default async function generateRssFeed() {
 
   const posts = await getSortedArticleData();
 
-  posts.forEach((post:any) => {
+  posts.forEach((post: any) => {
     feed.item({
       title: post?.title,
       date: post?.date,
@@ -31,5 +31,9 @@ export default async function generateRssFeed() {
     });
   });
 
-  fs.writeFileSync(path.join(process.cwd(), "/src/pages/articles"), feed.xml({ indent: true }));
+  fs.writeFileSync(
+    /* 直接写入 public 目录 */
+    path.join(process.cwd(), "/public/rss.xml"),
+    feed.xml({ indent: true })
+  );
 }

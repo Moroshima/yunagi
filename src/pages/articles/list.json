@@ -7,7 +7,7 @@
       "date": "2016-01-01",
       "updated": "2016-01-01",
       "categories": ["article", "category2"],
-      "description":""
+      "description": ""
     },
     {
       "title": "test",
@@ -16,7 +16,7 @@
       "date": "2016-01-01",
       "updated": "2016-01-01",
       "categories": ["article", "category2"],
-      "description":""
+      "description": ""
     },
     {
       "title": "test2",
@@ -25,7 +25,7 @@
       "date": "2016-01-01",
       "updated": "2016-01-01",
       "categories": ["article", "category2"],
-      "description":""
+      "description": ""
     },
     {
       "title": "路由设计哲学",
@@ -34,7 +34,7 @@
       "date": "2016-01-01",
       "updated": "2016-01-01",
       "categories": ["article", "category2"],
-      "description":""
+      "description": ""
     }
   ]
 }

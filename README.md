@@ -16,6 +16,10 @@ The color of the hyperlink is from PILOT iroshizuku kiri-same and [Semi Design](
 
 The theme is from [GitHub - PrismJS/prism-themes: A wider selection of Prism themes](https://github.com/PrismJS/prism-themes).
 
+## Lazy Load
+
+No lazy load is used in this blog system. The reason is that I believe in Cloudflare's CDN.
+
 ## TODO
 
 - [x] 页面锚点滚动定位 & 导航栏
@@ -28,7 +32,7 @@ The theme is from [GitHub - PrismJS/prism-themes: A wider selection of Prism the
 - [x] CI/CD
 - [x] 字体渲染
 - [x] 评论区
-- [ ] RSS 订阅支持
+- [x] RSS 订阅支持
 - [x] 修改 TOC 目录显示位置
 - [x] markdown excel 样式修改
 - [ ] 多文章翻页

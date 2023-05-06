@@ -8,7 +8,6 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import rehypeRaw from "rehype-raw";
 import rehypePrism from "rehype-prism-plus";
-import rehypeCodeTitles from "rehype-code-titles";
 import { visit } from "unist-util-visit";
 
 /** @type {import('next').NextConfig} */
@@ -38,7 +37,6 @@ export default withMDX({
         });
         return null;
       },
-      rehypeCodeTitles,
       [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
       rehypeKatex,
       rehypeSlug,

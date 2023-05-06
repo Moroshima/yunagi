@@ -16,7 +16,9 @@ const ImageDynamicComponent = dynamic(() => import("../components/image"), {
 const TableDynamicComponent = dynamic(() => import("../components/table"), {
   ssr: false,
 });
-const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"));
+const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"), {
+  ssr: false,
+});
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
 const noto_serif_sc = Noto_Serif_SC({
@@ -72,9 +74,9 @@ const components = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
   useEffect(() => {
-    setHidden(window.scrollY > 0 ? true : false);
+    setHidden(window.scrollY > 0 ? false : true);
     const handleScroll: any = () => {
       if (window.scrollY > 0) {
         setHidden(false);
@@ -101,6 +103,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Link href="/categories">分类</Link>
           <Link href="/friends">友链</Link>
           <Link href="/about">关于</Link>
+          <Link href="/rss.xml">订阅</Link>
         </div>
       </div>
       <div className="container">

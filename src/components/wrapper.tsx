@@ -5,7 +5,6 @@ import list from "../pages/articles/list.json";
 
 function Wrapper(props: any) {
   const router = useRouter();
-  console.log();
   const articleName = router.pathname.substring(1).split("/")[1];
   const article = list.articles.find((item) => item.name === articleName);
   console.log(article);
