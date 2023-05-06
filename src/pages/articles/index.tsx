@@ -22,7 +22,7 @@ export default function Article() {
             {list.articles.map((element, index, array) => {
               return (
                 <li key={index}>
-                  <Link key={index} href={"articles/" + element.link}>
+                  <Link key={index} href={"articles/" + element.name}>
                     {element.title}
                   </Link>
                 </li>

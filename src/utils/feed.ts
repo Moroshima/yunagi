@@ -1,4 +1,7 @@
+import fs from "fs";
+import path from "path";
 import RSS from "rss";
+import { getSortedArticleData } from "./posts";
 
 export default async function generateRssFeed() {
   const site_url = "kuroshima.eu.org";
@@ -15,4 +18,18 @@ export default async function generateRssFeed() {
   };
 
   const feed = new RSS(feedOptions);
+
+  const posts = await getSortedArticleData();
+
+  posts.forEach((post:any) => {
+    feed.item({
+      title: post?.title,
+      date: post?.date,
+      url: post?.url,
+      description: post?.description,
+      custom_elements: [{ "content:encoded": post?.content }],
+    });
+  });
+
+  fs.writeFileSync(path.join(process.cwd(), "/src/pages/articles"), feed.xml({ indent: true }));
 }
