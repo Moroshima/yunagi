@@ -2,6 +2,9 @@ import fs from "fs";
 import path from "path";
 import MarkdownIt from "markdown-it";
 import list from "../pages/articles/list.json";
+import getSite from "./site";
+
+const site_url = getSite();
 
 const md = new MarkdownIt();
 /* 介入 img 标签渲染以修改 src 链接 */
@@ -9,11 +12,7 @@ md.renderer.rules.image = function (tokens, idx, options, env, self) {
   const token: any = tokens[idx];
   /* 替换图片原始 url */
   const src = token.attrs[token.attrIndex("src")][1];
-  const newSrc = `${
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://kuroshima.eu.org"
-  }/${src.replace("./assets", "images")}`;
+  const newSrc = src.replace("./assets", `${site_url}/images`);
   token.attrs[token.attrIndex("src")][1] = newSrc;
   /* 调用默认图片渲染器 */
   return self.renderToken(tokens, idx, options);
@@ -42,7 +41,7 @@ export async function getSortedArticleData() {
       const rssData = {
         title: article?.title,
         date: article?.date,
-        url: `https://kuroshima.eu.org/articles/${name}`,
+        url: `${site_url}/articles/${name}`,
         description: article?.description,
         content: md.render(content),
       };

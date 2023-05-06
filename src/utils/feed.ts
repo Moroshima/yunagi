@@ -2,9 +2,10 @@ import fs from "fs";
 import path from "path";
 import RSS from "rss";
 import { getSortedArticleData } from "./posts";
+import getSite from "./site";
 
 export default async function generateRssFeed() {
-  const site_url = "https://kuroshima.eu.org";
+  const site_url = getSite();
 
   const feedOptions = {
     title: "RSS Feed | Moroshima's Blog",
