@@ -5,8 +5,73 @@
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
+  p {
+    line-height: 1.75em;
+  }
 }
 
 .space-limit {
   width: 70%;
+}
+
+.friends {
+  width: 71.43%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.friend {
+  width: 50%;
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+  h2 {
+    margin: 0 0 8px 0;
+    a {
+      &:link {
+        color: black;
+      }
+      &:visited {
+        color: black;
+      }
+      &:hover {
+        text-decoration: underline;
+        color: black;
+      }
+      &:active {
+        color: black;
+      }
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.friend-detail {
+  width: 100%;
+}
+
+.friend-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.link-arrow {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  span {
+    margin-top: -3.5px;
+  }
 }

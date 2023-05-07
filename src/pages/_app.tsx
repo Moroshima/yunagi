@@ -71,6 +71,16 @@ const components = {
       {children}
     </nav>
   ),
+  /* 文章内部非锚点标签在新标签页中打开 */
+  a: ({ children, ...props }: any) => {
+    if (props.href.startsWith("#")) return <a {...props}>{children}</a>;
+    else
+      return (
+        <a {...props} target="_blank">
+          {children}
+        </a>
+      );
+  },
 };
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -111,13 +121,19 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
       <footer className="footer">
         <p>
-          <a href="https://github.com/Moroshima/yunagi-next">Yunagi</a> |
-          Powered by <a href="https://nextjs.org">Next.js</a>
+          <a href="https://github.com/Moroshima/yunagi-next" target="_blank">
+            Yunagi
+          </a>{" "}
+          | Powered by{" "}
+          <a href="https://nextjs.org" target="_blank">
+            Next.js
+          </a>
         </p>
         <p>
           若非特别注明，本站所有内容都遵从{" "}
           <a
             href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+            target="_blank"
             rel="license"
           >
             CC BY-NC-SA 4.0

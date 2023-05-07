@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import MarkdownIt from "markdown-it";
-import list from "../pages/articles/list.json";
+import articles from "../pages/articles/articles.json";
 import getSite from "./site";
 
 const site_url = getSite();
@@ -33,7 +33,7 @@ export async function getSortedArticleData() {
     postFileNames.map(async (fileName) => {
       const name = fileName.replace(/\.mdx?$/, "");
 
-      const article = list.articles.find((value) => value.name === name);
+      const article = articles.articles.find((value) => value.name === name);
 
       const fullPath = path.join(postsDirectory, fileName);
       const content = fs.readFileSync(fullPath, "utf8");

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import list from "./list.json";
+import articles from "./articles.json";
 import styles from "../../styles/articles.module.scss";
 
 export default function Article() {
@@ -19,10 +19,13 @@ export default function Article() {
             风消焰蜡，露浥红莲，花市光相射。桂华流瓦。纤云散，耿耿素娥欲下。
           </p>
           <ul>
-            {list.articles.map((element, index, array) => {
+            {articles.articles.map((element, index, array) => {
               return (
-                <li key={index}>
-                  <Link key={index} href={"articles/" + element.name}>
+                <li key={`article-${index}`}>
+                  <Link
+                    key={`article-link-${index}`}
+                    href={"articles/" + element.name}
+                  >
                     {element.title}
                   </Link>
                 </li>

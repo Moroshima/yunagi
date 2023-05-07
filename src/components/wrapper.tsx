@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Giscus from "@giscus/react";
-import list from "../pages/articles/list.json";
+import articles from "../pages/articles/articles.json";
 
 function Wrapper(props: any) {
   const router = useRouter();
   const articleName = router.pathname.substring(1).split("/")[1];
-  const article = list.articles.find((item) => item.name === articleName);
+  const article = articles.articles.find((item) => item.name === articleName);
   console.log(article);
   return (
     <>
