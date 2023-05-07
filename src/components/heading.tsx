@@ -14,7 +14,7 @@ function Heading({ children, ...props }: any) {
         {post?.tags.map((value, index, array) => (
           <span key={`tag-${index}`}>{" " + value}</span>
         ))}
-        {post?.date === post?.updated ? "" : " (更新于 " + post?.updated + ")"}
+        {post?.date === post?.updated ? "" : "（更新于 " + post?.updated + "）"}
       </p>
     </>
   );
