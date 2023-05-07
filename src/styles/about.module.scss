@@ -5,8 +5,30 @@
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
+  p {
+    line-height: 1.75em;
+  }
 }
 
 .space-limit {
   width: 70%;
+}
+
+.anarchy {
+  width: 0;
+  height: 0;
+  border-top: 200px solid #000000;
+  border-left: 300px solid #e00101;
+}
+
+.sensitive {
+  span {
+    background-color: #252525;
+    color: #252525;
+    transition: color 0.13s linear;
+    &:active,
+    &:hover {
+      color: white;
+    }
+  }
 }

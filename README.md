@@ -37,6 +37,7 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 - [x] markdown excel 样式修改
 - [ ] 多文章翻页
 - [ ] 在文章页面显示详细信息
+- [ ] 移动端适配
 
 ## Issues
 
