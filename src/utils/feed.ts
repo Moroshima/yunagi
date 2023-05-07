@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import RSS from "rss";
-import { getSortedArticleData } from "./posts";
+import { getSortedPostData } from "./posts";
 import getSite from "./site";
 
 export default async function generateRssFeed() {
@@ -20,7 +20,7 @@ export default async function generateRssFeed() {
 
   const feed = new RSS(feedOptions);
 
-  const posts = await getSortedArticleData();
+  const posts = await getSortedPostData();
 
   posts.forEach((post: any) => {
     feed.item({

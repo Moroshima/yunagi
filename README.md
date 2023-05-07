@@ -35,8 +35,7 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 - [x] RSS 订阅支持
 - [x] 修改 TOC 目录显示位置
 - [x] markdown excel 样式修改
-- [ ] 多文章翻页
-- [ ] 在文章页面显示详细信息
+- [x] 在文章页面显示详细信息
 - [ ] 移动端适配
 
 ## Issues
@@ -46,8 +45,7 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 
 ### Content Issues
 
-- [ ] 文章 & 说说 tag 区分分类于文章页面（归档界面按时间，分类界面按 tag）
-- [ ] 关于界面内容填充
+- [x] 关于界面内容填充
 - [ ] 文档内容空格缺失导致加粗无法正常显示
 - [ ] 纯字符标题锚点无法正确工作
 

@@ -1,5 +1,5 @@
 {
-  "articles": [
+  "posts": [
     {
       "title": "test1",
       "name": "test1",
@@ -24,7 +24,7 @@
       "tags": ["tag1", "tag2"],
       "date": "2016-01-01",
       "updated": "2016-01-01",
-      "categories": ["article", "category2"],
+      "categories": ["article", "category111"],
       "description": ""
     },
     {
@@ -32,7 +32,7 @@
       "name": "routing-design-philosophy",
       "tags": ["tag1", "tag2"],
       "date": "2016-01-01",
-      "updated": "2016-01-01",
+      "updated": "2016-01-02",
       "categories": ["article", "category2"],
       "description": ""
     }

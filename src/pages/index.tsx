@@ -7,7 +7,7 @@ export async function getStaticProps() {
   return { props: { rssFeedGererationSuccess: true } };
 }
 
-export default function Home() {
+export default function Index() {
   return (
     <>
       <Head>

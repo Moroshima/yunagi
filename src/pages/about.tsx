@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/about.module.scss";
 
-export default function Index() {
+export default function About() {
   return (
     <>
       <Head>
@@ -84,7 +84,7 @@ export default function Index() {
             <ul>
               <li>2023-05-07 新域名博客试运行</li>
             </ul>
-            <p>- END -</p>
+            <p className={styles.end}>- END -</p>
           </div>
         </div>
       </main>

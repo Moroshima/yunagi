@@ -19,6 +19,9 @@ const TableDynamicComponent = dynamic(() => import("../components/table"), {
 const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"), {
   ssr: false,
 });
+const HeadingDynamicComponent = dynamic(() => import("../components/heading"), {
+  ssr: false,
+});
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
 const noto_serif_sc = Noto_Serif_SC({
@@ -33,6 +36,7 @@ const components = {
   img: ImageDynamicComponent,
   table: TableDynamicComponent,
   wrapper: WrapperDynamicComponent,
+  h1: HeadingDynamicComponent,
   h2: ({ children, ...props }: any) => (
     <h2>
       <span id={props.id} style={{ paddingTop: "calc(64px + 0.83em)" }}></span>
@@ -63,14 +67,16 @@ const components = {
       {children}
     </h6>
   ),
-  nav: ({ children, ...props }: any) => (
-    <nav {...props}>
-      <p>
-        <strong>文章目录</strong>
-      </p>
-      {children}
-    </nav>
-  ),
+  nav: ({ children, ...props }: any) =>
+    /* 在文章具有目录结构的情况下显示文章目录 */
+    children?.props.children === undefined ? null : (
+      <nav {...props}>
+        <p>
+          <strong>文章目录</strong>
+        </p>
+        {children}
+      </nav>
+    ),
   /* 文章内部非锚点标签在新标签页中打开 */
   a: ({ children, ...props }: any) => {
     if (props.href.startsWith("#")) return <a {...props}>{children}</a>;
@@ -108,10 +114,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <Link href="/">Moroshima&apos;s Blog</Link>
         <div className="topbar-link-group">
           <Link href="/">首页</Link>
-          <Link href="/articles">文章</Link>
-          <Link href="/archives">归档</Link>
-          <Link href="/categories">分类</Link>
-          <Link href="/friends">友链</Link>
+          <Link href="/post">文章</Link>
+          <Link href="/archive">归档</Link>
+          <Link href="/category">分类</Link>
+          <Link href="/link">友链</Link>
           <Link href="/about">关于</Link>
           <Link href="/rss.xml">订阅</Link>
         </div>

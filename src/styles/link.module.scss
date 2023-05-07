@@ -14,8 +14,11 @@
   width: 70%;
 }
 
-.friends {
+.content {
   width: 71.43%;
+}
+
+.friends {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -72,6 +75,6 @@
   display: flex;
   align-items: center;
   span {
-    margin-top: -3.5px;
+    margin-top: -0.175em;
   }
 }

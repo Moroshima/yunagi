@@ -1,9 +1,9 @@
 import Head from "next/head";
-import styles from "../styles/friends.module.scss";
-import friends from "./friends.json";
-import { ChevronRightIcon } from "@primer/octicons-react";
+import styles from "../styles/link.module.scss";
+import links from "./links.json";
+import { ArrowRightIcon } from "@primer/octicons-react";
 
-export default function Index() {
+export default function Link() {
   return (
     <>
       <Head>
@@ -18,10 +18,10 @@ export default function Index() {
           <p>
             携手江村。梅雪飘裙。情何限、处处消魂。故人不见，旧曲重闻。向望湖楼，孤山寺，涌金门。
           </p>
-          <div>
+          <div className={styles.content}>
             <p>我的一些楠桐朋友们：</p>
             <div className={styles.friends}>
-              {friends.friends.map((value, index, array) => (
+              {links.friends.map((value, index, array) => (
                 <div className={styles.friend} key={`friend-${index}`}>
                   <img src={value.photo} alt={`friend-photo-${index}`} />
                   <div className={styles["friend-detail"]}>
@@ -39,7 +39,7 @@ export default function Index() {
                       >
                         Link
                         <span>
-                          <ChevronRightIcon size={16} />
+                          <ArrowRightIcon size={16} />
                         </span>
                       </a>
                     </p>

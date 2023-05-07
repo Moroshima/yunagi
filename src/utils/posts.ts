@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import MarkdownIt from "markdown-it";
-import articles from "../pages/articles/articles.json";
+import posts from "../pages/post/posts.json";
 import getSite from "./site";
 
 const site_url = getSite();
@@ -18,10 +18,10 @@ md.renderer.rules.image = function (tokens, idx, options, env, self) {
   return self.renderToken(tokens, idx, options);
 };
 
-const postsDirectory = path.join(process.cwd(), "/src/pages/articles");
+const postsDirectory = path.join(process.cwd(), "/src/pages/post");
 
-export async function getSortedArticleData() {
-  /* 获取 articles 目录下的所有文件 */
+export async function getSortedPostData() {
+  /* 获取 post 目录下的所有文件 */
   const fileNames = fs.readdirSync(postsDirectory);
 
   /* 剔除非 md/mdx 文件 */
@@ -33,16 +33,16 @@ export async function getSortedArticleData() {
     postFileNames.map(async (fileName) => {
       const name = fileName.replace(/\.mdx?$/, "");
 
-      const article = articles.articles.find((value) => value.name === name);
+      const post = posts.posts.find((value) => value.name === name);
 
       const fullPath = path.join(postsDirectory, fileName);
       const content = fs.readFileSync(fullPath, "utf8");
 
       const rssData = {
-        title: article?.title,
-        date: article?.date,
-        url: `${site_url}/articles/${name}`,
-        description: article?.description,
+        title: post?.title,
+        date: post?.date,
+        url: `${site_url}/post/${name}`,
+        description: post?.description,
         content: md.render(content),
       };
 
