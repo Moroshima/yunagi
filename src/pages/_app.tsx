@@ -94,7 +94,8 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setHidden(window.scrollY > 0 ? false : true);
     const handleScroll: any = () => {
-      if (window.scrollY > 0) {
+      console.log(window.scrollY);
+      if (window.scrollY > 64) {
         setHidden(false);
       } else setHidden(true);
     };
@@ -117,7 +118,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Link href="/post">文章</Link>
           <Link href="/archive">归档</Link>
           <Link href="/category">分类</Link>
-          <Link href="/link">友链</Link>
+          <Link href="/links">友链</Link>
           <Link href="/about">关于</Link>
           <Link href="/rss.xml">订阅</Link>
         </div>
