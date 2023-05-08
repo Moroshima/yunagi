@@ -1,15 +1,16 @@
 {
-  "friends": [{
-    "name": "Brethland's Blog",
-    "link": "https://typ.moe",
-    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1207694344",
-  "description":"大萌神可爱捏🥰"
-  },
+  "friends": [
+    {
+      "name": "Brethland's Blog",
+      "link": "https://typ.moe",
+      "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1207694344",
+      "description": "大萌神可爱捏🥰"
+    },
     {
       "name": "JSWN's Blog",
       "link": "https://blog.jswn9945.xyz",
       "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1272483962",
-      "description": "C# 原教旨主义者，.NET + Blazor 全栈"
+      "description": "C# 原教旨主义者，Vue + ASP.NET Core 全栈，Arch 忠实拥趸"
     },
     {
       "name": "Lakphy",

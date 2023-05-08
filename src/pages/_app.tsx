@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
 import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useState } from "react";
-import { ChevronUpIcon } from "@primer/octicons-react";
+import { ChevronUpIcon, ThreeBarsIcon } from "@primer/octicons-react";
 
 const PreDynamicComponent = dynamic(() => import("../components/pre"), {
   ssr: false,
@@ -94,7 +94,6 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setHidden(window.scrollY > 0 ? false : true);
     const handleScroll: any = () => {
-      console.log(window.scrollY);
       if (window.scrollY > 64) {
         setHidden(false);
       } else setHidden(true);
@@ -111,9 +110,9 @@ export default function App({ Component, pageProps }: AppProps) {
           scroll-behavior: smooth;
         }
       `}</style>
-      <div className="topbar">
+      <div className="header">
         <Link href="/">Moroshima&apos;s Blog</Link>
-        <div className="topbar-link-group">
+        <div className="header-link-group">
           <Link href="/">首页</Link>
           <Link href="/post">文章</Link>
           <Link href="/archive">归档</Link>
@@ -122,6 +121,9 @@ export default function App({ Component, pageProps }: AppProps) {
           <Link href="/about">关于</Link>
           <Link href="/rss.xml">订阅</Link>
         </div>
+        <button className="header-expand-icon">
+          <ThreeBarsIcon size={16} />
+        </button>
       </div>
       <div className="container">
         <Component {...pageProps} />

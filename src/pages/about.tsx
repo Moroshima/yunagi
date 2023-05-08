@@ -16,9 +16,11 @@ export default function About() {
           <p>欲买桂花同载酒，终不似，少年游。</p>
           <div className={styles.content}>
             <h2>一些随笔</h2>
-            <div className={styles.anarchy}></div>
-            <p>渺小的伤感只会把世界引向毁灭，少年！</p>
-            <p style={{ marginLeft: "16em" }}>——機動戦士Ζガンダム</p>
+            <div className={styles.quote}>
+              <div className={styles.anarchy}></div>
+              <p>渺小的伤感只会把世界引向毁灭，少年！</p>
+              <p className={styles["quote-source"]}>——機動戦士Ζガンダム</p>
+            </div>
             <p>我是个很奇怪的人。</p>
             <p className={styles.sensitive}>
               你可以称呼我为 Moroshima ——或者 Itsuki Moroshima，当然，Moroshima
@@ -66,7 +68,7 @@ export default function About() {
             <h2>本站</h2>
             <p>
               本站作为个人博客，不会仅仅只有技术类的文章，也会存在少量生活片段。作为我个人博客自初次建站以来的第三个博客方案，这次我选择不再使用现成的博客框架与主题，转而基于
-              Next.js 完全重构，以打破 WordPress 与 Hexo的藩篱。
+              Next.js 完全重构，以打破 WordPress 与 Hexo 的藩篱。
               结果是显然的，虽然付出了较大的开发成本，但是我对于博客主题的掌握力达到了一个前所未有的高度。我可以使用我熟悉的
               React + Markdown
               来构筑我的博客结构，无论是可维护性还是灵活性于我而言都有了极大的飞跃。

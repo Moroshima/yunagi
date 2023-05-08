@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/link.module.scss";
+import styles from "../styles/links.module.scss";
 import links from "./links.json";
 import { ArrowRightIcon } from "@primer/octicons-react";
 
@@ -19,7 +19,7 @@ export default function Link() {
             携手江村。梅雪飘裙。情何限、处处消魂。故人不见，旧曲重闻。向望湖楼，孤山寺，涌金门。
           </p>
           <div className={styles.content}>
-            <p>我的一些楠桐朋友们：</p>
+            <p>我的一些朋友们：</p>
             <div className={styles.friends}>
               {links.friends.map((value, index, array) => (
                 <div className={styles.friend} key={`friend-${index}`}>

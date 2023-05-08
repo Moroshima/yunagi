@@ -9,10 +9,22 @@
 
 .space-limit {
   width: 70%;
+
+  @media screen and (width <= 768px) {
+    width: 100%;
+  }
 }
 
 .content {
   width: 71.43%;
+
+  @media screen and (992px < width <= 1200px) {
+    width: 85.71%;
+  }
+
+  @media screen and (width <= 992px) {
+    width: 100%;
+  }
 }
 
 .post-items {

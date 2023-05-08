@@ -9,4 +9,41 @@
 
 .space-limit {
   width: 70%;
+
+  @media screen and (width <= 768px) {
+    width: 100%;
+  }
+}
+
+.content {
+  width: 71.43%;
+
+  @media screen and (992px < width <= 1200px) {
+    width: 85.71%;
+  }
+
+  @media screen and (width <= 992px) {
+    width: 100%;
+  }
+}
+
+.post-items {
+  padding: 0;
+}
+
+.post-item {
+  width: 100%;
+  display: flex;
+  a {
+    flex-grow: 1;
+  }
+  span {
+    color: #555b61;
+    margin: 0 0.25em;
+  }
+}
+
+.end {
+  width: 100%;
+  text-align: center;
 }

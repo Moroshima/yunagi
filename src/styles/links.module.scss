@@ -12,10 +12,22 @@
 
 .space-limit {
   width: 70%;
+
+  @media screen and (width <= 576px) {
+    width: 100%;
+  }
 }
 
 .content {
   width: 71.43%;
+
+  @media screen and (1400px < width <= 1700px) {
+    width: 90%;
+  }
+
+  @media screen and (width <= 1400px) {
+    width: 100%;
+  }
 }
 
 .friends {
@@ -57,6 +69,23 @@
   }
   p {
     margin: 0;
+  }
+
+  @media screen and (992px < width <= 1200px) {
+    width: 60%;
+  }
+
+  @media screen and (768px < width <= 992px) {
+    width: 70%;
+  }
+
+  @media screen and (576px < width <= 768px) {
+    width: 100%;
+  }
+
+  @media screen and (width <= 576px) {
+    width: 100%;
+    padding: 16px 0;
   }
 }
 
