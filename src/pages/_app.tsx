@@ -2,10 +2,10 @@ import "@/styles/globals.scss";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import type { AppProps } from "next/app";
-import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
+import { EB_Garamond, Noto_Serif_SC, Allison, Ms_Madi } from "next/font/google";
 import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useState } from "react";
-import { ChevronUpIcon, ThreeBarsIcon } from "@primer/octicons-react";
+import { ChevronUpIcon, ThreeBarsIcon, XIcon } from "@primer/octicons-react";
 
 const PreDynamicComponent = dynamic(() => import("../components/pre"), {
   ssr: false,
@@ -19,13 +19,21 @@ const TableDynamicComponent = dynamic(() => import("../components/table"), {
 const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"), {
   ssr: false,
 });
-const HeadingDynamicComponent = dynamic(() => import("../components/heading"), {
-  ssr: false,
-});
+const HeadingDynamicComponent = dynamic(() => import("../components/heading"));
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
 const noto_serif_sc = Noto_Serif_SC({
   weight: ["200", "300", "400", "500", "600", "700", "900"],
+  subsets: ["latin"],
+  preload: true,
+});
+const allison = Allison({
+  weight: ["400"],
+  subsets: ["latin"],
+  preload: true,
+});
+const ms_madi = Ms_Madi({
+  weight: ["400"],
   subsets: ["latin"],
   preload: true,
 });
@@ -71,10 +79,10 @@ const components = {
     /* 在文章具有目录结构的情况下显示文章目录 */
     children?.props.children === undefined ? null : (
       <nav {...props}>
-        <p>
+        <p className="table-of-contents-header">
           <strong>文章目录</strong>
         </p>
-        {children}
+        <div className="table-of-contents">{children}</div>
       </nav>
     ),
   /* 文章内部非锚点标签在新标签页中打开 */
@@ -87,16 +95,21 @@ const components = {
         </a>
       );
   },
+  p: ({ children, ...props }: any) => {
+    if (children?.props?.src !== undefined) return <>{children}</>;
+    else return <p {...props}>{children}</p>;
+  },
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [hidden, setHidden] = useState(true);
+  const [scrollToTopHidden, setScrollToTopHidden] = useState(true);
+  const [headerExpand, setHeaderExpand] = useState(false);
   useEffect(() => {
-    setHidden(window.scrollY > 0 ? false : true);
+    setScrollToTopHidden(window.scrollY > 0 ? false : true);
     const handleScroll: any = () => {
       if (window.scrollY > 64) {
-        setHidden(false);
-      } else setHidden(true);
+        setScrollToTopHidden(false);
+      } else setScrollToTopHidden(true);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -107,23 +120,76 @@ export default function App({ Component, pageProps }: AppProps) {
         html {
           font-family: ${eb_garamond.style.fontFamily},
             ${noto_serif_sc.style.fontFamily}, serif;
-          scroll-behavior: smooth;
         }
       `}</style>
-      <div className="header">
-        <Link href="/">Moroshima&apos;s Blog</Link>
-        <div className="header-link-group">
-          <Link href="/">首页</Link>
-          <Link href="/post">文章</Link>
-          <Link href="/archive">归档</Link>
-          <Link href="/category">分类</Link>
-          <Link href="/links">友链</Link>
-          <Link href="/about">关于</Link>
-          <Link href="/rss.xml">订阅</Link>
+      <div className="header-wrapper">
+        <div className="header">
+          <Link
+            href="/"
+            style={{
+              fontFamily: `${allison.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
+              fontSize: 24,
+            }}
+          >
+            Moroshima&apos;s Blog
+          </Link>
+          <div className="header-link-group">
+            <Link href="/">首页</Link>
+            <Link href="/post">文章</Link>
+            <Link href="/archive">归档</Link>
+            <Link href="/category">分类</Link>
+            <Link href="/links">友链</Link>
+            <Link href="/about">关于</Link>
+            <Link href="/rss.xml">订阅</Link>
+          </div>
+          <button
+            className="header-expand-icon"
+            onClick={() => {
+              setHeaderExpand((prev) => {
+                return !prev;
+              });
+            }}
+          >
+            {headerExpand ? <XIcon size={16} /> : <ThreeBarsIcon size={16} />}
+          </button>
         </div>
-        <button className="header-expand-icon">
-          <ThreeBarsIcon size={16} />
-        </button>
+        {headerExpand ? (
+          <div
+            className="header-menu"
+            style={{
+              fontFamily: `${ms_madi.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
+            }}
+          >
+            <Link href="/">
+              <span>首页</span>
+              <span>Home</span>
+            </Link>
+            <Link href="/post">
+              <span>文章</span>
+              <span>Article</span>
+            </Link>
+            <Link href="/archive">
+              <span>归档</span>
+              <span>Archive</span>
+            </Link>
+            <Link href="/category">
+              <span>分类</span>
+              <span>Category</span>
+            </Link>
+            <Link href="/links">
+              <span>友链</span>
+              <span>Links</span>
+            </Link>
+            <Link href="/about">
+              <span>关于</span>
+              <span>About</span>
+            </Link>
+            <Link href="/rss.xml">
+              <span>订阅</span>
+              <span>Feed</span>
+            </Link>
+          </div>
+        ) : null}
       </div>
       <div className="container">
         <Component {...pageProps} />
@@ -153,7 +219,7 @@ export default function App({ Component, pageProps }: AppProps) {
           Copyright © 2023 Ver 0.1.0 @ <Link href="/about">Moroshima</Link>
         </p>
       </footer>
-      {hidden ? null : (
+      {scrollToTopHidden ? null : (
         <button
           className="scroll-to-top"
           onClick={() => {

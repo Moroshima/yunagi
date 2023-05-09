@@ -36,7 +36,10 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 - [x] 修改 TOC 目录显示位置
 - [x] markdown excel 样式修改
 - [x] 在文章页面显示详细信息
-- [ ] 移动端适配
+- [x] 移动端适配
+- [ ] Archive 功能模块
+- [x] 文章目录显示不全（目录标题位置需固定而非上下滑动）
+- [ ] 小屏下使用按钮展开目录（bookmark 图标）
 
 ## Issues
 
@@ -48,6 +51,7 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 - [x] 关于界面内容填充
 - [ ] 文档内容空格缺失导致加粗无法正常显示
 - [ ] 纯字符标题锚点无法正确工作
+- [ ] 关于中注明夕凪名称、配色方案、博客设计风格借鉴、古诗应用出处等于“杂记”忝列于后
 
 ## Getting Started
 

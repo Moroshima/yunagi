@@ -17,6 +17,7 @@
 /* 全局使用 border-box */
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -45,6 +46,9 @@ body {
 .post {
   width: 50%;
   word-break: break-word;
+  @media screen and (width <= 768px) {
+    width: 100%;
+  }
   p {
     line-height: 1.75em;
   }
@@ -89,10 +93,12 @@ body {
 }
 
 /* 顶栏 */
-.header {
+.header-wrapper {
   z-index: 1;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   background: linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.4),
@@ -100,43 +106,64 @@ body {
   );
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  height: 64px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   padding: 0 32px;
 
-  a {
-    font-size: medium;
-  }
+  .header-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 16px;
 
-  .header-link-group {
-    margin: 0 -6px;
     a {
-      margin: 6px;
+      width: 100%;
+      line-height: 1.75em;
+      padding: 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 
-  .header-expand-icon {
-    padding: 0;
-    vertical-align: middle;
-    white-space: nowrap;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    color: black;
-  }
+  .header {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
-  @media screen and (width <= 576px) {
+    a {
+      font-size: medium;
+    }
+
     .header-link-group {
-      display: none;
+      margin: 0 -6px;
+      a {
+        margin: 6px;
+      }
     }
-  }
 
-  @media screen and (width > 576px) {
     .header-expand-icon {
-      display: none;
+      padding: 0;
+      vertical-align: middle;
+      white-space: nowrap;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: black;
+    }
+
+    @media screen and (width <= 576px) {
+      .header-link-group {
+        display: none;
+      }
+    }
+
+    @media screen and (width > 576px) {
+      .header-expand-icon {
+        display: none;
+      }
     }
   }
 }
@@ -151,6 +178,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin-top: 65px;
 
   @media screen and (width <= 992px) {
     min-height: calc(100vh - 64px - 1px - 120px - 16px - 32px);
@@ -160,10 +188,14 @@ body {
 /* 页脚 */
 .footer {
   margin: 0 32px 32px 32px;
+}
 
-  // @media screen and (576px <= width) {
-  //   max-width: calc(50% - 32px);
-  // }
+body:has(.container > .post) {
+  .footer {
+    @media screen and (768px < width) {
+      max-width: calc(50% - 32px);
+    }
+  }
 }
 
 /* 引用内容块样式 */
@@ -484,17 +516,26 @@ hr {
   }
 }
 
-.post nav {
-  height: calc(100vh - 64px - 1px - 1.32em);
+.post .toc {
+  height: calc(100vh - 64px - 1px - 32px + 16px - 32px - 32px);
   position: fixed;
-  top: calc(64px + 1px + 32px + 64px);
+  top: calc(64px + 1px + 32px - 16px + 32px);
   left: calc(50% + 32px);
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  margin-right: 8px;
-  p {
+  margin-right: calc(32px + 24px + 16px + 12px);
+
+  @media screen and (width <= 768px) {
+    display: none;
+  }
+
+  .table-of-contents-header {
     margin-bottom: 0;
+  }
+
+  .table-of-contents {
+    padding-right: 32px;
+    overflow-y: overlay;
   }
 }
 

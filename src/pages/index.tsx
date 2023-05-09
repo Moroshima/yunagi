@@ -1,6 +1,18 @@
 import Head from "next/head";
 import styles from "../styles/index.module.scss";
 import generateRssFeed from "@/utils/feed";
+import { Noto_Serif_SC, Allison } from "next/font/google";
+
+const noto_serif_sc = Noto_Serif_SC({
+  weight: ["200", "300", "400", "500", "600", "700", "900"],
+  subsets: ["latin"],
+  preload: true,
+});
+const allison = Allison({
+  weight: ["400"],
+  subsets: ["latin"],
+  preload: true,
+});
 
 export async function getStaticProps() {
   await generateRssFeed();
@@ -27,7 +39,15 @@ export default function Index() {
             truth.
           </p>
           <p>
-            George Orwell. <em>Nineteen Eighty-Four</em>.
+            <span
+              style={{
+                fontFamily: `${allison.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
+                fontSize: 24,
+              }}
+            >
+              George Orwell.
+            </span>{" "}
+            <em>Nineteen Eighty-Four</em>.
           </p>
         </div>
       </main>
