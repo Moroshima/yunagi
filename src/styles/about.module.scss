@@ -10,6 +10,14 @@
   }
 }
 
+/**
+* 实际占据页面宽度 = space-limit * content
+* (富文本内容泛用型方案)
+* width <= 768px 时 100%
+* width <= 992px 时 70%
+* width <= 1200px 时 60%
+* width > 1200px 时 50%
+*/
 .space-limit {
   width: 70%;
 

@@ -46,12 +46,31 @@ body {
 .post {
   width: 50%;
   word-break: break-word;
+
+  /**
+  * 实际占据页面宽度 = space-limit * content
+  * (富文本内容泛用型方案)
+  * width <= 768px 时 100%
+  * width <= 992px 时 70%
+  * width <= 1200px 时 60%
+  * width > 1200px 时 50%
+  */
   @media screen and (width <= 768px) {
     width: 100%;
   }
+
+  @media screen and (768px < width <= 992px) {
+    width: 70%;
+  }
+
+  @media screen and (992px < width <= 1200px) {
+    width: 60%;
+  }
+
   p {
     line-height: 1.75em;
   }
+
   a {
     &:link {
       color: #2e3238;
@@ -525,8 +544,17 @@ hr {
   flex-direction: column;
   margin-right: calc(32px + 24px + 16px + 12px);
 
+  /* 富文本内容泛用型方案情况下文章目录的偏移 */
   @media screen and (width <= 768px) {
     display: none;
+  }
+
+  @media screen and (768px < width <= 992px) {
+    left: calc(70% + 32px);
+  }
+
+  @media screen and (992px < width <= 1200px) {
+    left: calc(60% + 32px);
   }
 
   .table-of-contents-header {

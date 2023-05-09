@@ -38,6 +38,16 @@ const ms_madi = Ms_Madi({
   preload: true,
 });
 
+const linkGroup = [
+  { url: "/", sc_name: "首页", en_name: "Home" },
+  { url: "/post", sc_name: "文章", en_name: "Article" },
+  { url: "/archive", sc_name: "归档", en_name: "Archive" },
+  { url: "/category", sc_name: "分类", en_name: "Category" },
+  { url: "/links", sc_name: "友链", en_name: "Links" },
+  { url: "/about", sc_name: "关于", en_name: "About" },
+  { url: "/rss.xml", sc_name: "订阅", en_name: "Feed" },
+];
+
 /* 自定义部分 mdx 渲染的 html 标签 */
 const components = {
   pre: PreDynamicComponent,
@@ -134,13 +144,13 @@ export default function App({ Component, pageProps }: AppProps) {
             Moroshima&apos;s Blog
           </Link>
           <div className="header-link-group">
-            <Link href="/">首页</Link>
-            <Link href="/post">文章</Link>
-            <Link href="/archive">归档</Link>
-            <Link href="/category">分类</Link>
-            <Link href="/links">友链</Link>
-            <Link href="/about">关于</Link>
-            <Link href="/rss.xml">订阅</Link>
+            {linkGroup.map((value, index, array) => {
+              return (
+                <Link key={`header-link-${index}`} href={value.url}>
+                  {value.sc_name}
+                </Link>
+              );
+            })}
           </div>
           <button
             className="header-expand-icon"
@@ -160,34 +170,22 @@ export default function App({ Component, pageProps }: AppProps) {
               fontFamily: `${ms_madi.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
             }}
           >
-            <Link href="/">
-              <span>首页</span>
-              <span>Home</span>
-            </Link>
-            <Link href="/post">
-              <span>文章</span>
-              <span>Article</span>
-            </Link>
-            <Link href="/archive">
-              <span>归档</span>
-              <span>Archive</span>
-            </Link>
-            <Link href="/category">
-              <span>分类</span>
-              <span>Category</span>
-            </Link>
-            <Link href="/links">
-              <span>友链</span>
-              <span>Links</span>
-            </Link>
-            <Link href="/about">
-              <span>关于</span>
-              <span>About</span>
-            </Link>
-            <Link href="/rss.xml">
-              <span>订阅</span>
-              <span>Feed</span>
-            </Link>
+            {linkGroup.map((value, index, array) => {
+              return (
+                <Link
+                  key={`header-menu-link-${index}`}
+                  href={value.url}
+                  onClick={() => {
+                    setHeaderExpand((prev) => {
+                      return !prev;
+                    });
+                  }}
+                >
+                  <span>{value.sc_name}</span>
+                  <span>{value.en_name}</span>
+                </Link>
+              );
+            })}
           </div>
         ) : null}
       </div>
