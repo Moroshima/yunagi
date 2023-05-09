@@ -40,6 +40,8 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 - [ ] Archive 功能模块
 - [x] 文章目录显示不全（目录标题位置需固定而非上下滑动）
 - [ ] 小屏下使用按钮展开目录（bookmark 图标）
+- [ ] 文章显示宽度与关于页保持一致
+- [ ] 移动端在点击链接后菜单自动回缩
 
 ## Issues
 
