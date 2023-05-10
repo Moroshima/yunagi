@@ -1,8 +1,14 @@
 import Head from "next/head";
 import styles from "../styles/archive.module.scss";
 import posts from "./post/posts.json";
+import Link from "next/link";
+import toChineseNumeral from "@/utils/toChineseNumeral";
 
 export default function Archive() {
+  /* 将每个 post 的信息置入对应的年份或月份对象（来自柏的算法优化，先排序后置入） */
+  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  console.log(posts);
+
   const archiveArray: [
     {
       year: number;
@@ -25,19 +31,19 @@ export default function Archive() {
     }
   ] = [
     {
-      year: new Date(posts.posts[0].date).getFullYear(),
+      year: new Date(posts[0].date).getFullYear(),
       next: [
         {
-          month: new Date(posts.posts[0].date).getMonth() + 1,
+          month: new Date(posts[0].date).getMonth() + 1,
           posts: [
             {
-              title: posts.posts[0].title,
-              name: posts.posts[0].name,
-              tags: posts.posts[0].tags,
-              date: posts.posts[0].date,
-              updated: posts.posts[0].updated,
-              categories: posts.posts[0].categories,
-              description: posts.posts[0].description,
+              title: posts[0].title,
+              name: posts[0].name,
+              tags: posts[0].tags,
+              date: posts[0].date,
+              updated: posts[0].updated,
+              categories: posts[0].categories,
+              description: posts[0].description,
             },
           ],
         },
@@ -45,26 +51,13 @@ export default function Archive() {
     },
   ];
 
-  /* 将每个 post 的信息置入对应的年份或月份对象 */
-  posts.posts.forEach((value, index, array) => {
-    let yearExists = false;
-    let monthExists = false;
-    console.log(value.date);
+  let beforeYear: number = new Date(posts[0].date).getFullYear();
+  let beforeMonth: number = new Date(posts[0].date).getMonth() + 1;
+  posts.forEach((value, index, array) => {
+    const year = new Date(value.date).getFullYear();
+    const month = new Date(value.date).getMonth() + 1;
     if (index !== 0) {
-      const date = new Date(value.date);
-      const year = date.getFullYear();
-      const month = date.getMonth() + 1;
-      archiveArray.forEach((subValue, subIndex, subArray) => {
-        if (subValue?.year === year) {
-          yearExists = true;
-          subValue.next.forEach((subSubValue, subSubIndex, subSubArray) => {
-            if (subSubValue?.month === month) {
-              monthExists = true;
-            }
-          });
-        }
-      });
-      if (!yearExists) {
+      if (year !== beforeYear) {
         archiveArray.push({
           year: year,
           next: [
@@ -84,9 +77,8 @@ export default function Archive() {
             },
           ],
         });
-      }
-      if (yearExists) {
-        if (monthExists) {
+      } else {
+        if (month === beforeMonth) {
           archiveArray.forEach((subValue, subIndex, subArray) => {
             if (subValue?.year === year) {
               subValue.next.forEach((subSubValue, subSubIndex, subSubArray) => {
@@ -125,6 +117,8 @@ export default function Archive() {
           });
         }
       }
+      beforeYear = year;
+      beforeMonth = month;
     }
   });
   console.log(archiveArray);
@@ -143,6 +137,39 @@ export default function Archive() {
           <p>
             常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。
           </p>
+          <div className={styles.content}>
+            {archiveArray.map((value, index, array) => (
+              <div key={`archive-year-${value.year}-wrapper`}>
+                <h2 key={`archive-year-${value.year}`}>
+                  {toChineseNumeral(value.year)}
+                </h2>
+                {value.next.map((subValue, subIndex, subArray) => (
+                  <div key={`archive-year-${subValue.month}-wrapper`}>
+                    <h3 key={`archive-year-${subValue.month}`}>
+                      {toChineseNumeral(subValue.month)}月
+                    </h3>
+                    <ul className={styles["post-items"]}>
+                      {subValue.posts.map(
+                        (subSubValue, subSubIndex, subSubArray) => (
+                          <li
+                            className={styles["post-item"]}
+                            key={`post-${value.year}-${subValue.month}-${index}`}
+                          >
+                            <Link href={"post/" + subSubValue.name}>
+                              {subSubValue.title}
+                            </Link>
+                            {subSubValue.date}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ))}
+
+            <p className={styles.end}>- END -</p>
+          </div>
         </div>
       </main>
     </>

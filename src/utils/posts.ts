@@ -33,16 +33,16 @@ export async function getSortedPostData() {
     postFileNames.map(async (fileName) => {
       const name = fileName.replace(/\.mdx?$/, "");
 
-      const post = posts.posts.find((value) => value.name === name);
+      const post = posts.find((value) => value.name === name) as any;
 
       const fullPath = path.join(postsDirectory, fileName);
       const content = fs.readFileSync(fullPath, "utf8");
 
       const rssData = {
-        title: post?.title,
-        date: post?.date,
+        title: post.title,
+        date: post.date,
         url: `${site_url}/post/${name}`,
-        description: post?.description,
+        description: post.description,
         content: md.render(content),
       };
 
@@ -51,9 +51,7 @@ export async function getSortedPostData() {
   );
 
   /* 将文章按时间排序 */
-  const sortedPostsData = allPostsData.sort((a: any, b: any) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
-
-  return sortedPostsData;
+  return allPostsData.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }

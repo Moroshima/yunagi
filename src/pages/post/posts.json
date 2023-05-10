@@ -1,40 +1,38 @@
-{
-  "posts": [
-    {
-      "title": "test1",
-      "name": "test1",
-      "tags": ["tag1", "tag2"],
-      "date": "2017-01-01",
-      "updated": "2018-01-01",
-      "categories": ["article", "category2"],
-      "description": ""
-    },
-    {
-      "title": "test",
-      "name": "test",
-      "tags": ["tag1", "tag2"],
-      "date": "2019-01-01",
-      "updated": "2019-01-01",
-      "categories": ["article", "category2"],
-      "description": ""
-    },
-    {
-      "title": "test2",
-      "name": "test2",
-      "tags": ["tag1", "tag2"],
-      "date": "2016-01-01",
-      "updated": "2016-01-01",
-      "categories": ["article", "category111"],
-      "description": ""
-    },
-    {
-      "title": "路由设计哲学",
-      "name": "routing-design-philosophy",
-      "tags": ["tag1", "tag2"],
-      "date": "2016-02-01",
-      "updated": "2016-02-02",
-      "categories": ["article", "category2"],
-      "description": ""
-    }
-  ]
-}
+[
+  {
+    "title": "test1",
+    "name": "test1",
+    "tags": ["tag1", "tag2"],
+    "date": "2017-01-01",
+    "updated": "2018-01-01",
+    "categories": ["article", "category2"],
+    "description": ""
+  },
+  {
+    "title": "test",
+    "name": "test",
+    "tags": ["tag1", "tag2"],
+    "date": "2019-01-01",
+    "updated": "2019-01-01",
+    "categories": ["article", "category2"],
+    "description": ""
+  },
+  {
+    "title": "test2",
+    "name": "test2",
+    "tags": ["tag1", "tag2"],
+    "date": "2016-01-01",
+    "updated": "2016-01-01",
+    "categories": ["article", "category111"],
+    "description": ""
+  },
+  {
+    "title": "路由设计哲学",
+    "name": "routing-design-philosophy",
+    "tags": ["tag1", "tag2"],
+    "date": "2016-02-01",
+    "updated": "2016-02-02",
+    "categories": ["article", "category2"],
+    "description": ""
+  }
+]

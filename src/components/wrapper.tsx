@@ -6,7 +6,7 @@ import posts from "../pages/post/posts.json";
 function Wrapper(props: any) {
   const router = useRouter();
   const postName = router.pathname.substring(1).split("/")[1];
-  const post = posts.posts.find((item) => item.name === postName);
+  const post = posts.find((item) => item.name === postName);
   console.log(post);
   return (
     <>

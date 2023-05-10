@@ -21,18 +21,8 @@ export default function Link() {
           <div className={styles.content}>
             <p>我的一些朋友们：</p>
             <div className={styles.friends}>
-              {links.friends
-                .sort((a: any, b: any) => {
-                  const strA = a?.name.toUpperCase(); // 忽略大小写
-                  const strB = b?.name.toUpperCase(); // 忽略大小写
-                  if (strA < strB) {
-                    return -1;
-                  }
-                  if (strA > strB) {
-                    return 1;
-                  }
-                  return 0;
-                })
+              {links
+                .sort((a, b) => a.name.localeCompare(b.name))
                 .map((value, index, array) => (
                   <div className={styles.friend} key={`friend-${index}`}>
                     <img src={value.photo} alt={`friend-photo-${index}`} />
