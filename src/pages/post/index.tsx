@@ -2,12 +2,14 @@ import Head from "next/head";
 import Link from "next/link";
 import posts from "./posts.json";
 import styles from "../../styles/post.module.scss";
+import comparePostObj from "@/utils/comparePostObj";
 
 export default function Post() {
-  const sortedPosts = posts.posts.sort((a: any, b: any) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
-
+  const sortedPosts = posts.posts
+    .sort(comparePostObj)
+    .sort((a: any, b: any) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
   return (
     <>
       <Head>

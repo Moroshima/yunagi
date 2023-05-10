@@ -21,31 +21,43 @@ export default function Link() {
           <div className={styles.content}>
             <p>我的一些朋友们：</p>
             <div className={styles.friends}>
-              {links.friends.map((value, index, array) => (
-                <div className={styles.friend} key={`friend-${index}`}>
-                  <img src={value.photo} alt={`friend-photo-${index}`} />
-                  <div className={styles["friend-detail"]}>
-                    <h2>
-                      <a href={value?.link} target="_blank">
-                        {value?.name}
-                      </a>
-                    </h2>
-                    <p className={styles["friend-description"]}>
-                      <span>{value.description}</span>{" "}
-                      <a
-                        className={styles["link-arrow"]}
-                        href={value?.link}
-                        target="_blank"
-                      >
-                        Link
-                        <span>
-                          <ArrowRightIcon size={16} />
-                        </span>
-                      </a>
-                    </p>
+              {links.friends
+                .sort((a: any, b: any) => {
+                  const strA = a?.name.toUpperCase(); // 忽略大小写
+                  const strB = b?.name.toUpperCase(); // 忽略大小写
+                  if (strA < strB) {
+                    return -1;
+                  }
+                  if (strA > strB) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((value, index, array) => (
+                  <div className={styles.friend} key={`friend-${index}`}>
+                    <img src={value.photo} alt={`friend-photo-${index}`} />
+                    <div className={styles["friend-detail"]}>
+                      <h2>
+                        <a href={value?.link} target="_blank">
+                          {value?.name}
+                        </a>
+                      </h2>
+                      <p className={styles["friend-description"]}>
+                        <span>{value.description}</span>{" "}
+                        <a
+                          className={styles["link-arrow"]}
+                          href={value?.link}
+                          target="_blank"
+                        >
+                          Link
+                          <span>
+                            <ArrowRightIcon size={16} />
+                          </span>
+                        </a>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>

@@ -43,6 +43,7 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 - [x] 文章显示宽度与关于页保持一致
 - [x] 移动端在点击链接后菜单自动回缩
 - [ ] 移动端下菜单展开与回缩动画
+- [ ] 重整排序逻辑代码
 
 ## Issues
 
