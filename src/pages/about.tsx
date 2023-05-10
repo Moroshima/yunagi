@@ -108,13 +108,13 @@ export default function About() {
             </p>
             <p>
               但很可惜这个学长的博客主题似乎是基于 Hugo 编写的，我个人对于 Hugo
-              与 Hexo 并无好感（但项目的早期受{" "}
+              与 Hexo 并无好感（但项目的早期受
               <a
                 href="https://blog.skk.moe/post/use-nextjs-and-hexo-to-rebuild-my-blog/#Wei-Sheng-6"
                 target="_blank"
               >
                 使用 Next.js + Hexo 重构我的博客 | Sukka&apos;s Blog (skk.moe)
-              </a>{" "}
+              </a>
               一文的影响我也确实做过使用 Next.js + Hexo
               的尝试，但是开发体验并不尽如人意，遂放弃）。加之之前我试过前后端分离的方案，感觉作为一个轻量化的博客系统，在开发与部署上不宜过于繁琐，遂最终也选择了放弃。这些项目可能如今仍然能在我的
               GitHub 仓库中寻得部分，以 akari
