@@ -51,6 +51,33 @@ export default function About() {
               持中立态度。存在民族主义教育导致的
               <span>种族歧视以及极端民族主义倾向、战争狂热</span>。
             </p>
+            <h2>社群</h2>
+            <ul>
+              <li>
+                Email:{" "}
+                <a href="mailto:moroshimaitsuki@gmail.com">
+                  moroshimaitsuki@gmail.com
+                </a>
+              </li>
+              <li>
+                Twitter:{" "}
+                <a href="https://twitter.com/Joseph_Aspirant" target="_blank">
+                  @Joseph_Aspirant
+                </a>
+              </li>
+              <li>
+                GitHub:{" "}
+                <a href="https://github.com/Moroshima" target="_blank">
+                  Moroshima
+                </a>
+              </li>
+              <li>
+                Telegram:{" "}
+                <a href="https://t.me/Moroshima" target="_blank">
+                  @Moroshima
+                </a>
+              </li>
+            </ul>
             <h2>在用设备</h2>
             <ul>
               <li>Mini-ITX Workstation</li>
@@ -148,6 +175,20 @@ export default function About() {
             </p>
             <p>
               欲买桂花同载酒，终不似，少年游。——南宋·刘过 《唐多令·芦叶满汀洲》
+            </p>
+            <h3>Favicon</h3>
+            <p>
+              本博客 Favicon 来自于
+              <a
+                href="https://www.bilibili.com/video/BV1bV41127Da"
+                target="_blank"
+              >
+                【warma爆炸电台】来聊些以前从没说过的吧！【第九期】
+              </a>
+              <a href="https://space.bilibili.com/14751040" target="_blank">
+                （@怒九笑）
+              </a>
+              。关注 Warma 喵，关注 Warma 谢谢喵！
             </p>
             <h2>日志</h2>
             <ul>
