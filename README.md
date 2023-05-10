@@ -59,6 +59,7 @@ No lazy load is used in this blog system. The reason is that I believe in Cloudf
 
 - [ ] 移动端下菜单展开与回缩动画
 - [ ] 小屏下使用按钮展开目录（bookmark 图标）
+- [ ] 文章列表翻页功能
 
 ## Getting Started
 
