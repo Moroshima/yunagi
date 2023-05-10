@@ -193,6 +193,7 @@ export default function About() {
             <h2>日志</h2>
             <ul>
               <li>2023-05-07 新域名博客试运行</li>
+              <li>2023-05-11 试运行结束，新域名博客宣告功能性完工</li>
             </ul>
             <p className={styles.end}>- END -</p>
           </div>
