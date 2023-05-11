@@ -9,9 +9,12 @@ function Heading({ children, ...props }: any) {
   return (
     <>
       <h1>{children}</h1>
-      <p>
-        {post?.date}
-        {post?.date === post?.updated ? "" : "（更新于 " + post?.updated + "）"}
+      <p className="heading">
+        {post?.date.replace("T", " ")}
+        {post?.date === post?.updated
+          ? ""
+          : "（更新于 " + post?.updated.replace("T", " ") + "）"}
+
         {post?.tags.map((value, index, array) => (
           <span key={`tag-${index}`}>{" " + value}</span>
         ))}

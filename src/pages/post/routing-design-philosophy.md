@@ -1,4 +1,4 @@
-# SPA 路由设计哲学——以 react-router-dom 为例
+# SPA 路由设计哲学
 
 ## 引言
 

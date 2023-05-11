@@ -366,6 +366,10 @@ pre {
   padding: calc(32px + 24px);
   box-sizing: border-box;
   animation: fade-in 0.2s both;
+
+  @media screen and (width <= 768px) {
+    padding: 0px;
+  }
 }
 
 /* 放大后图片遮罩的关闭按钮 */
