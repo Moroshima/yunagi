@@ -127,12 +127,19 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0 32px;
 
-  .header-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 16px;
-
+  .header-menu_hidden {
+    transition: height 0.3s, opacity 0.3s;
+    height: 0px;
+    overflow: hidden;
+    opacity: 0;
+    &.header-menu {
+      height: calc(var(--menuitem-num) * 1.75em + var(--menuitem-num) * 8px + 16px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 16px;
+      opacity: 1;
+    }
     a {
       width: 100%;
       line-height: 1.75em;

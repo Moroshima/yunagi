@@ -163,10 +163,10 @@ export default function App({ Component, pageProps }: AppProps) {
             {headerExpand ? <XIcon size={16} /> : <ThreeBarsIcon size={16} />}
           </button>
         </div>
-        {headerExpand ? (
           <div
-            className="header-menu"
+            className={`${headerExpand&&"header-menu"} header-menu_hidden`}
             style={{
+              "--menuitem-num": 7,
               fontFamily: `${ms_madi.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
             }}
           >
@@ -187,7 +187,6 @@ export default function App({ Component, pageProps }: AppProps) {
               );
             })}
           </div>
-        ) : null}
       </div>
       <div className="container">
         <Component {...pageProps} />
