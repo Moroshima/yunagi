@@ -85,7 +85,7 @@ sudo apt autoremove
 
 就我个人的体验来看，虽然是 unstable 版本，但是 Debian sid 并不 unstable，日常使用还是较为稳定的。个人看来其与 Arch Linux 等发行版的激进程度排序差不多为
 $$
-Arch\ Linux >≈ Fedora\ Linux > Debian(sid) > Ubuntu >> Debian(stable)
+Arch\ Linux \gtrapprox Fedora\ Linux > Debian(sid) > Ubuntu \gg Debian(stable)
 $$
 只能说 Debian sid 相比 Arch 与 Fedora 的激进还是稍逊一筹的，Arch 这种滚动发行版自不用说，Fedora 在被 Linus 批评过内核版本跟进不及时后内核版本更新的激进程度甚至偶尔会超过 Arch Linux 这种正统的滚动发行版。当然也不排除是因为我体验 Debian sid 正赶上了 bookworm testing 版本的 freeze，导致 Debian sid 相较之下略不激进。毕竟在 QA 里 Debian 可是这样警告用户的：“如果你觉得你可以处理损坏的 Debian 系统的话，当然可以（在你的桌面机器上使用 sid）。你知道在 libpam0g 破损、阻止所有用户登陆的情况下该怎么做吗？你知道在 grub 破损导致引导过程卡死的情况下该怎么做吗？这些事情都发生过。它们可能会再次发生。”
 
