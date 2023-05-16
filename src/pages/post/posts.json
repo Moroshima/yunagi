@@ -1,5 +1,14 @@
 [
   {
+    "title": "Debian GNU/Linux sid 折腾指北",
+    "name": "debian-sid-guide",
+    "tags": ["Linux"],
+    "date": "2023-05-16T15:16:46",
+    "updated": "2023-05-16T15:16:46",
+    "categories": ["文章", "技术"],
+    "description": "如何安装 Debian GNU/Linux sid。"
+  },
+  {
     "title": "SPA 路由设计哲学",
     "name": "routing-design-philosophy",
     "tags": ["开发", "前端"],

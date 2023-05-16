@@ -613,3 +613,8 @@ ul > li {
   width: 100%;
   text-align: center;
 }
+
+/* 隐藏 katex 渲染的 html 结构公式 */
+.katex-html {
+  display: none;
+}
