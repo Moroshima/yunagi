@@ -214,7 +214,7 @@ export default function App({ Component, pageProps }: AppProps) {
           授权条款。
         </p>
         <p>
-          Copyright © {new Date().getFullYear()} Ver 1.0.0 Stable @{" "}
+          Copyright © {new Date().getFullYear()} Ver 1.0.1 Stable @{" "}
           <Link href="/about">Moroshima</Link>
         </p>
       </footer>

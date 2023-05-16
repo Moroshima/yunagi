@@ -164,6 +164,7 @@ body {
     }
 
     .header-expand-icon {
+      margin-right: -12px;
       padding: 12px;
       vertical-align: middle;
       white-space: nowrap;
@@ -568,6 +569,25 @@ hr {
   .table-of-contents {
     padding-right: 32px;
     overflow-y: overlay;
+
+    .toc-level-1 {
+      list-style-type: decimal;
+      .toc-level-2 {
+        list-style-type: upper-latin;
+        .toc-level-3 {
+          list-style-type: lower-latin;
+          .toc-level-4 {
+            list-style-type: upper-roman;
+            .toc-level-5 {
+              list-style-type: lower-roman;
+              .toc-level-6 {
+                list-style-type: square;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
