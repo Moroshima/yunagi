@@ -26,21 +26,21 @@
 
 这一步很简单，只需要编辑下 `/etc/apt/sources.list` ，将其中的
 
-```list
+```text
 deb http://mirrors.ustc.edu.cn/debian stable main contrib non-free
 # deb http://deb.debian.org/debian stable main contrib non-free
 ```
 
 或
 
-```list
+```text
 deb http://mirrors.ustc.edu.cn/debian testing main contrib non-free
 # deb http://deb.debian.org/debian testing main contrib non-free
 ```
 
 之类内容的 `stable` 或 `testing` 字段替换为 `sid` 即可：
 
-```list
+```text
 deb https://mirrors.ustc.edu.cn/debian/ sid main contrib non-free
 # deb-src https://mirrors.ustc.edu.cn/debian/ sid main contrib non-free
 # deb https://deb.debian.org/debian/ sid main contrib non-free
