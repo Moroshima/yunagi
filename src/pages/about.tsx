@@ -15,9 +15,21 @@ export default function About() {
           <hr />
           <p>欲买桂花同载酒，终不似，少年游。</p>
           <div className={styles.content}>
+            <div className={styles.profile}>
+              <img
+                className={styles["profile-photo"]}
+                src="https://q1.qlogo.cn/g?b=qq&s=640&nk=2524332942"
+                alt={"profile-photo"}
+              />
+              <p className={styles["profile-name"]}>
+                <strong>Itsuki Moroshima</strong>
+              </p>
+            </div>
             <h2>一些随笔</h2>
-            <div className={styles.quote}>
+            <div className={styles.flag}>
               <div className={styles.anarchy}></div>
+            </div>
+            <div className={styles.quote}>
               <p>渺小的伤感只会把世界引向毁灭，少年！</p>
               <p className={styles["quote-source"]}>——機動戦士Ζガンダム</p>
             </div>
@@ -196,6 +208,21 @@ export default function About() {
               <li>2023-05-11 试运行结束，本博客宣告功能性完工</li>
               <li>2023-05-11 博文迁移完成，本博客正式接替旧博客职能上线运行</li>
             </ul>
+            <h2>友链</h2>
+            <p>快来和我贴贴！（大声）</p>
+            <code>
+              &#123;
+              <br />
+              &nbsp;&nbsp;&quot;name&quot;: &quot;Moroshima&apos;s Blog&quot;,
+              <br />
+              &nbsp;&nbsp;&quot;link&quot;:
+              &quot;https://kuroshima.eu.org&quot;,
+              <br />
+              &nbsp;&nbsp;&quot;photo&quot;:
+              &quot;https://q1.qlogo.cn/g?b=qq&s=640&nk=2524332942&quot;,
+              <br />
+              &#125;
+            </code>
             <p className={styles.end}>- END -</p>
           </div>
         </div>
