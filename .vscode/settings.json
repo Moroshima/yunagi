@@ -1,5 +1,0 @@
-{
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-workflow.json": "file:///d%3A/Workspace/yunagi-next/.github/workflows/deploy.yaml"
-  }
-}

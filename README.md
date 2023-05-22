@@ -4,6 +4,12 @@ Yunagi (Evening Calm) is a blog system based on Next.js and Markdown.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Hello New World
+
+Say goodbye to Hexo/Hugo and those fxxking stupid React UI librarys, I will write my blog by myself without those fxxking things except react.
+
+As a frontend developer, how can you bear your blog is running on something like EJS(Hexo) or even PHP(WordPress)?
+
 ## Why Yunagi?
 
 ~~Yunagi is a Japanese word that means "evening calm". It is a beautiful word that describes the calmness of the evening. I hope that this blog system can bring you the same feeling.~~ The name yunagi is from [one of nine Kamikaze-class destroyers built for the Imperial Japanese Navy (IJN) during the 1920s](https://en.wikipedia.org/wiki/Japanese_destroyer_Y%C5%ABnagi_(1924)).
