@@ -158,7 +158,7 @@ export default function Archive() {
                             <Link href={"post/" + subSubValue.name}>
                               {subSubValue.title}
                             </Link>
-                            {subSubValue.date}
+                            {subSubValue.date.replace("T", " ")}
                           </li>
                         )
                       )}

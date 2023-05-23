@@ -194,7 +194,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
       <footer className="footer">
         <p>
-          <a href="https://github.com/Moroshima/yunagi-next" target="_blank">
+          <a href="https://github.com/Moroshima/yunagi" target="_blank">
             Yunagi
           </a>{" "}
           | Powered by{" "}

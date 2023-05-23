@@ -46,19 +46,20 @@ export default function About() {
               <a href="https://github.com/Moroshima">GitHub</a> 看看我写的几个
               <del>拿不出手的</del>项目。主力电脑操作系统是 Windows
               NT，曾数次尝试使用 GNU/Linux 作为主力开发操作系统未果
-              <span>（Wayland 只支持整数比缩放罪大恶极）</span>
+              <span>（Wayland 只支持整数比缩放罪大恶极）</span>，
               <del>
-                ，但是我非常擅长重装操作系统<span>（尤其是 Linux 发行版）</span>
-                。
+                但是我非常擅长重装操作系统<span>（尤其是 Linux 发行版）</span>
               </del>
+              。
             </p>
             <p className={styles.sensitive}>
-              标签：共产主义者、<span>无政府主义者（巴枯宁主义者）</span>
-              、国际主义者、和平主义者、理想主义者，支持
+              标签：INFP-T、理想主义者、共产主义者、
+              <span>无政府主义者（巴枯宁主义者）</span>
+              、国际主义者、和平主义者，支持
               <span>
                 民族自决（包括外蒙古、西藏、新疆、台湾、云南等地区民族自治）、去政治化、去政府化
               </span>
-              ，反对资本主义、反对民族主义、<span>威权主义、集权专制</span>
+              ，反对资本主义、民族主义、<span>威权主义、集权专制</span>
               ，具有<span>新自由主义</span>倾向，对<span>绥靖主义</span>
               持中立态度。存在民族主义教育导致的
               <span>种族歧视以及极端民族主义倾向、战争狂热</span>。
