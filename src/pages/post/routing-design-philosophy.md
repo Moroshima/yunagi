@@ -60,7 +60,7 @@ CSR：Client-Side Rendering
 
 ![640](./assets/640.png)
 
-2010 年前后，ASP.NET MVC、PHP Laravel、Ruby on Rails 等 **MVC 框架**先后涌现~~（虽然此前 MFC、WinForm 等早就已经让 MVC 在桌面端遍地开花了）~~，View 与 Model 逐渐分离，此时一套现代路由机制的出现几乎可以说是呼之欲出的。Laravel 和 ThinkPHP 等框架都提供了一套自己的路由解析方案，在此时路由全权由服务端负责，后端对用户传递的 url 进行正则匹配解析后渲染对应的 HTML 页面返回给客户端。
+2010 年前后，ASP.NET MVC、PHP Laravel、Ruby on Rails 等 **MVC 框架**先后涌现 ~~（虽然此前 MFC、WinForm 等早就已经让 MVC 在桌面端遍地开花了）~~，View 与 Model 逐渐分离，此时一套现代路由机制的出现几乎可以说是呼之欲出的。Laravel 和 ThinkPHP 等框架都提供了一套自己的路由解析方案，在此时路由全权由服务端负责，后端对用户传递的 url 进行正则匹配解析后渲染对应的 HTML 页面返回给客户端。
 
 ![image001](./assets/image001.png)
 
