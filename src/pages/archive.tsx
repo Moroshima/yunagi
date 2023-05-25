@@ -3,6 +3,7 @@ import styles from "../styles/archive.module.scss";
 import posts from "./post/posts.json";
 import Link from "next/link";
 import toChineseNumeral from "@/utils/toChineseNumeral";
+import toChineseMonth from "@/utils/toChineseMonth";
 
 export default function Archive() {
   /* 将每个 post 的信息置入对应的年份或月份对象（来自柏的算法优化，先排序后置入） */
@@ -146,7 +147,7 @@ export default function Archive() {
                 {value.next.map((subValue, subIndex, subArray) => (
                   <div key={`archive-year-${subValue.month}-wrapper`}>
                     <h3 key={`archive-year-${subValue.month}`}>
-                      {toChineseNumeral(subValue.month)}月
+                      {toChineseMonth(subValue.month)}月
                     </h3>
                     <ul className={styles["post-items"]}>
                       {subValue.posts.map(
@@ -158,7 +159,7 @@ export default function Archive() {
                             <Link href={"post/" + subSubValue.name}>
                               {subSubValue.title}
                             </Link>
-                            {subSubValue.date.replace("T", " ")}
+                            {subSubValue.date.substring(0, 10)}
                           </li>
                         )
                       )}
@@ -167,7 +168,6 @@ export default function Archive() {
                 ))}
               </div>
             ))}
-
             <p className={styles.end}>- END -</p>
           </div>
         </div>
