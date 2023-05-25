@@ -13,6 +13,8 @@ function Heading({ children, ...props }: any) {
         {post?.date.replace("T", " ")}
         {post?.date === post?.updated
           ? ""
+          : post?.updated === null
+          ? ""
           : "（更新于 " + post?.updated.replace("T", " ") + "）"}
 
         {post?.tags.map((value, index, array) => (
