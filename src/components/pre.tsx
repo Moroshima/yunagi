@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHover } from "../utils/useHover";
+import { useHover } from "../hooks/useHover";
 import { CheckIcon, CopyIcon } from "@primer/octicons-react";
 
 function Pre({ children, raw, ...props }: any) {

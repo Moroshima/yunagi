@@ -191,7 +191,7 @@ export default function About() {
             </p>
             <h3>Favicon</h3>
             <p>
-              本博客 Favicon 来自于
+              本博客 favicon 来自于
               <a
                 href="https://www.bilibili.com/video/BV1bV41127Da"
                 target="_blank"
