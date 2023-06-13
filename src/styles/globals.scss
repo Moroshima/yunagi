@@ -513,7 +513,6 @@ td {
   h6 {
     &:has(a:hover)::after {
       content: " #";
-      text-decoration: none;
       color: #9e9e9ea6;
       text-decoration: none;
     }
