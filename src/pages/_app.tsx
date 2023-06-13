@@ -215,7 +215,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </p>
         <p>
           Copyright © {new Date().getFullYear()}{" "}
-          <Link href="/about">Moroshima</Link>. Ver 1.0.2 Stable
+          <Link href="/about">Moroshima</Link>. Ver.1.0.2 Stable
         </p>
       </footer>
       {scrollToTopHidden ? null : (

@@ -93,12 +93,19 @@ export default function About() {
             </ul>
             <h2>在用设备</h2>
             <ul>
-              <li>Mini-ITX Workstation</li>
+              <li>Workstation Haruna (Mini-ITX)</li>
               <ul>
+                <li>Windows 11 22H2</li>
                 <li>YOGO S1</li>
                 <li>AMD Ryzen 7 5800X</li>
                 <li>ROG STRIX B550-I GAMING</li>
                 <li>ROG-STRIX-RTX3070TI-O8G-GAMING</li>
+              </ul>
+              <li>Workstation Hatsuyuki (ATX)</li>
+              <ul>
+                <li>Arch Linux</li>
+                <li>AMD Ryzen 5 5600G</li>
+                <li>ASUS PRIME B350-PLUS</li>
               </ul>
               <li>ThinkPad T14 Gen 2 (14” Intel) (20W0-005UCD)</li>
               <li>Intel NUC 11 Essential Kit (NUC11ATKC4)</li>
