@@ -7,6 +7,7 @@ import getSite from "./site";
 const site_url = getSite();
 
 const md = new MarkdownIt();
+
 /* 介入 img 标签渲染以修改 src 链接 */
 md.renderer.rules.image = function (tokens, idx, options, env, self) {
   const token: any = tokens[idx];
@@ -36,7 +37,11 @@ export async function getSortedPostData() {
       const post = posts.find((value) => value.name === name) as any;
 
       const fullPath = path.join(postsDirectory, fileName);
-      const content = fs.readFileSync(fullPath, "utf8");
+      const rawContent = fs.readFileSync(fullPath, "utf8");
+
+      const lines = rawContent.split("\n");
+      lines.splice(0, 2);
+      const content = lines.join("\n");
 
       const rssData = {
         title: post.title,
