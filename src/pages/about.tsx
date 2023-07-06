@@ -73,15 +73,15 @@ export default function About() {
                 </a>
               </li>
               <li>
-                Twitter:{" "}
-                <a href="https://twitter.com/Joseph_Aspirant" target="_blank">
-                  @Joseph_Aspirant
-                </a>
-              </li>
-              <li>
                 GitHub:{" "}
                 <a href="https://github.com/Moroshima" target="_blank">
                   Moroshima
+                </a>
+              </li>
+              <li>
+                Mastodon:{" "}
+                <a href="https://mastodon.social/@Moroshima" target="_blank">
+                  @Moroshima@mastodon.social
                 </a>
               </li>
               <li>
@@ -105,7 +105,7 @@ export default function About() {
                 <li>AMD Ryzen 5 5600G</li>
                 <li>ASUS PRIME B350-PLUS</li>
               </ul>
-              <li>ThinkPad T14 Gen 2 (14” Intel) (20W0-005UCD)</li>
+              <li>ThinkPad T14 Gen 2 (14” AMD) (20XK-A001CD)</li>
               <li>iPhone 12</li>
               <li>Sony Alpha 6400</li>
             </ul>

@@ -260,7 +260,7 @@ e.g. <https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1>
 
 - 譬如新柚杯系统中所采取的不同 url 指向同一组件，由组件内部逻辑处理渲染问题的解决方案
 
-### react-router-dom v5 文档中的 Philosophy
+### react-router-dom v5 文档中所谓的 Philosophy
 
 ~~名为哲学，实为心智模型~~
 
