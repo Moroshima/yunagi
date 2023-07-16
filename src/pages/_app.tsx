@@ -106,9 +106,11 @@ const components = {
       );
   },
   p: ({ children, ...props }: any) => {
+    /* 如果是图片则不将其作为段落元素渲染 */
     if (children?.props?.src !== undefined) return <>{children}</>;
     else return <p {...props}>{children}</p>;
   },
+  blockquote: ({ children, ...props }: any) => (<blockquote className="blockquote" {...props}>{children}</blockquote>)
 };
 
 export default function App({ Component, pageProps }: AppProps) {

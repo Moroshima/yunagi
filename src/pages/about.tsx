@@ -105,7 +105,7 @@ export default function About() {
                 <li>AMD Ryzen 5 5600G</li>
                 <li>ASUS PRIME B350-PLUS</li>
               </ul>
-              <li>ThinkPad T14 Gen 2 (14” AMD) (20XK-A001CD)</li>
+              <li>Acer Aspire Vero (AV14-51-59UE)</li>
               <li>iPhone 12</li>
               <li>Sony Alpha 6400</li>
             </ul>

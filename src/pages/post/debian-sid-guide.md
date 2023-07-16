@@ -25,6 +25,8 @@
 > 目前这篇博文被设置为了仅 VIP 可见（咬牙切齿），因此此处我将其核心内容摘录如下：
 >
 > 在软件包流行度调查界面先不继续下一步安装，按下 CTRL+ALT+F2 组合键切换 tty 后按下 Enter 键，在命令提示符后输入 `chroot /target` 更改根目录，然后输入 `nano /etc/apt/sources.list` 并回车，编辑源配置文件，将其中的 `debian-security` 源替换为 `deb http://mirrors.ustc.edu.cn/debian-security/` 或其他国内 debian-security 镜像源，然后按下 CTRL+O 组合键保存，按下 CTRL+X 组合键退出文本编辑器，最后输入 `exit` 退出 chroot 环境，按下 CTRL+ALT+F6 组合键切换回安装程序界面，在选择是否参与软件包流行度调查后继续安装即可。
+>
+> 此外该文有转载版本可供查阅：[Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian卡在选择并安装软件_PtrApr的博客-程序员宅基地 - 程序员宅基地](https://www.cxyzjd.com/article/Liangshengabc/104981585)
 
 ## 更换 sid 源并更新到 sid
 

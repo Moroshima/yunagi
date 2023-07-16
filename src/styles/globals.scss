@@ -219,12 +219,27 @@ body:has(.container > .post) {
 }
 
 /* 引用内容块样式 */
-blockquote {
+.blockquote {
   padding: 0 1em;
   color: #656d76;
   border-left: 0.25em solid #d0d7de;
   margin: 0;
   margin-bottom: 16px;
+  a {
+    &:link {
+      color: #656d76;
+    }
+    &:visited {
+      color: #656d76;
+    }
+    &:hover {
+      text-decoration: underline;
+      color: #888d92;
+    }
+    &:active {
+      color: #bdc2c7;
+    }
+  }
 }
 
 /* 修复在 PrismJS 支持列表之外 code block 的 pre 样式支持（源自 themes 中样式文件未修改的原始代码） */
