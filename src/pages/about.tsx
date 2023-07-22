@@ -104,6 +104,7 @@ export default function About() {
               <ul>
                 <li>AMD Ryzen 5 5600G</li>
                 <li>ASUS PRIME B350-PLUS</li>
+                <li>Sapphire RX 470D Platinum</li>
               </ul>
               <li>Acer Aspire Vero (AV14-51-59UE)</li>
               <li>iPhone 12</li>
