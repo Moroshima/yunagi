@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/index.module.scss";
+import styles from "@/styles/index.module.scss";
 import generateRssFeed from "@/utils/feed";
 import { Noto_Serif_SC, Allison } from "next/font/google";
 

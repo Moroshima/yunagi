@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/about.module.scss";
+import styles from "@/styles/about.module.scss";
 
 export default function About() {
   return (

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import MarkdownIt from "markdown-it";
-import posts from "../pages/post/posts.json";
+import posts from "@/pages/post/posts.json";
 import getSite from "./site";
 
 const site_url = getSite();

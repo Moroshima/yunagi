@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "export": "next export"
@@ -24,6 +25,7 @@
     "eslint-config-next": "13.2.4",
     "markdown-it": "^13.0.1",
     "next": "13.2.4",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rehype-autolink-headings": "^6.1.1",

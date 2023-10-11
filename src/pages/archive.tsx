@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/archive.module.scss";
+import styles from "@/styles/archive.module.scss";
 import posts from "./post/posts.json";
 import Link from "next/link";
 import toChineseNumeral from "@/utils/toChineseNumeral";

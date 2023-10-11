@@ -1,5 +1,5 @@
 export default function getSite() {
   return process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://kuroshima.eu.org";
+    : process.env.SITE_URL || "https://example.com";
 }

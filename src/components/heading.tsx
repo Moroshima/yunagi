@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import posts from "../pages/post/posts.json";
+import posts from "@/pages/post/posts.json";
 
 function Heading({ children, ...props }: any) {
   const router = useRouter();

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/links.module.scss";
+import styles from "@/styles/links.module.scss";
 import links from "./links.json";
 import { ArrowRightIcon } from "@primer/octicons-react";
 

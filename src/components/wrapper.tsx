@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Giscus from "@giscus/react";
-import posts from "../pages/post/posts.json";
+import posts from "@/pages/post/posts.json";
 
 function Wrapper(props: any) {
   const router = useRouter();

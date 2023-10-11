@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import posts from "./posts.json";
-import styles from "../../styles/post.module.scss";
+import styles from "@/styles/post.module.scss";
 
 export default function Post() {
   const sortedPosts = posts
