@@ -14,7 +14,6 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: latest
-      - run: pnpm config set auto-install-peers true
       - run: pnpm install
       - run: pnpm run build && pnpm run export
       - uses: cloudflare/wrangler-action@2.0.0
