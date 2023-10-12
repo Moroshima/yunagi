@@ -8,25 +8,35 @@
 
 ## 制作安装盘
 
-制作安装盘的第一步便是下载镜像，这一步可以依照个人偏好选择下载完整镜像文件或网络安装镜像（netinst）。我个人建议是使用网络安装镜像，这样可以保证你所安装的软件版本是为最新的，就避免了在完成了系统安装后还需要再手动升级一遍系统软件版本的麻烦。此外，从例如 [USTC Mirror](https://mirrors.ustc.edu.cn/) 等下载速度较快的国内镜像站获取安装镜像也是个不错的选择。
+制作安装盘的第一步便是下载镜像，这一步可以依照个人偏好选择下载完整镜像文件或网络安装镜像（netinst）。
 
-> USTC open source software mirror 似乎没有在首页的获取发行版映像中提供 netinst 版本镜像的下载，但是我们可以在 `debian-cd` 源中直接找到对应镜像文件：[Index of /debian-cd/current/amd64/iso-cd/](https://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/)
+~~我个人建议是使用网络安装镜像，这样可以保证你所安装的软件版本是为最新的，就避免了在完成了系统安装后还需要再手动升级一遍系统软件版本的麻烦。~~
+
+鉴于赛里斯的网络环境问题，即使安装过程中有换源安装提示，但是该过程不会为 debian- security 换源，这会导致有一部分该源提供的软件包无法下载。本人建议下载完整安装盘 DVD 进行离线安装，虽然在安装过程中会有联网过程，但是实际安装过程中并不会从网络源获取软件包。
+
+此外，从例如 [USTC Mirror](https://mirrors.ustc.edu.cn/) 等下载速度较快的国内镜像站获取安装镜像也是个不错的选择。
+
+下载完成直接解压该 ISO 文件至任一使用 FAT32 文件系统的可移动存储介质即可完成系统盘的制作（当然你也可以选择刻录 DVD）。
+
+> USTC open source software mirror 在首页的获取发行版映像中提供了最新版本的 DVD 安装镜像下载链接。如果你需要下载 netinst 版本的镜像，可以在 `debian-cd` 源中直接找到对应镜像文件：[Index of /debian-cd/current/amd64/iso-cd/](https://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/)
 
 ### 非自由固件
 
 一般而言，直接将安装盘插入电脑然后引导进入安装流程就行了。但是你如果使用的是笔记本等设备，且没有接入有线网络的条件（或接入有线网络不太方便），你可能需要一些无线网卡驱动。 Debian 12 镜像中已经包含绝大多数硬件的非自由驱动了（non-free-firmware），因此你无需进行任何额外操作，但是你如果使用的是 Debian 11 或更旧的 Debian 版本（你既然在看这篇文章，想必使用的 Debian 版本也不会旧于 bullseye 吧？），你需要从 [Index of /cdimage/firmware (debian.org)](https://cdimage.debian.org/cdimage/firmware/) 下载对应 Debian 版本的固件压缩包并将其内容物解压到安装盘的根目录下的 firmware 文件夹中。做完这一切你就可以开始祈祷你的硬件不是太新，希冀你的硬件在当前版本能够得到内核与固件的支持并插入安装U盘，按下电脑开机键引导进入安装程序了。
 
-## debian-security 源
+## ~~debian-security 源~~
 
-在安装 Debian 的过程中，只需按照引导一路向下即可，但是你如果使用的是网络安装镜像，在你选择完安装源并完成软件流行度调查选择后的安装流程可能会卡住，有几个包拉取速度极慢，且有很大概率会直接超时报错。这是因为 Debian 在换源时并不会更换 debian-security 源。至于 Debian 在换源时不更换安全源的原因则是 Debian 并无官方认可的镜像，因为 Debian 的安全团队认为“security.debian.org 的宗旨是使安全更新尽可能快且容易地获得。鼓励使用非官方的镜像会增添通常来说没有必要的额外复杂性，而且如果这些镜像没有及时更新的话会导致各种问题。”（参见 [Debian -- Debian 安全 FAQ](https://www.debian.org/security/faq#mirror)，你关于 debian-security 的许多疑问也能在其中得到解答）
+> **该部分内容已不建议参考，参照制作安装盘部分前文使用 DVD 安装镜像离线安装即可**
 
-对于此问题可以在安装程序完成 apt 换源配置后显示软件流行度调查选择界面时切换 tty 直接修改 `/etc/apt/sources.list` 中对应源配置来解决，详细配置过程可参考 [Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian无法安全的使用该源_PtrApr的博客-CSDN博客](https://blog.csdn.net/Liangshengabc/article/details/104981585)。
+~~在安装 Debian 的过程中，只需按照引导一路向下即可，但是你如果使用的是网络安装镜像，在你选择完安装源并完成软件流行度调查选择后的安装流程可能会卡住，有几个包拉取速度极慢，且有很大概率会直接超时报错。这是因为 Debian 在换源时并不会更换 debian-security 源。至于 Debian 在换源时不更换安全源的原因则是 Debian 并无官方认可的镜像，因为 Debian 的安全团队认为“security.debian.org 的宗旨是使安全更新尽可能快且容易地获得。鼓励使用非官方的镜像会增添通常来说没有必要的额外复杂性，而且如果这些镜像没有及时更新的话会导致各种问题。”（参见 [Debian -- Debian 安全 FAQ](https://www.debian.org/security/faq#mirror)，你关于 debian-security 的许多疑问也能在其中得到解答）~~
 
-> 目前这篇博文被设置为了仅 VIP 可见（咬牙切齿），因此此处我将其核心内容摘录如下：
+~~对于此问题可以在安装程序完成 apt 换源配置后显示软件流行度调查选择界面时切换 tty 直接修改 `/etc/apt/sources.list` 中对应源配置来解决，详细配置过程可参考 [Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian无法安全的使用该源_PtrApr的博客-CSDN博客](https://blog.csdn.net/Liangshengabc/article/details/104981585)。~~
+
+> ~~目前这篇博文被设置为了仅 VIP 可见（咬牙切齿），因此此处我将其核心内容摘录如下：~~
 >
-> 在软件包流行度调查界面先不继续下一步安装，按下 CTRL+ALT+F2 组合键切换 tty 后按下 Enter 键，在命令提示符后输入 `chroot /target` 更改根目录，然后输入 `nano /etc/apt/sources.list` 并回车，编辑源配置文件，将其中的 `debian-security` 源替换为 `deb http://mirrors.ustc.edu.cn/debian-security/` 或其他国内 debian-security 镜像源，然后按下 CTRL+O 组合键保存，按下 CTRL+X 组合键退出文本编辑器，最后输入 `exit` 退出 chroot 环境，按下 CTRL+ALT+F6 组合键切换回安装程序界面，在选择是否参与软件包流行度调查后继续安装即可。
+> ~~在软件包流行度调查界面先不继续下一步安装，按下 CTRL+ALT+F2 组合键切换 tty 后按下 Enter 键，在命令提示符后输入 `chroot /target` 更改根目录，然后输入 `nano /etc/apt/sources.list` 并回车，编辑源配置文件，将其中的 `debian-security` 源替换为 `deb http://mirrors.ustc.edu.cn/debian-security/` 或其他国内 debian-security 镜像源，然后按下 CTRL+O 组合键保存，按下 CTRL+X 组合键退出文本编辑器，最后输入 `exit` 退出 chroot 环境，按下 CTRL+ALT+F6 组合键切换回安装程序界面，在选择是否参与软件包流行度调查后继续安装即可。~~
 >
-> 此外该文有转载版本可供查阅：[Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian卡在选择并安装软件_PtrApr的博客-程序员宅基地 - 程序员宅基地](https://www.cxyzjd.com/article/Liangshengabc/104981585)
+> ~~此外该文有转载版本可供查阅：[Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian卡在选择并安装软件_PtrApr的博客-程序员宅基地 - 程序员宅基地](https://www.cxyzjd.com/article/Liangshengabc/104981585)~~
 
 ## 更换 sid 源并更新到 sid
 

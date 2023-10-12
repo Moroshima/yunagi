@@ -93,22 +93,11 @@ export default function About() {
             </ul>
             <h2>在用设备</h2>
             <ul>
-              <li>Haruna (Mini-ITX Workstation)</li>
-              <ul>
-                <li>YOGO S1</li>
-                <li>AMD Ryzen 7 5800X</li>
-                <li>ROG STRIX B550-I GAMING</li>
-                <li>ROG-STRIX-RTX3070TI-O8G-GAMING</li>
-              </ul>
-              <li>Hatsuyuki (Standard-ATX Workstation)</li>
-              <ul>
-                <li>AMD Ryzen 5 5600G</li>
-                <li>ASUS PRIME B350-PLUS</li>
-                <li>Sapphire RX 470D Platinum</li>
-              </ul>
-              <li>Acer Aspire Vero (AV14-51-59UE)</li>
+              <li>MacBook Pro 14″</li>
+              <li>iPad Pro 11″</li>
               <li>iPhone 12</li>
-              <li>Sony Alpha 6400</li>
+              <li>α6400</li>
+              <li>Xbox Series S</li>
             </ul>
             <h2>本站</h2>
             <p>
