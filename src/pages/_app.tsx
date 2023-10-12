@@ -7,18 +7,12 @@ import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useState } from "react";
 import { ChevronUpIcon, ThreeBarsIcon, XIcon } from "@primer/octicons-react";
 
-const PreDynamicComponent = dynamic(() => import("../components/pre"), {
-  ssr: false,
-});
+const PreDynamicComponent = dynamic(() => import("../components/pre"));
 const ImageDynamicComponent = dynamic(() => import("../components/image"), {
   ssr: false,
 });
-const TableDynamicComponent = dynamic(() => import("../components/table"), {
-  ssr: false,
-});
-const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"), {
-  ssr: false,
-});
+const TableDynamicComponent = dynamic(() => import("../components/table"));
+const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"));
 const HeadingDynamicComponent = dynamic(() => import("../components/heading"));
 
 const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
@@ -110,7 +104,11 @@ const components = {
     if (children?.props?.src !== undefined) return <>{children}</>;
     else return <p {...props}>{children}</p>;
   },
-  blockquote: ({ children, ...props }: any) => (<blockquote className="blockquote" {...props}>{children}</blockquote>)
+  blockquote: ({ children, ...props }: any) => (
+    <blockquote className="blockquote" {...props}>
+      {children}
+    </blockquote>
+  ),
 };
 
 export default function App({ Component, pageProps }: AppProps) {

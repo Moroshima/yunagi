@@ -7,11 +7,10 @@ function Wrapper(props: any) {
   const router = useRouter();
   const postName = router.pathname.substring(1).split("/")[1];
   const post = posts.find((item) => item.name === postName);
-  console.log(post);
   return (
     <>
       <Head>
-        <title>{post?.title} | Moroshima&apos;s Blog</title>
+        <title>{`${post?.title} | Moroshima's Blog`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
