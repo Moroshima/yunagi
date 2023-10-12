@@ -1,13 +1,14 @@
 // next.config.mjs
 import withMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeToc from "rehype-toc";
-import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import rehypeRaw from "rehype-raw";
+import rehypeKatex from "rehype-katex";
+import rehypeMermaid from "rehype-mermaidjs";
 import rehypePrism from "rehype-prism-plus";
+import rehypeToc from "rehype-toc";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { visit } from "unist-util-visit";
 
 /** @type {import('next').NextConfig} */
@@ -37,10 +38,21 @@ export default withMDX({
         });
         return null;
       },
-      [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
+      rehypeRaw,
       rehypeKatex,
-      rehypeSlug,
+      [
+        rehypeMermaid,
+        {
+          launchOptions: {
+            executablePath: process.platform === "darwin"
+              ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" // for my macOS device
+              : "/opt/google/chrome/google-chrome", // for GitHub Actions Ubuntu
+          },
+        },
+      ],
+      [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
       [rehypeToc, { headings: ["h2", "h3", "h4", "h5", "h6"] }],
+      rehypeSlug,
       [
         rehypeAutolinkHeadings,
         {
@@ -48,7 +60,6 @@ export default withMDX({
           test: ["h2", "h3", "h4", "h5", "h6"],
         },
       ],
-      rehypeRaw,
     ],
     // If you use `MDXProvider`, uncomment the following line.
     providerImportSource: "@mdx-js/react",
