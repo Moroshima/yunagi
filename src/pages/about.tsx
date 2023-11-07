@@ -24,6 +24,7 @@ export default function About() {
               <p className={styles["profile-name"]}>
                 <strong>Itsuki Moroshima</strong>
               </p>
+              <p>一般通过废物 | Anarchist | INFP-T</p>
             </div>
             <h2>一些随笔</h2>
             <div className={styles.flag}>

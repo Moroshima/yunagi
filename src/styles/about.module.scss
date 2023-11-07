@@ -70,15 +70,17 @@
   p {
     margin-bottom: 0;
   }
+  .profile-photo {
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+  }
+  .profile-name {
+    font-size: large;
+  }
   .quote-source {
     margin-left: 8em;
   }
-}
-
-.profile-photo {
-  width: 12em;
-  height: 12em;
-  border-radius: 50%;
 }
 
 .end {
