@@ -8,17 +8,46 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: lts/*
-      - uses: pnpm/action-setup@v2
+
+      - name: Install pnpm package manager
+        uses: pnpm/action-setup@v2
         with:
           version: latest
-      - run: pnpm install
-      - run: pnpm build
-      - uses: cloudflare/wrangler-action@2.0.0
+
+      - name: Cache pnpm package store directory
+        id: cache-pnpm-store
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-pnpm-store-directory
+        with:
+          # the pnpm package store directory path is ` ~/.local/share/pnpm/store` on GNU/Linux
+          path: ~/.local/share/pnpm/store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-pnpm-store.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: pnpm list
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          workingDirectory: 'out'
+          workingDirectory: "dist"
           command: pages deploy --project-name=yunagi .

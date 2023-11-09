@@ -13,11 +13,15 @@ import { visit } from "unist-util-visit";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // Optionally, add any other Next.js config below
   reactStrictMode: true,
+  output: "export",
+  // Prevent automatic `/me` -> `/me/`, instead preserve `href`
+  skipTrailingSlashRedirect: true,
+  // Change the output directory `out` -> `dist`
+  distDir: "dist",
 };
 
 // Merge MDX config with Next.js config
