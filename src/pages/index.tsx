@@ -1,18 +1,6 @@
 import Head from "next/head";
 import styles from "@/styles/index.module.scss";
-import generateRssFeed from "@/utils/feed";
-import { Noto_Serif_SC, Allison } from "next/font/google";
-
-const noto_serif_sc = Noto_Serif_SC({
-  weight: ["200", "300", "400", "500", "600", "700", "900"],
-  subsets: ["latin"],
-  preload: true,
-});
-const allison = Allison({
-  weight: ["400"],
-  subsets: ["latin"],
-  preload: true,
-});
+import generateRssFeed from "@/utils/feed/feed";
 
 export async function getStaticProps() {
   await generateRssFeed();
@@ -41,7 +29,7 @@ export default function Index() {
           <p>
             <span
               style={{
-                fontFamily: `${allison.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
+                fontFamily: "Allison, Noto Serif SC, serif",
                 fontSize: 24,
               }}
             >

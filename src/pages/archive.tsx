@@ -2,13 +2,13 @@ import Head from "next/head";
 import styles from "@/styles/archive.module.scss";
 import posts from "./post/posts.json";
 import Link from "next/link";
-import toChineseNumeral from "@/utils/toChineseNumeral";
-import toChineseMonth from "@/utils/toChineseMonth";
+import toChineseNumeral from "@/utils/archive/toChineseNumeral";
+import toChineseMonth from "@/utils/archive/toChineseMonth";
 
 export default function Archive() {
   /* 将每个 post 的信息置入对应的年份或月份对象（来自柏的算法优化，先排序后置入） */
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  console.log(posts);
+  // console.log(posts);
 
   const archiveArray: [
     {
@@ -122,7 +122,7 @@ export default function Archive() {
       beforeMonth = month;
     }
   });
-  console.log(archiveArray);
+  // console.log(archiveArray);
 
   return (
     <>

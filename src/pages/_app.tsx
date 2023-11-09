@@ -2,10 +2,15 @@ import "@/styles/globals.scss";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import type { AppProps } from "next/app";
-import { EB_Garamond, Noto_Serif_SC, Allison, Ms_Madi } from "next/font/google";
 import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useState } from "react";
 import { ChevronUpIcon, ThreeBarsIcon, XIcon } from "@primer/octicons-react";
+import "@fontsource/allison";
+import "@fontsource/ms-madi";
+import "@fontsource/noto-serif-sc";
+import "@fontsource/noto-serif-sc/700.css";
+import "@fontsource-variable/eb-garamond";
+import "@fontsource-variable/eb-garamond/wght-italic.css";
 
 const PreDynamicComponent = dynamic(() => import("../components/pre"));
 const ImageDynamicComponent = dynamic(() => import("../components/image"), {
@@ -14,23 +19,6 @@ const ImageDynamicComponent = dynamic(() => import("../components/image"), {
 const TableDynamicComponent = dynamic(() => import("../components/table"));
 const WrapperDynamicComponent = dynamic(() => import("../components/wrapper"));
 const HeadingDynamicComponent = dynamic(() => import("../components/heading"));
-
-const eb_garamond = EB_Garamond({ subsets: ["latin"], preload: true });
-const noto_serif_sc = Noto_Serif_SC({
-  weight: ["200", "300", "400", "500", "600", "700", "900"],
-  subsets: ["latin"],
-  preload: true,
-});
-const allison = Allison({
-  weight: ["400"],
-  subsets: ["latin"],
-  preload: true,
-});
-const ms_madi = Ms_Madi({
-  weight: ["400"],
-  subsets: ["latin"],
-  preload: true,
-});
 
 const linkGroup = [
   { url: "/", sc_name: "首页", en_name: "Home" },
@@ -126,21 +114,9 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <MDXProvider components={components}>
-      <style jsx global>{`
-        html {
-          font-family: ${eb_garamond.style.fontFamily},
-            ${noto_serif_sc.style.fontFamily}, serif;
-        }
-      `}</style>
       <div className="header-wrapper">
         <div className="header">
-          <Link
-            href="/"
-            style={{
-              fontFamily: `${allison.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
-              fontSize: 24,
-            }}
-          >
+          <Link className="header-home-link" href="/">
             Moroshima&apos;s Blog
           </Link>
           <div className="header-link-group">
@@ -164,12 +140,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </button>
         </div>
         {headerExpand ? (
-          <div
-            className="header-menu"
-            style={{
-              fontFamily: `${ms_madi.style.fontFamily},${noto_serif_sc.style.fontFamily},serif`,
-            }}
-          >
+          <div className="header-menu">
             {linkGroup.map((value, index, array) => {
               return (
                 <Link

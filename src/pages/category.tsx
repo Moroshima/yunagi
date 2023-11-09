@@ -11,7 +11,7 @@ export default function Category() {
   });
   const mergedArraySet = new Set(mergedCategoryArray);
   const uniqueCategoryArray = Array.from(mergedArraySet);
-  console.log(uniqueCategoryArray);
+  // console.log(uniqueCategoryArray);
 
   return (
     <>

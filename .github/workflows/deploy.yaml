@@ -15,7 +15,7 @@ jobs:
         with:
           version: latest
       - run: pnpm install
-      - run: pnpm run build && pnpm run export
+      - run: pnpm build
       - uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}

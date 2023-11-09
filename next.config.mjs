@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeRaw from "rehype-raw";
 import rehypeKatex from "rehype-katex";
-import rehypeMermaid from "rehype-mermaidjs";
+import rehypeMermaid from "rehype-mermaid";
 import rehypePrism from "rehype-prism-plus";
 import rehypeToc from "rehype-toc";
 import rehypeSlug from "rehype-slug";
@@ -13,6 +13,7 @@ import { visit } from "unist-util-visit";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // Optionally, add any other Next.js config below
@@ -44,9 +45,10 @@ export default withMDX({
         rehypeMermaid,
         {
           launchOptions: {
-            executablePath: process.platform === "darwin"
-              ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" // for my macOS device
-              : "/opt/google/chrome/google-chrome", // for GitHub Actions Ubuntu
+            executablePath:
+              process.platform === "darwin"
+                ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" // for my macOS device
+                : "/opt/google/chrome/google-chrome", // for GitHub Actions Ubuntu
           },
         },
       ],
