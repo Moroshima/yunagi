@@ -208,6 +208,7 @@ export default function About() {
                 渲染排版的完全兼容。完善 robots.txt 与 sitemap.xml 支持，升级
                 Next.js 版本至 13.5.4 并将博文渲染由 CSR 改为 SSR 以实现 SEO
               </li>
+              <li>2023-11-10 启用新域名 yunagi.dev</li>
             </ul>
             <h2>友链</h2>
             <p>快来和我贴贴！（大声）</p>
@@ -217,7 +218,7 @@ export default function About() {
               &nbsp;&nbsp;&quot;name&quot;: &quot;Moroshima&apos;s Blog&quot;,
               <br />
               &nbsp;&nbsp;&quot;link&quot;:
-              &quot;https://kuroshima.eu.org&quot;,
+              &quot;https://yunagi.dev&quot;,
               <br />
               &nbsp;&nbsp;&quot;photo&quot;:
               &quot;https://q1.qlogo.cn/g?b=qq&s=640&nk=2524332942&quot;,
