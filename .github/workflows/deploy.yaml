@@ -19,25 +19,6 @@ jobs:
         with:
           version: latest
 
-      - name: Cache pnpm package store directory
-        id: cache-pnpm-store
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-pnpm-store-directory
-        with:
-          # the pnpm package store directory path is ` ~/.local/share/pnpm/store` on GNU/Linux
-          path: ~/.local/share/pnpm/store
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - if: ${{ steps.cache-pnpm-store.outputs.cache-hit != 'true' }}
-        name: List the state of node modules
-        continue-on-error: true
-        run: pnpm list
-
       - name: Install dependencies
         run: pnpm install
 
