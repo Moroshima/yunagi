@@ -57,8 +57,8 @@ export default withMDX({
         },
       ],
       [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
-      [rehypeToc, { headings: ["h2", "h3", "h4", "h5", "h6"] }],
       rehypeSlug,
+      [rehypeToc, { headings: ["h2", "h3", "h4", "h5", "h6"] }],
       [
         rehypeAutolinkHeadings,
         {
