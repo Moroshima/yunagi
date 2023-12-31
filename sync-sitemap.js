@@ -1,3 +1,10 @@
+/**
+ * 因为此前 nextjs 是先 build 再 export，我们可以在二者之间插入 next-sitemap 作为
+ * postbuild script 执行，但是目前版本的 nextjs 废止了 export 导出行为，
+ * 转而将其变为了 next.config.js 中的一个配置项，所以我们在 build 之后除了要执行
+ * next-sitemap 之外，还要手动将其在 public 目录下生成的 sitemap.xml 和 robots.txt
+ * 文件拷贝到 dist 目录下，改脚本即负责实现此拷贝行为。
+ */
 const fs = require("fs/promises");
 const path = require("path");
 
