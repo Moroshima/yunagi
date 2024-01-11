@@ -192,4 +192,4 @@ https://support.apple.com/zh-cn/HT201236
 
 将 `browser.gesture.swipe.left` 更改为 `cmd_scrollLeft`，将 `browser.gesture.swipe.right` 更改为  `cmd_scrollRight`
 
-![image-20231224215844389](assets/image-20231224215844389.png)
+![image-20231224215844389](./assets/image-20231224215844389.png)
