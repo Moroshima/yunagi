@@ -16,6 +16,12 @@ system_profiler SPUSBDataType
 
 from ChatGPT
 
+## lsblk
+
+```bash
+diskutil list
+```
+
 ## 递归删除 .DS_Store
 
 ```bash
@@ -77,6 +83,12 @@ https://docs.brew.sh/Formula-Cookbook#homebrew-terminology
 | **tab**              | information about a **keg**, e.g. whether it was poured from a **bottle** or built from source | `/usr/local/Cellar/foo/0.1/INSTALL_RECEIPT.json`             |
 | **Brew Bundle**      | an [extension of Homebrew](https://github.com/Homebrew/homebrew-bundle) to describe dependencies | `brew 'myservice', restart_service: true`                    |
 | **Brew Services**    | an [extension of Homebrew](https://github.com/Homebrew/homebrew-services) to manage services | `brew services start myservice`                              |
+
+如果你想看看 Cellar：
+
+```bash
+echo $HOMEBREW_CELLAR
+```
 
 ### ENVIRONMENT
 
@@ -171,8 +183,6 @@ brew remove $(brew list --formula)
 ## uprecords
 
 ```bash
-brew update
-brew info uptimed
 brew install uptimed
 brew services start uptimed
 uprecords
@@ -193,3 +203,220 @@ https://support.apple.com/zh-cn/HT201236
 将 `browser.gesture.swipe.left` 更改为 `cmd_scrollLeft`，将 `browser.gesture.swipe.right` 更改为  `cmd_scrollRight`
 
 ![image-20231224215844389](./assets/image-20231224215844389.png)
+
+## 查看文件创建时间与修改时间（精确到秒）
+
+```bash
+GetFileInfo <filename>
+```
+
+## 架构
+
+```bash
+arch
+```
+
+## 检查目录空间占用
+
+让我看看！（大声）
+
+```bash
+du -sh ./node_modules
+```
+
+## Wget
+
+你知道这是啥文件
+
+```bash
+wget -O config.yaml <url>
+```
+
+## lstopo
+
+```bash
+brew install hwloc
+lstopo --output-format ascii
+```
+
+## Java
+
+### 安装
+
+```bash
+brew install java
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+java --version
+```
+
+### 卸载
+
+```bash
+brew uninstall java
+rm /Library/Java/JavaVirtualMachines/openjdk.jdk
+```
+
+## ffmpeg
+
+使用 Apple silicon 内建硬件编码器编码视频
+
+视频编码格式：H.264
+
+视频码率：10Mbps
+
+音频编码格式：AAC
+
+音频采样率：44.1kHz
+
+```bash
+ffmpeg -i input.mov -c:v h264_videotoolbox -b:v 10m -c:a aac -b:a 44.1k output.mp4
+```
+
+## 系统硬件信息
+
+处理器型号
+
+```bash
+sysctl machdep.cpu.brand_string
+```
+
+硬件数据
+
+```bash
+sysctl hw
+```
+
+全部信息
+
+```bash
+sysctl -a
+```
+
+## 电源管理
+
+显示当前系统电源管理配置
+
+```bash
+pmset -g
+```
+
+电源状态
+
+```bash
+pmset -g batt
+```
+
+## Perl
+
+没有 interactive shell
+
+```bash
+perl -e "print 'hello,world!'"
+echo "print 'hello,world!'" | perl
+```
+
+## Zsh
+
+### remove .zsh_sessions
+
+`/etc/zshrc_Apple_Terminal` 中提供了禁用 save/restore mechanism 的方法
+
+```bash
+# The save/restore mechanism as a whole can be disabled by setting an
+# environment variable (typically in `${ZDOTDIR:-$HOME}/.zshenv`):
+#
+#   SHELL_SESSIONS_DISABLE=1
+```
+
+### 历史命令
+
+#### 扩大历史命令留存条数
+
+`/etc/zshrc` 中默认配置如下，只需在 `.zshrc` 中覆盖即可
+
+```bash
+# Save command history
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTSIZE=2000
+SAVEHIST=1000
+```
+
+#### 更进一步优化
+
+参考了依云的配置：[手动保存/读取 zsh 历史记录 - 依云's Blog](https://blog.lilydjwg.me/2013/7/3/manually-save-read-zsh-history-entries.39852.html)
+
+https://zsh.sourceforge.io/Doc/Release/Options.html#History
+
+```bash
+# If a new command line being added to the history list duplicates an older one, the older command is removed from the list (even if it is not the previous event).
+setopt HIST_IGNORE_ALL_DUPS
+# When writing out the history file, by default zsh uses ad-hoc file locking to avoid known problems with locking on some operating systems. With this option locking is done by means of the system’s fcntl call, where this method is available. On recent operating systems this may provide better performance, in particular avoiding history corruption when files are stored on NFS.
+setopt HIST_FCNTL_LOCK
+# Remove superfluous blanks from each command line being added to the history list.
+setopt HIST_REDUCE_BLANKS
+```
+
+#### 解码 `$HISTFILE`
+
+虽然 `$HISTFILE` 是可以直接 `cat` 的，但是实际上 zsh 存的是 metadata，有自定义的编码方式，因此在打印时可以明显看到中文字符被不正确的解码了。
+
+[如何更改zsh历史记录的编码？ - SegmentFault 思否](https://segmentfault.com/q/1010000002517754)
+
+对于这个问题可以使用社区提供的解决方案予以解决：
+
+[Re: Fw: ZSH history file VS. UTF-8 data](https://www.zsh.org/mla/users/2011/msg00154.html)
+
+```bash
+vim zsh_history_cat.c
+```
+
+```c
+#define Meta ((char) 0x83)
+
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+
+/* from zsh utils.c */
+char *unmetafy(char *s, int *len)
+{
+  char *p, *t;
+
+  for (p = s; *p && *p != Meta; p++);
+  for (t = p; (*t = *p++);)
+    if (*t++ == Meta)
+      t[-1] = *p++ ^ 32;
+  if (len)
+    *len = t - s;
+  return s;
+}
+
+int main(int argc, char *argv[]) {
+  char *line = NULL;
+  size_t size;
+
+  while (getline(&line, &size, stdin) != -1) {
+    unmetafy(line, NULL);
+    printf("%s", line);
+  }
+
+  if (line) free(line);
+  return EXIT_SUCCESS;
+}
+```
+
+```bash
+gcc zsh_history_cat.c -o zsh_history_cat
+```
+
+```bash
+cat $HISTFILE | ./zsh_history_cat
+```
+
+### 测试 shell 启动速度
+
+```bash
+for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+```
+
+from [Lazy-load nvm to Reduce ZSH's Startup Time](https://armno.in.th/blog/zsh-startup-time/)
