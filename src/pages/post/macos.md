@@ -420,3 +420,90 @@ for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 ```
 
 from [Lazy-load nvm to Reduce ZSH's Startup Time](https://armno.in.th/blog/zsh-startup-time/)
+
+## 时间机器
+
+### 启用
+
+[使用“时间机器”进行备份 - 官方 Apple 支持 (中国)](https://support.apple.com/zh-cn/104984)
+
+### 关闭
+
+> 考虑到“时间机器”备份会保留 24 小时内的本地快照，过于占用硬盘空间，因此个人选择关闭，以必要时外接硬盘手动备份取代之。
+
+“启动台”>“系统设置”>“通用”，然后点按“时间机器”，移除所有备份磁盘即可关闭“时间机器”备份功能。但这并不能释放本地快照所占用的空间。如果想要删除本地快照（snapshots），需要打开“磁盘工具”，在展开菜单中选中“Data”卷后点按“显示”>“显示 APFS 快照”，之后便可以浏览与删除本地快照。此外还可以通过命令行工具 `tmutil` 管理时间机器相关功能。
+
+> APFS 是一个 CoW 文件系统，因此可以通过快照方式增量存储文件更改，即 snapshots。
+
+### tmutil
+
+> 以下命令均基于 `tmutil version 4.0.0 (built Dec 20 2023)`
+
+最新的 `tmutil` 抛弃了 `tmutil help` 命令来查看帮助，因此直接输入 `tmutil` 即可。
+
+````bash
+tmutil
+````
+
+#### 查看当前 tmutil 版本
+
+```bash
+tmutil version
+```
+
+#### 查看“时间机器”状态
+
+```bash
+tmutil status
+```
+
+若输出结果如下则说明“时间机器”备份功能已经被正确关闭
+
+```text
+Backup session status:
+{
+    ClientID = "com.apple.backupd";
+    Percent = "-1";
+    Running = 0;
+}
+```
+
+#### 打一份本地快照
+
+```bash
+tmutil localsnapshot
+```
+
+#### 列出所有备份
+
+```bash
+tmutil listbackups
+```
+
+#### 查看最近的备份
+
+```bash
+tmutil latestbackup
+```
+
+#### 列出所有本地快照
+
+```bash
+tmutil listlocalsnapshots /
+```
+
+#### 删除本地快照
+
+```bash
+tmutil deletelocalsnapshots [<mount_point> | <snapshot_date>]
+```
+
+下面的命令可以一键删除系统盘中的所有本地快照，释放硬盘空间
+
+```bash
+tmutil deletelocalsnapshots /
+```
+
+## 无法弹出外接硬盘
+
+首先使用 `df -h` 命令查看外接硬盘挂载点，在确定硬盘挂载点后直接使用 `diskutil umount <mount_point>` 命令尝试推出，如果无法弹出，`diskutil` 会给出具体占用该硬盘的进程 pid 及进程名称，在 `pkill` 相关进程后再次尝试 `umount` 即可推出硬盘，需要注意的是杀死进程前需要确认不是重要的系统进程，以防不小心杀死了 WindowServer 进程导致当前会话登出之类的情况出现。
