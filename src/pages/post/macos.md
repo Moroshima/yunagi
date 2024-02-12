@@ -6,7 +6,7 @@
 sudo powermetrics -i 1000 | grep Combined\ Power
 ```
 
-inspired by [【官方双语】苹果你快看一眼啊 - Frore MacBook Air散热改装 #linus谈科技](https://www.bilibili.com/video/BV18b4y1L721)
+inspired by [【官方双语】苹果你快看一眼啊 - Frore MacBook Air 散热改装 #linus 谈科技](https://www.bilibili.com/video/BV18b4y1L721)
 
 ## lsusb
 
@@ -66,23 +66,23 @@ rm -rf ~/Library/Containers/com.isaacmarovitz.Whisky.WhiskyThumbnail/
 
 https://docs.brew.sh/Formula-Cookbook#homebrew-terminology
 
-| term                 | description                                                  | example                                                      |
-| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **formula**          | Homebrew package definition that builds from upstream sources | `/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/f/foo.rb` |
-| **cask**             | Homebrew package definition that installs macOS native applications | `/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/b/bar.rb` |
-| **prefix**           | path in which Homebrew is installed                          | `/usr/local`                                                 |
-| **keg**              | installation destination directory of a given **formula** version | `/usr/local/Cellar/foo/0.1`                                  |
-| **rack**             | directory containing one or more versioned **kegs**          | `/usr/local/Cellar/foo`                                      |
-| **keg-only**         | a **formula** is *keg-only* if it is not symlinked into Homebrew’s prefix | the [`openjdk`](https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/o/openjdk.rb) formula |
-| **opt prefix**       | a symlink to the active version of a **keg**                 | `/usr/local/opt/foo`                                         |
-| **Cellar**           | directory containing one or more named **racks**             | `/usr/local/Cellar`                                          |
-| **Caskroom**         | directory containing one or more named **casks**             | `/usr/local/Caskroom`                                        |
-| **external command** | `brew` subcommand defined outside of the Homebrew/brew GitHub repository | [`brew alias`](https://github.com/Homebrew/homebrew-aliases) |
-| **tap**              | directory (and usually Git repository) of **formulae**, **casks** and/or **external commands** | `/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core`    |
-| **bottle**           | pre-built **keg** poured into a **rack** of the **Cellar** instead of building from upstream sources | `qt--6.5.1.ventura.bottle.tar.gz`                            |
-| **tab**              | information about a **keg**, e.g. whether it was poured from a **bottle** or built from source | `/usr/local/Cellar/foo/0.1/INSTALL_RECEIPT.json`             |
-| **Brew Bundle**      | an [extension of Homebrew](https://github.com/Homebrew/homebrew-bundle) to describe dependencies | `brew 'myservice', restart_service: true`                    |
-| **Brew Services**    | an [extension of Homebrew](https://github.com/Homebrew/homebrew-services) to manage services | `brew services start myservice`                              |
+| term                 | description                                                                                          | example                                                                                           |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **formula**          | Homebrew package definition that builds from upstream sources                                        | `/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/f/foo.rb`                        |
+| **cask**             | Homebrew package definition that installs macOS native applications                                  | `/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/b/bar.rb`                          |
+| **prefix**           | path in which Homebrew is installed                                                                  | `/usr/local`                                                                                      |
+| **keg**              | installation destination directory of a given **formula** version                                    | `/usr/local/Cellar/foo/0.1`                                                                       |
+| **rack**             | directory containing one or more versioned **kegs**                                                  | `/usr/local/Cellar/foo`                                                                           |
+| **keg-only**         | a **formula** is _keg-only_ if it is not symlinked into Homebrew’s prefix                            | the [`openjdk`](https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/o/openjdk.rb) formula |
+| **opt prefix**       | a symlink to the active version of a **keg**                                                         | `/usr/local/opt/foo`                                                                              |
+| **Cellar**           | directory containing one or more named **racks**                                                     | `/usr/local/Cellar`                                                                               |
+| **Caskroom**         | directory containing one or more named **casks**                                                     | `/usr/local/Caskroom`                                                                             |
+| **external command** | `brew` subcommand defined outside of the Homebrew/brew GitHub repository                             | [`brew alias`](https://github.com/Homebrew/homebrew-aliases)                                      |
+| **tap**              | directory (and usually Git repository) of **formulae**, **casks** and/or **external commands**       | `/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core`                                         |
+| **bottle**           | pre-built **keg** poured into a **rack** of the **Cellar** instead of building from upstream sources | `qt--6.5.1.ventura.bottle.tar.gz`                                                                 |
+| **tab**              | information about a **keg**, e.g. whether it was poured from a **bottle** or built from source       | `/usr/local/Cellar/foo/0.1/INSTALL_RECEIPT.json`                                                  |
+| **Brew Bundle**      | an [extension of Homebrew](https://github.com/Homebrew/homebrew-bundle) to describe dependencies     | `brew 'myservice', restart_service: true`                                                         |
+| **Brew Services**    | an [extension of Homebrew](https://github.com/Homebrew/homebrew-services) to manage services         | `brew services start myservice`                                                                   |
 
 如果你想看看 Cellar：
 
@@ -90,34 +90,42 @@ https://docs.brew.sh/Formula-Cookbook#homebrew-terminology
 echo $HOMEBREW_CELLAR
 ```
 
+如果你想看看一个软件包被装在哪里了：
+
+```bash
+brew --prefix <formula>
+```
+
 ### ENVIRONMENT
 
 **仅列出换源所必须的环境变量条目**
 
+> 需要注意的是，即使在完成换源后，Homebrew 也还需要代理才能正常工作（比如从 ghcr.io 拉取 manifests 文件）
+
 https://docs.brew.sh/Manpage#environment
 
-- `HOMEBREW_API_DOMAIN` 
-  Use this URL as the download mirror for Homebrew JSON API. If  metadata files at that URL are temporarily unavailable, the default API  domain will be used as a fallback mirror.
+- `HOMEBREW_API_DOMAIN`
+  Use this URL as the download mirror for Homebrew JSON API. If metadata files at that URL are temporarily unavailable, the default API domain will be used as a fallback mirror.
 
-  *Default:* `https://formulae.brew.sh/api`.
+  _Default:_ `https://formulae.brew.sh/api`.
 
-- `HOMEBREW_AUTOREMOVE` 
+- `HOMEBREW_AUTOREMOVE`
   If set, calls to `brew cleanup` and `brew uninstall` will automatically remove unused formula dependents and if `HOMEBREW_NO_INSTALL_CLEANUP` is not set, `brew cleanup` will start running `brew autoremove` periodically.
 
-- `HOMEBREW_BOTTLE_DOMAIN` 
-  Use this URL as the download mirror for bottles. If bottles at that  URL are temporarily unavailable, the default bottle domain will be used  as a fallback mirror. For example, `HOMEBREW_BOTTLE_DOMAIN=http://localhost:8080` will cause all bottles to download from the prefix `http://localhost:8080/`. If bottles are not available at `HOMEBREW_BOTTLE_DOMAIN` they will be downloaded from the default bottle domain.
+- `HOMEBREW_BOTTLE_DOMAIN`
+  Use this URL as the download mirror for bottles. If bottles at that URL are temporarily unavailable, the default bottle domain will be used as a fallback mirror. For example, `HOMEBREW_BOTTLE_DOMAIN=http://localhost:8080` will cause all bottles to download from the prefix `http://localhost:8080/`. If bottles are not available at `HOMEBREW_BOTTLE_DOMAIN` they will be downloaded from the default bottle domain.
 
-  *Default:* `https://ghcr.io/v2/homebrew/core`.
+  _Default:_ `https://ghcr.io/v2/homebrew/core`.
 
-- `HOMEBREW_BREW_GIT_REMOTE` 
+- `HOMEBREW_BREW_GIT_REMOTE`
   Use this URL as the Homebrew/brew `git`(1) remote.
 
-  *Default:* `https://github.com/Homebrew/brew`.
+  _Default:_ `https://github.com/Homebrew/brew`.
 
-- `HOMEBREW_CORE_GIT_REMOTE` 
+- `HOMEBREW_CORE_GIT_REMOTE`
   Use this URL as the Homebrew/homebrew-core `git`(1) remote.
 
-  *Default:* `https://github.com/Homebrew/homebrew-core`.
+  _Default:_ `https://github.com/Homebrew/homebrew-core`.
 
 此外如果需要更换 homebrew-service tap 源，需要执行如下命令：
 
@@ -127,44 +135,51 @@ brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.u
 
 homebrew-cask-versions tap 源同理，但一般不常使用
 
-更详细的换源配置可参考 [USTC Mirror Help — USTC Mirror Help  文档](https://mirrors.ustc.edu.cn/help/index.html) 或  [homebrew | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/) 相关条目
+更详细的换源配置可参考 [USTC Mirror Help — USTC Mirror Help 文档](https://mirrors.ustc.edu.cn/help/index.html) 或 [homebrew | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/) 相关条目
 
 ### Recommanded Packages
 
-| Name            | Description                                                  | Note |
-| --------------- | ------------------------------------------------------------ | ---- |
-| b2sum           |                                                              |      |
-| bottom          | Yet another cross-platform graphical process/system monitor  |      |
-| emacs           |                                                              |      |
-| fastfetch       |                                                              |      |
-| git             |                                                              |      |
-| htop            |                                                              |      |
-| lua             |                                                              |      |
-| nvm             |                                                              |      |
-| perl            |                                                              |      |
-| pnpm            |                                                              |      |
-| pstree          | Show ps output as a tree                                     |      |
-| ripgrep         | Search tool like grep and The Silver Searcher                |      |
-| ruby            |                                                              |      |
-| sing-box        |                                                              |      |
-| smartmontools   |                                                              |      |
-| starship        |                                                              |      |
-| stow            |                                                              |      |
-| stress          |                                                              |      |
-| tmux            |                                                              |      |
-| tree            |                                                              |      |
-| uptimed         |                                                              |      |
-| vim             |                                                              |      |
-| wget            |                                                              |      |
-| woff2           | Utilities to create and convert Web Open Font File (WOFF) files |      |
-| yarn            |                                                              |      |
-| zsh-completions |                                                              |      |
-| zstd            | Zstandard is a real-time compression algorithm               |      |
+| Name                    | Description                                                               | Note |
+| ----------------------- | ------------------------------------------------------------------------- | ---- |
+| b2sum                   |                                                                           |      |
+| bottom                  | Yet another cross-platform graphical process/system monitor               |      |
+| deno                    |                                                                           |      |
+| emacs                   |                                                                           |      |
+| fastfetch               |                                                                           |      |
+| ffmpeg                  |                                                                           |      |
+| git                     |                                                                           |      |
+| gnupg                   |                                                                           |      |
+| htop                    |                                                                           |      |
+| hwloc                   | Portable abstraction of the hierarchical topology of modern architectures |      |
+| iproute2mac             | CLI wrapper for basic network utilities on macOS - ip command             |      |
+| lua                     |                                                                           |      |
+| lz4                     | Extremely Fast Compression algorithm                                      |      |
+| nvm                     |                                                                           |      |
+| perl                    |                                                                           |      |
+| pnpm                    |                                                                           |      |
+| pstree                  | Show ps output as a tree                                                  |      |
+| qemu                    |                                                                           |      |
+| ripgrep                 | Search tool like grep and The Silver Searcher                             |      |
+| ruby                    |                                                                           |      |
+| smartmontools           |                                                                           |      |
+| starship                |                                                                           |      |
+| stow                    |                                                                           |      |
+| stress                  |                                                                           |      |
+| tmux                    |                                                                           |      |
+| tree                    |                                                                           |      |
+| uptimed                 |                                                                           |      |
+| wget                    |                                                                           |      |
+| woff2                   | Utilities to create and convert Web Open Font File (WOFF) files           |      |
+| yarn                    |                                                                           |      |
+| zsh-autosuggestions     | Fish-like fast/unobtrusive autosuggestions for zsh                        |      |
+| zsh-completions         |                                                                           |      |
+| zsh-syntax-highlighting | Fish shell like syntax highlighting for zsh                               |      |
+| zstd                    | Zstandard is a real-time compression algorithm                            |      |
 
 #### One-click Installation
 
 ```bash
-brew install b2sum bottom emacs fastfetch git htop lua nvm perl pnpm pstree ripgrep ruby sing-box smartmontools starship stow stress tmux tree uptimed vim wget woff2 yarn zsh-completions zstd
+brew install b2sum bottom deno emacs fastfetch ffmpeg git gnupg htop hwloc iproute2mac lua lz4 nvm perl pnpm pstree qemu ripgrep ruby smartmontools starship stow stress tmux tree uptimed wget woff2 yarn zsh-autosuggestions zsh-completions zsh-syntax-highlighting zstd
 ```
 
 #### zsh-completions 额外配置
@@ -192,23 +207,25 @@ from [Uptimed — Notes (notes.autiomaa.org)](https://notes.autiomaa.org/blog/20
 
 ## 快捷键
 
+### macOS
+
 https://support.apple.com/zh-cn/HT201236
 
 - **Option-Shift-Command-V**：粘贴并匹配样式：将周围内容的样式应用到粘贴在该内容中的项目。
+
+### Visual Studio Code
+
+You can toggle word wrap for the VS Code session with **Option+Z (Windows, Linux Alt+Z)**.
+
+https://code.visualstudio.com/docs/editor/codebasics#_how-do-i-turn-on-word-wrap
 
 ## 浏览器禁用双指左右前进后退
 
 [Left Swipe/Previous Page - Can I disable? | I-Firefox Isithangami Sokweseka | Ukwesekwa kwe-Mozilla](https://support.mozilla.org/zu/questions/1359934)
 
-将 `browser.gesture.swipe.left` 更改为 `cmd_scrollLeft`，将 `browser.gesture.swipe.right` 更改为  `cmd_scrollRight`
+将 `browser.gesture.swipe.left` 更改为 `cmd_scrollLeft`，将 `browser.gesture.swipe.right` 更改为 `cmd_scrollRight`
 
 ![image-20231224215844389](./assets/image-20231224215844389.png)
-
-## 查看文件创建时间与修改时间（精确到秒）
-
-```bash
-GetFileInfo <filename>
-```
 
 ## 架构
 
@@ -216,9 +233,25 @@ GetFileInfo <filename>
 arch
 ```
 
-## 检查目录空间占用
+## 文件操作
+
+### 查看文件创建时间与修改时间（精确到秒）
+
+```bash
+GetFileInfo <filename>
+```
+
+### 检查目录空间占用
 
 让我看看！（大声）
+
+### 查看 Mach-O 文件信息
+
+Mach-O is the executable file format of mach based systems, including macOS.
+
+```bash
+otool
+```
 
 ```bash
 du -sh ./node_modules
@@ -360,7 +393,7 @@ setopt HIST_REDUCE_BLANKS
 
 虽然 `$HISTFILE` 是可以直接 `cat` 的，但是实际上 zsh 存的是 metadata，有自定义的编码方式，因此在打印时可以明显看到中文字符被不正确的解码了。
 
-[如何更改zsh历史记录的编码？ - SegmentFault 思否](https://segmentfault.com/q/1010000002517754)
+[如何更改 zsh 历史记录的编码？ - SegmentFault 思否](https://segmentfault.com/q/1010000002517754)
 
 对于这个问题可以使用社区提供的解决方案予以解决：
 
@@ -441,9 +474,9 @@ from [Lazy-load nvm to Reduce ZSH's Startup Time](https://armno.in.th/blog/zsh-s
 
 最新的 `tmutil` 抛弃了 `tmutil help` 命令来查看帮助，因此直接输入 `tmutil` 即可。
 
-````bash
+```bash
 tmutil
-````
+```
 
 #### 查看当前 tmutil 版本
 
@@ -507,3 +540,19 @@ tmutil deletelocalsnapshots /
 ## 无法弹出外接硬盘
 
 首先使用 `df -h` 命令查看外接硬盘挂载点，在确定硬盘挂载点后直接使用 `diskutil umount <mount_point>` 命令尝试推出，如果无法弹出，`diskutil` 会给出具体占用该硬盘的进程 pid 及进程名称，在 `pkill` 相关进程后再次尝试 `umount` 即可推出硬盘，需要注意的是杀死进程前需要确认不是重要的系统进程，以防不小心杀死了 WindowServer 进程导致当前会话登出之类的情况出现。
+
+## nvm
+
+### 更新 Node.js
+
+安装最新 LTS 版本
+
+```bash
+nvm install --lts
+```
+
+移除旧版本
+
+```bash
+nvm uninstall <version>
+```
