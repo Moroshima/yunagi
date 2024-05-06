@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Brethland's Blog",
+    "link": "https://typ.moe",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1207694344",
+    "description": "大萌神可爱捏🥰"
+  },
+  {
+    "name": "JSWN's Blog",
+    "link": "https://blog.jswn9945.xyz",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1272483962",
+    "description": "C# 原教旨主义者，Vue + ASP.NET Core 全栈，Arch 忠实拥趸"
+  },
+  {
+    "name": "Lakphy",
+    "link": "https://lakphy.me",
+    "photo": "https://lakphy.me/avatar.webp",
+    "description": "前端大爹，青柚工作室主席"
+  },
+  {
+    "name": "Matrix72's Blog",
+    "link": "https://www.mtx72.cc",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1723211605",
+    "description": "一个普通的 JC，白河豚，科协手牌最多的男人"
+  },
+  {
+    "name": "Maxtune's Blog",
+    "link": "https://mxte.cc",
+    "photo": "https://imgpawshanghai.mxte.cc/blogsq.png",
+    "description": "人生路漫漫 白鹭常相伴"
+  },
+  {
+    "name": "PiCpo",
+    "link": "http://picpo.top",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=2587188250",
+    "description": "PiCpo…嘿嘿，小小的，香香的，软软的…🥰🥰🥰"
+  },
+  {
+    "name": "punkginger",
+    "link": "http://punkginger.top",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1348203120",
+    "description": "可靠的后端大哥哥，正在尝试实现自己的后端框架"
+  },
+  {
+    "name": "一只孤独的猫猫",
+    "link": "https://blog.cxy621.top",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1580779474",
+    "description": "似乎是个后端开发"
+  },
+  {
+    "name": "希冀枢资料库",
+    "link": "http://nortchell.top",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1581212850",
+    "description": "媒体组大爹，六边形战士❤️（博客维护中）"
+  },
+  {
+    "name": "風楪的博客",
+    "link": "http://fengye404.top",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1129126684",
+    "description": "嘉心糖都是好人捏🥰"
+  },
+  {
+    "name": "XanderC",
+    "link": "https://xanderc.top",
+    "photo": "https://q1.qlogo.cn/g?b=qq&s=640&nk=1019104544",
+    "description": "是栋哥的博客捏"
+  }
+]
