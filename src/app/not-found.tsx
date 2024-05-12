@@ -6,9 +6,9 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div>
+    <main>
       <h1>404 Not Found</h1>
       <p>这里可能没有网页，又或许曾经有过。</p>
-    </div>
+    </main>
   );
 }

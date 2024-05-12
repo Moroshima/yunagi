@@ -1,8 +1,8 @@
 [
   {
     "title": "Moroshima 的奇怪 macOS 命令集",
-    "name": "macos",
-    "tags": ["macOS","shell"],
+    "slug": "macos",
+    "tags": ["macOS", "shell"],
     "date": "2023-12-10T01:24:02",
     "updated": "2024-02-13T07:01:29",
     "categories": ["文章", "技术"],
@@ -10,7 +10,7 @@
   },
   {
     "title": "Debian GNU/Linux sid 折腾指北",
-    "name": "debian-sid-guide",
+    "slug": "debian-sid-guide",
     "tags": ["Linux"],
     "date": "2023-05-16T15:16:46",
     "updated": "2023-10-12T23:29:01",
@@ -19,7 +19,7 @@
   },
   {
     "title": "SPA 路由设计哲学",
-    "name": "routing-design-philosophy",
+    "slug": "routing-design-philosophy",
     "tags": ["开发", "前端"],
     "date": "2022-11-08T15:08:06",
     "updated": "2023-05-11T21:16:38",
@@ -28,7 +28,7 @@
   },
   {
     "title": "低成本 AiMesh 组网小记",
-    "name": "low-cost-aimesh-networking",
+    "slug": "low-cost-aimesh-networking",
     "tags": ["网络"],
     "date": "2022-07-01T15:49:03",
     "updated": "2022-08-02T03:08:51",
@@ -37,7 +37,7 @@
   },
   {
     "title": "更新 .gitignore 的正确姿势",
-    "name": "how-to-update-dot-gitignore",
+    "slug": "how-to-update-dot-gitignore",
     "tags": ["开发", "Git"],
     "date": "2022-04-22T21:16:46",
     "updated": "2022-08-02T03:09:31",
@@ -46,7 +46,7 @@
   },
   {
     "title": "Book List",
-    "name": "book-list",
+    "slug": "book-list",
     "tags": ["文学"],
     "date": "2022-04-02T14:52:04",
     "updated": "2022-08-02T03:10:01",
@@ -55,7 +55,7 @@
   },
   {
     "title": "规范项目的代码提交信息",
-    "name": "how-to-standardize-commit-messages",
+    "slug": "how-to-standardize-commit-messages",
     "tags": ["Git", "工程化"],
     "date": "2022-02-19T05:59:01",
     "updated": "2022-08-02T03:10:15",
@@ -64,7 +64,7 @@
   },
   {
     "title": "结构体学习笔记",
-    "name": "c-structure-study-notes",
+    "slug": "c-structure-study-notes",
     "tags": ["C", "学习笔记"],
     "date": "2020-12-22T14:52:00",
     "updated": "2020-12-22T14:52:00",
@@ -73,7 +73,7 @@
   },
   {
     "title": "「斬霧破竹」",
-    "name": "cut-through-the-fog",
+    "slug": "cut-through-the-fog",
     "tags": ["老婆"],
     "date": "2022-05-29T13:32:18",
     "updated": "2022-05-29T13:32:18",
@@ -82,7 +82,7 @@
   },
   {
     "title": "万葉",
-    "name": "kazuha",
+    "slug": "kazuha",
     "tags": [],
     "date": "2022-02-20T03:32:18",
     "updated": "2022-02-20T03:32:18",
@@ -91,7 +91,7 @@
   },
   {
     "title": "test",
-    "name": "test",
+    "slug": "test",
     "tags": [],
     "date": "1970-01-01T00:00:00",
     "updated": "1970-01-01T00:00:00",

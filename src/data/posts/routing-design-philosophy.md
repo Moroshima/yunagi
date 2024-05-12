@@ -84,7 +84,7 @@ CSR：Client-Side Rendering
 
 ### Hash
 
-e.g. <https://www.example.com/#/home>
+e.g. https://www.example.com/#/home
 
 一个完整的 URL 包括：协议、域名、端口、虚拟目录、文件名、参数、锚。
 
@@ -101,11 +101,11 @@ hash 值指的是 URL 地址中的锚部分，也就是 `#` 后面的部分。ha
 
 ### History
 
-e.g. <https://www.example.com/home/posts>
+e.g. https://www.example.com/home/posts
 
 history 是 2016 年 w3c 在 H5 引入的新特性（`pushState` 和 `replaceState`）（允许浏览器端更新地址而不重新向后端发起请求），**也是我们现如今我们日常上网冲浪时最常见，项目开发中最常用，我个人最推荐使用的路由模式。**
 
-**`History`** 接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。<https://developer.mozilla.org/zh-CN/docs/Web/API/History>
+**`History`** 接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。https://developer.mozilla.org/zh-CN/docs/Web/API/History
 
 主要概念：**历史记录堆栈**
 
@@ -113,10 +113,10 @@ history 是 2016 年 w3c 在 H5 引入的新特性（`pushState` 和 `replaceSta
 
 ### 概述
 
-| 类型                | 形式           | 样例                                                                 |
+| 类型                | 形式           |  样例                                                                |
 | ------------------- | -------------- | -------------------------------------------------------------------- |
-| ★URL Parameters     | /url/:id       | <https://twitter.com/utsuhostoria_/status/1568928564841693185/photo/1> |
-| ★Query Parameters   | /url?id=114514 | <https://www.google.com/search?q=react-router-dom>                     |
+| ★URL Parameters     | /url/:id       | https://twitter.com/utsuhostoria_/status/1568928564841693185/photo/1 |
+| ★Query Parameters   | /url?id=114514 | https://www.google.com/search?q=react-router-dom                     |
 | `useState` with URL | /url           | null                                                                 |
 
 ### 使用
@@ -127,7 +127,7 @@ URL params 作为 URL 的核心组成部分，稳定且不易丢失参数。而 
 
 **在实际项目的使用中我个人建议是将上面两者合理搭配，混合使用。在设计页面渲染的参数传递（例如推特的推文 status 等）时使用 URL params，其余在页面渲染时非必要的参数则可以放置在 Query params 中（例如当前用户所选择的表格的分页配置等）。**
 
-e.g. <https://t.bilibili.com/707596502137045049?spm_id_from=333.999.0.0>
+e.g. https://t.bilibili.com/707596502137045049
 
 从 react-router-dom 对于二者的处理与应用上其对于二者的态度也可看出一二。
 
@@ -224,7 +224,7 @@ Welcome.tsx
 
 我们来看看~~差点~~被 Musk 收购的互联网大厂 Twitter 是怎么做的
 
-e.g. <https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1>
+e.g. https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1
 
 > status*（社群媒体上的）状态，近况
 >
@@ -236,7 +236,7 @@ e.g. <https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1>
 
 ![image-20220926175655608](./assets/image-20220926175655608.png)
 
-那么如果我们删除最后指定图片编号的数字只访问 <https://twitter.com/Sco_ttie/status/1574333204076662784/photo> 会发生什么？这样一个链接在语义上是难以解释的（在路由的逻辑上实际也是如此）：
+那么如果我们删除最后指定图片编号的数字只访问 https://twitter.com/Sco_ttie/status/1574333204076662784/photo 会发生什么？这样一个链接在语义上是难以解释的（在路由的逻辑上实际也是如此）：
 
 ![image-20220926175924592](./assets/image-20220926175924592.png)
 

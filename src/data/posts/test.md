@@ -1,6 +1,6 @@
 https://google.com
 
-<button>Click me</button>
+<hr />
 
 ```text
 hello plain text
