@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function Category() {
-  /* 使用 Set 进行数组去重 */
+  // using Set to remove duplicates from array
   const mergedCategoryArray: string[] = [];
   posts.forEach((value) => {
     mergedCategoryArray.push(...value.categories);

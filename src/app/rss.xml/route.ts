@@ -32,7 +32,7 @@ export async function GET() {
 
   posts.forEach((post: any) => {
     const filePath = path.join(postsDirectory, `${post.slug}.md`);
-    const rawContent = fs.readFileSync(filePath, { encoding: "utf8" });
+    const rawContent = fs.readFileSync(filePath, { encoding: "utf-8" });
 
     // remove title
     const lines = rawContent.split("\n");
