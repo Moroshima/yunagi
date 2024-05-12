@@ -26,11 +26,11 @@ export default function Archive() {
               updated: string;
               categories: string[];
               description: string;
-            }
+            },
           ];
-        }
+        },
       ];
-    }
+    },
   ] = [
     {
       year: new Date(posts[0].date).getFullYear(),

@@ -31,7 +31,7 @@ export default async function PostRender({
     "src",
     "data",
     "posts",
-    `${params.slug}.md`
+    `${params.slug}.md`,
   );
   const source = fs.readFileSync(filePath, { encoding: "utf-8" });
 

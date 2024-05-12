@@ -113,7 +113,7 @@ history 是 2016 年 w3c 在 H5 引入的新特性（`pushState` 和 `replaceSta
 
 ### 概述
 
-| 类型                | 形式           |  样例                                                                |
+| 类型                | 形式           | 样例                                                                 |
 | ------------------- | -------------- | -------------------------------------------------------------------- |
 | ★URL Parameters     | /url/:id       | https://twitter.com/utsuhostoria_/status/1568928564841693185/photo/1 |
 | ★Query Parameters   | /url?id=114514 | https://www.google.com/search?q=react-router-dom                     |
@@ -161,61 +161,61 @@ e.g. https://t.bilibili.com/707596502137045049
 index.tsx
 
 ```tsx
-    <BrowserRouter>
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
-    </BrowserRouter>
+<BrowserRouter>
+  <RecoilRoot>
+    <App />
+  </RecoilRoot>
+</BrowserRouter>
 ```
 
 App.tsx
 
 ```tsx
-    <Routes>
-      <Route index element={<Login />} />
-      {localStorage.getItem("role") === "0" ? (
-        <Route path="/competition" element={<Student />}>
-          <Route index element={<StudentCompetitionList />} />
-          <Route path="welcome" element={<ContestWelcome />} />
-          <Route path=":contestId" element={<StudentQuestions />}>
-            <Route path="question/:problemId" element={<SingleQuestion />} />
-          </Route>
-        </Route>
-      ) : null}
-      {localStorage.getItem("role") === "1" ? (
-        <Route path="/admin" element={<Admin />}>
-          <Route index element={<AdminCompetitionList />}></Route>
-          <Route path=":id" element={<AdminManagePage />}>
-            <Route path="question" element={<QuestionManage />}></Route>
-            <Route path=":problemId" element={<EditProblem />} />
-            <Route path="student" element={<StudentAccount />} />
-            <Route path="creat" element={<CreatQuestion />} />
-          </Route>
-        </Route>
-      ) : null}
-      <Route path="*" element={<Error />}></Route>
-    </Routes>
+<Routes>
+  <Route index element={<Login />} />
+  {localStorage.getItem("role") === "0" ? (
+    <Route path="/competition" element={<Student />}>
+      <Route index element={<StudentCompetitionList />} />
+      <Route path="welcome" element={<ContestWelcome />} />
+      <Route path=":contestId" element={<StudentQuestions />}>
+        <Route path="question/:problemId" element={<SingleQuestion />} />
+      </Route>
+    </Route>
+  ) : null}
+  {localStorage.getItem("role") === "1" ? (
+    <Route path="/admin" element={<Admin />}>
+      <Route index element={<AdminCompetitionList />}></Route>
+      <Route path=":id" element={<AdminManagePage />}>
+        <Route path="question" element={<QuestionManage />}></Route>
+        <Route path=":problemId" element={<EditProblem />} />
+        <Route path="student" element={<StudentAccount />} />
+        <Route path="creat" element={<CreatQuestion />} />
+      </Route>
+    </Route>
+  ) : null}
+  <Route path="*" element={<Error />}></Route>
+</Routes>
 ```
 
 Student.tsx
 
 ```tsx
-    <Layout className="layout">
-      <Header>
-        <FCHeader text="新柚杯比赛系统" logout={true} />
-      </Header>
-      <Outlet />
-    </Layout>
+<Layout className="layout">
+  <Header>
+    <FCHeader text="新柚杯比赛系统" logout={true} />
+  </Header>
+  <Outlet />
+</Layout>
 ```
 
 Welcome.tsx
 
 ```tsx
-    <Layout className="contest-welcome-layout">
-      <Content className="contest-welcome-contest">
-        <SomeContent>
-      </Content>
-    </Layout>
+<Layout className="contest-welcome-layout">
+  <Content className="contest-welcome-contest">
+    <SomeContent>
+  </Content>
+</Layout>
 ```
 
 ### 如果我没有index对应的页面怎么办
@@ -226,7 +226,7 @@ Welcome.tsx
 
 e.g. https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1
 
-> status*（社群媒体上的）状态，近况
+> status\*（社群媒体上的）状态，近况
 >
 > photo ~~不会有人这都要翻译吧~~ 照片，相片
 
@@ -296,7 +296,7 @@ e.g. https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1
 - [MVC - 术语表 | MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/MVC)
 - [怎样通俗的讲解 PHP 和 Apache 的关系？ - 知乎](https://www.zhihu.com/question/19896544/answer/13284800)
 - [前端路由的发展史 · GitBook](http://www.caoyuanpeng.com/Frame/Vue/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2.html)
-- [前端发展历程，前端路由和后端路由，到底有什么区别？_还差的远呢!的博客-CSDN博客](https://blog.csdn.net/qq_45598024/article/details/119299441)
+- [前端发展历程，前端路由和后端路由，到底有什么区别？\_还差的远呢!的博客-CSDN博客](https://blog.csdn.net/qq_45598024/article/details/119299441)
 - [前端和后端 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF)
-- ~~[对于现代开发来说，JavaScript就是一种垃圾语言（转）_weixin_34049032的博客-CSDN博客](https://blog.csdn.net/weixin_34049032/article/details/86274988)~~
-- [java - 前后端分离架构：Web 实现前后端分离，前后端解耦_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000039765982)
+- ~~[对于现代开发来说，JavaScript就是一种垃圾语言（转）\_weixin_34049032的博客-CSDN博客](https://blog.csdn.net/weixin_34049032/article/details/86274988)~~
+- [java - 前后端分离架构：Web 实现前后端分离，前后端解耦\_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000039765982)

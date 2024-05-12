@@ -25,7 +25,7 @@ export default function Category() {
           .sort((a, b) => a.localeCompare(b))
           .map((value, index) => {
             const category = posts.filter((item) =>
-              item.categories.includes(value)
+              item.categories.includes(value),
             );
             const postListItems = category
               .sort((a, b) => a.title.localeCompare(b.title))

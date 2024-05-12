@@ -30,13 +30,13 @@
 
 ~~在安装 Debian 的过程中，只需按照引导一路向下即可，但是你如果使用的是网络安装镜像，在你选择完安装源并完成软件流行度调查选择后的安装流程可能会卡住，有几个包拉取速度极慢，且有很大概率会直接超时报错。这是因为 Debian 在换源时并不会更换 debian-security 源。至于 Debian 在换源时不更换安全源的原因则是 Debian 并无官方认可的镜像，因为 Debian 的安全团队认为“security.debian.org 的宗旨是使安全更新尽可能快且容易地获得。鼓励使用非官方的镜像会增添通常来说没有必要的额外复杂性，而且如果这些镜像没有及时更新的话会导致各种问题。”（参见 [Debian -- Debian 安全 FAQ](https://www.debian.org/security/faq#mirror)，你关于 debian-security 的许多疑问也能在其中得到解答）~~
 
-~~对于此问题可以在安装程序完成 apt 换源配置后显示软件流行度调查选择界面时切换 tty 直接修改 `/etc/apt/sources.list` 中对应源配置来解决，详细配置过程可参考 [Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian无法安全的使用该源_PtrApr的博客-CSDN博客](https://blog.csdn.net/Liangshengabc/article/details/104981585)。~~
+~~对于此问题可以在安装程序完成 apt 换源配置后显示软件流行度调查选择界面时切换 tty 直接修改 `/etc/apt/sources.list` 中对应源配置来解决，详细配置过程可参考 [Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决\_debian无法安全的使用该源\_PtrApr的博客-CSDN博客](https://blog.csdn.net/Liangshengabc/article/details/104981585)。~~
 
 > ~~目前这篇博文被设置为了仅 VIP 可见（咬牙切齿），因此此处我将其核心内容摘录如下：~~
 >
 > ~~在软件包流行度调查界面先不继续下一步安装，按下 CTRL+ALT+F2 组合键切换 tty 后按下 Enter 键，在命令提示符后输入 `chroot /target` 更改根目录，然后输入 `nano /etc/apt/sources.list` 并回车，编辑源配置文件，将其中的 `debian-security` 源替换为 `deb http://mirrors.ustc.edu.cn/debian-security/` 或其他国内 debian-security 镜像源，然后按下 CTRL+O 组合键保存，按下 CTRL+X 组合键退出文本编辑器，最后输入 `exit` 退出 chroot 环境，按下 CTRL+ALT+F6 组合键切换回安装程序界面，在选择是否参与软件包流行度调查后继续安装即可。~~
 >
-> ~~此外该文有转载版本可供查阅：[Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决_debian卡在选择并安装软件_PtrApr的博客-程序员宅基地 - 程序员宅基地](https://www.cxyzjd.com/article/Liangshengabc/104981585)~~
+> ~~此外该文有转载版本可供查阅：[Debian系(包括Kali)安装时无法换源的问题(可能表现为：“安装步骤失败：选择并安装软件”)的解决\_debian卡在选择并安装软件\_PtrApr的博客-程序员宅基地 - 程序员宅基地](https://www.cxyzjd.com/article/Liangshengabc/104981585)~~
 
 ## 更换 sid 源并更新到 sid
 
@@ -104,9 +104,11 @@ sudo apt autoremove
 ## 我究竟该不该使用 Debian sid？
 
 就我个人的体验来看，虽然是 unstable 版本，但是 Debian sid 并不 unstable，日常使用还是较为稳定的。个人看来其与 Arch Linux 等发行版的激进程度排序差不多为
+
 $$
 Arch\ Linux \gtrapprox Fedora\ Linux > Debian(sid) > Ubuntu \gg Debian(stable)
 $$
+
 只能说 Debian sid 相比 Arch 与 Fedora 的激进还是稍逊一筹的，Arch 这种滚动发行版自不用说，Fedora 在被 Linus 批评过内核版本跟进不及时后内核版本更新的激进程度甚至偶尔会超过 Arch Linux 这种正统的滚动发行版。当然也不排除是因为我体验 Debian sid 正赶上了 bookworm testing 版本的 freeze，导致 Debian sid 相较之下略不激进。毕竟在 QA 里 Debian 可是这样警告用户的：“如果你觉得你可以处理损坏的 Debian 系统的话，当然可以（在你的桌面机器上使用 sid）。你知道在 libpam0g 破损、阻止所有用户登陆的情况下该怎么做吗？你知道在 grub 破损导致引导过程卡死的情况下该怎么做吗？这些事情都发生过。它们可能会再次发生。”
 
 ## 参考
