@@ -1,6 +1,6 @@
+import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
-import { Metadata } from "next";
 import Image from "next/image";
 import Markdown from "@components/markdown";
 

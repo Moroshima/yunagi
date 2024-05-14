@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import aphorisms from "@data/aphorisms.json";
 
 export default function Aphorism() {

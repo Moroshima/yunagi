@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Aphorism from "@components/aphorism";
 
 export const metadata: Metadata = {

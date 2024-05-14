@@ -1,8 +1,8 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import posts from "@data/posts.json";
-import toChineseNumeral from "@utils/archive/toChineseNumeral";
 import toChineseMonth from "@utils/archive/toChineseMonth";
+import toChineseNumeral from "@utils/archive/toChineseNumeral";
 
 export const metadata: Metadata = {
   title: "归档 | Moroshima's Blog",

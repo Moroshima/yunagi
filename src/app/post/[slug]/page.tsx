@@ -1,6 +1,6 @@
+import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Comment from "@components/comment";
 import Markdown from "@components/markdown";

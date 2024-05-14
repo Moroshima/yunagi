@@ -1,11 +1,11 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
-import rehypeShiki from "@shikijs/rehype";
 import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeShiki from "@shikijs/rehype";
 
 export default function Markdown(props: { source: string }) {
   return (
