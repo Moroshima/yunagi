@@ -1,7 +1,9 @@
 {
+  "endOfLine": "auto",
   "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-autocorrect",
-    "@ianvs/prettier-plugin-sort-imports"
+    "prettier-plugin-packagejson"
   ],
   "importOrder": [
     "<TYPES>^(node:)",

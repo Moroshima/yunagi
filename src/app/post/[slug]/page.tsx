@@ -19,19 +19,20 @@ export default async function PostRender({
 }: {
   params: { slug: string };
 }) {
-  const post = posts.find((item) => item.slug === params.slug);
+  const { slug } = await params;
+  const post = posts.find((item) => item.slug === slug);
   post ? null : notFound();
 
   metadata = {
     title: `${post?.title} | Moroshima's Blog`,
   };
 
-  const filePath = path.join(
+  const filePath = await path.join(
     process.cwd(),
     "src",
     "data",
     "posts",
-    `${params.slug}.md`,
+    `${slug}.md`,
   );
   const source = fs.readFileSync(filePath, { encoding: "utf-8" });
 
