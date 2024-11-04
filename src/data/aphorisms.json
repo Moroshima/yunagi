@@ -1,47 +1,131 @@
-[
-  {
-    "aphorism": "Everything faded into mist.\nThe past was erased, the erasure was forgotten, the lie became truth.",
-    "author": "George Orwell",
-    "source": "Nineteen Eighty-Four"
-  },
-  {
-    "aphorism": "Perhaps a man really dies when his brain stops, when he loses the power to take in a new idea.",
-    "author": "George Orwell",
-    "source": "Coming Up for Air"
-  },
-  {
-    "aphorism": "All animals are equal, but some animals are more equal than others.",
-    "author": "George Orwell",
-    "source": "Animal Farm"
-  },
-  {
-    "aphorism": "If liberty means anything at all, it means the right to tell people what they do not want to hear.",
-    "author": "George Orwell",
-    "source": "Animal Farm"
-  },
-  {
-    "aphorism": "To see what is in front of one's nose needs a constant struggle.",
-    "author": "George Orwell",
-    "source": "In Front of Your Nose"
-  },
-  {
-    "aphorism": "Fate seemed to be playing a series of extraordinarily unamusing jokes.",
-    "author": "George Orwell",
-    "source": "Down and Out in Paris and London"
-  },
-  {
-    "aphorism": "Beauty is meaningless until it is shared.",
-    "author": "George Orwell",
-    "source": "Burmese Days"
-  },
-  {
-    "aphorism": "Nationalism is power-hunger tempered by self-deception.",
-    "author": "George Orwell",
-    "source": "Notes on Nationalism"
-  },
-  {
-    "aphorism": "The nationalist not only does not disapprove of atrocities committed by his own side, but he has a remarkable capacity for not even hearing about them.",
-    "author": "George Orwell",
-    "source": "Notes on Nationalism"
-  }
-]
+{
+  "$schema": "./aphorisms.schema.json",
+  "aphorisms": [
+    {
+      "aphorism": "Everything faded into mist.\nThe past was erased, the erasure was forgotten, the lie became truth.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Nineteen Eighty-Four"
+    },
+    {
+      "aphorism": "Perhaps a man really dies when his brain stops, when he loses the power to take in a new idea.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Coming Up for Air"
+    },
+    {
+      "aphorism": "All animals are equal, but some animals are more equal than others.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Animal Farm"
+    },
+    {
+      "aphorism": "If liberty means anything at all, it means the right to tell people what they do not want to hear.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Animal Farm"
+    },
+    {
+      "aphorism": "To see what is in front of one's nose needs a constant struggle.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "In Front of Your Nose"
+    },
+    {
+      "aphorism": "Fate seemed to be playing a series of extraordinarily unamusing jokes.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Down and Out in Paris and London"
+    },
+    {
+      "aphorism": "Beauty is meaningless until it is shared.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Burmese Days"
+    },
+    {
+      "aphorism": "Nationalism is power-hunger tempered by self-deception.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Notes on Nationalism"
+    },
+    {
+      "aphorism": "The nationalist not only does not disapprove of atrocities committed by his own side, but he has a remarkable capacity for not even hearing about them.",
+      "author": "George Orwell",
+      "lang": "en",
+      "source": "Notes on Nationalism"
+    },
+    {
+      "aphorism": "中國的豆腐也是很好吃的東西，世界第一。\n永別了！ ",
+      "author": "瞿秋白",
+      "lang": "zh-Hant",
+      "source": "多餘的话"
+    },
+    {
+      "aphorism": "死者倘不埋在活人的心中，那就真真死掉了。",
+      "author": "魯迅",
+      "lang": "zh-Hant",
+      "source": "華蓋集續編·空談"
+    },
+    {
+      "aphorism": "Kein Mensch bekämpft die Freiheit; er bekämpft höchstens die Freiheit der anderen.",
+      "author": "Karl Marx",
+      "lang": "de",
+      "source": "Debatten über Pressefreiheit und Publikation der Landständischen Verhandlungen"
+    },
+    {
+      "aphorism": "So gut, wie jeder schreiben und lesen lernt, muss jeder schreiben und lesen dürfen.",
+      "author": "Karl Marx",
+      "lang": "de",
+      "source": "Debatten über Pressefreiheit und Publikation der Landständischen Verhandlungen"
+    },
+    {
+      "aphorism": "Der Mensch ist denselben Gesetzen unterworfen wie die Natur. Macht und Freiheit sind identisch.",
+      "author": "Karl Marx",
+      "lang": "de",
+      "source": "Die heilige Familie"
+    },
+    {
+      "aphorism": "Die Arbeiter haben kein Vaterland.",
+      "author": "Marx/Engels",
+      "lang": "de",
+      "source": "Manifest der Kommunistischen Partei, II"
+    },
+    {
+      "aphorism": "Die Geschichte aller bisherigen Gesellschaft ist die Geschichte von Klassenkämpfen.",
+      "author": "Marx/Engels",
+      "lang": "de",
+      "source": "Manifest der Kommunistischen Partei, I"
+    },
+    {
+      "aphorism": "Die moderne Staatsgewalt ist nur ein Ausschuss, der die gemeinschaftlichen Geschäfte der ganzen Bourgeoisklasse verwaltet.",
+      "author": "Marx/Engels",
+      "lang": "de",
+      "source": "Manifest der Kommunistischen Partei, I"
+    },
+    {
+      "aphorism": "In demselben Maße, in dem die Widerwärtigkeit der Arbeit wächst, nimmt daher der Lohn ab.",
+      "author": "Marx/Engels",
+      "lang": "de",
+      "source": "Manifest der Kommunistischen Partei, I"
+    },
+    {
+      "aphorism": "Свобода в государстве, есть ложь.",
+      "author": "Михаил Александрович Бакунин",
+      "lang": "ru",
+      "source": "Государственность и Анархия"
+    },
+    {
+      "aphorism": "Что свобода без социализма — это привилегия, несправедливость, и что социализм без свободы — это рабство и животное состояние.",
+      "author": "Михаил Александрович Бакунин",
+      "lang": "ru",
+      "source": "Федерализм, социализм и антитеологизм"
+    },
+    {
+      "aphorism": "Народ может и без нас обойтись, мы без него не можем.",
+      "author": "Михаил Александрович Бакунин",
+      "lang": "ru",
+      "source": "Народное дело"
+    }
+  ]
+}

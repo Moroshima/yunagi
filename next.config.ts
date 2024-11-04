@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   output: "export",
   distDir: process.env.NODE_ENV === "production" ? "build" : ".next",
   images: { unoptimized: true },

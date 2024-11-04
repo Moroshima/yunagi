@@ -1,6 +1,6 @@
 # 夕凪
 
-![Static Badge](https://img.shields.io/badge/version-2.0.0-blue)
+![Static Badge](https://img.shields.io/badge/version-2.0.0--alpha-blue)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Moroshima/yunagi/.github%2Fworkflows%2Fdeploy.yaml)
 ![GitHub License](https://img.shields.io/github/license/Moroshima/yunagi)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Moroshima/yunagi)
@@ -10,6 +10,79 @@
 [简体中文](./README.md) | [English](./README.en.md)
 
 夕凪，意指傍晚时分，海边无风之须臾。是基于 Next.js 与 Markdown 所开发的博客系统。
+
+## Known Issues
+
+Ranked in descending order of severity.
+
+### `shiki` package should be specifically installed
+
+To avoid the warning below, we have to install `shiki` separately when using `@shikijs/rehype`.
+
+```text
+ ⚠ ./node_modules/.pnpm/shiki@1.22.2/node_modules/shiki/dist
+Package shiki can't be external
+The request shiki/wasm matches serverExternalPackages (or the default list).
+The request could not be resolved by Node.js from the project directory.
+Packages that should be external need to be installed in the project directory, so they can be resolved from the output files.
+Try to install it into the project directory by running npm install shiki from the project directory.
+```
+
+related issue: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · Issue #68805 · vercel/next.js](https://github.com/vercel/next.js/issues/68805)
+
+### unmet peer `react` and `react-dom` with `@giscus/react`
+
+```text
+ WARN  Issues with peer dependencies found
+.
+└─┬ @giscus/react 3.0.0
+  ├── ✕ unmet peer react@"^16 || ^17 || ^18": found 19.0.0-rc-02c0e824-20241028
+  └── ✕ unmet peer react-dom@"^16 || ^17 || ^18": found 19.0.0-rc-02c0e824-20241028
+```
+
+### deprecated `eslint@^8` and its subdependencies
+
+```text
+ WARN  deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  5 deprecated subdependencies found: @humanwhocodes/config-array@0.13.0, @humanwhocodes/object-schema@2.0.3, glob@7.2.3, inflight@1.0.6, rimraf@3.0.2
+```
+
+### `react` and `react-dom` have not release stable version for `19`
+
+### `@types/react` and `@types/react-dom` haven't been updated to `^19`
+
+## References
+
+### Development
+
+- [Building Your Application: Upgrading | Next.js](https://nextjs.org/docs/app/building-your-application/upgrading/version-15)
+- [React 19 RC Upgrade Guide – React](https://react.dev/blog/2024/04/25/react-19-upgrade-guide)
+- [Deploying: Static Exports | Next.js](https://nextjs.org/docs/app/building-your-application/deploying/static-exports#unsupported-features)
+
+### Stack
+
+- [next.js/packages/create-next-app/templates/index.ts at v15.0.2 · vercel/next.js](https://github.com/vercel/next.js/blob/v15.0.2/packages/create-next-app/templates/index.ts)
+- [Architecture: Turbopack | Next.js](https://nextjs.org/docs/architecture/turbopack#unsupported-features)
+- [lint-staged/lint-staged: 🚫💩 — Run linters on git staged files](https://github.com/lint-staged/lint-staged?tab=readme-ov-file#configuration)
+- [Configuration Files - ESLint - Pluggable JavaScript Linter](https://eslint.org/docs/v8.x/use/configure/configuration-files)
+- [JSON Schema](https://json-schema.org/)
+- [Configuration File · Prettier](https://prettier.io/docs/en/configuration)
+
+### Other
+
+- [mklink | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/mklink)
+- [Locale (computer software) - Wikipedia](<https://en.wikipedia.org/wiki/Locale_(computer_software)>)
+- [IETF language tag - Wikipedia](https://en.wikipedia.org/wiki/IETF_language_tag)
+- [List of ISO 639 language codes - Wikipedia](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
+
+## TODO
+
+Next.js plans to deprecate the Route Segment Config options used by Route Handles in the future. Since we currently rely on these for Static Site Generation (SSG), we should migrate to `dynamicIO` and `use cache`.
+
+### References
+
+- [File Conventions: Route Segment Config | Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)
+- [next.config.js Options: dynamicIO | Next.js](https://nextjs.org/docs/app/api-reference/next-config-js/dynamicIO)
 
 ## Hello New World
 

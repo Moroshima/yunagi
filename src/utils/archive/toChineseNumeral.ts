@@ -12,7 +12,7 @@ export default function toChineseNumeral(num: number): string {
     "9": "九",
   };
 
-  let str = num.toString();
+  const str = num.toString();
   let result = "";
 
   for (let i = 0; i < str.length; i++) {

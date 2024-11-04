@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "navigation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "zh_name": {
+            "type": "string"
+          },
+          "en_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["url", "zh_name", "en_name"]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": ["$schema", "navigation"]
+}

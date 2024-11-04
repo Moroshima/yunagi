@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
-import { notFound } from "next/navigation";
 import Comment from "@components/comment";
 import Markdown from "@components/markdown";
-import posts from "@data/posts.json";
+import postsData from "@data/posts.json";
+
+const { posts } = postsData;
 
 export async function generateStaticParams() {
   return posts.map((post) => ({
@@ -17,11 +18,10 @@ let metadata: Metadata = {};
 export default async function PostRender({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
-  post ? null : notFound();
 
   metadata = {
     title: `${post?.title} | Moroshima's Blog`,

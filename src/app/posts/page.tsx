@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import posts from "@data/posts.json";
+import postsData from "@data/posts.json";
+
+const { posts } = postsData;
 
 export const metadata: Metadata = {
   title: "文章 | Moroshima's Blog",

@@ -14,7 +14,7 @@ export default function toChineseMonth(num: number): string {
     "12": "十二",
   };
 
-  let result = chineseMonthMap[num.toString()];
+  const result = chineseMonthMap[num.toString()];
 
   return result;
 }

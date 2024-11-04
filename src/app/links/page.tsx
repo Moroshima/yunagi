@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import links from "@data/links.json";
+import linksData from "@data/links.json";
+
+const { links } = linksData;
 
 export const metadata: Metadata = {
   title: "友链 | Moroshima's Blog",

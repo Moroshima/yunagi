@@ -1,11 +1,14 @@
-import { MetadataRoute } from "next";
-import navigation from "@data/navigation.json";
-import posts from "@data/posts.json";
+import type { MetadataRoute } from "next";
+import navigationData from "@data/navigation.json";
+import postsData from "@data/posts.json";
 
 const SITE_URL = `https://${process.env.SITE_DOMAIN}`;
 
+const { navigation } = navigationData;
+const { posts } = postsData;
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  let siteMapUrls: {
+  const siteMapUrls: {
     url: string;
     lastModified: Date;
     changeFrequency: "yearly" | "monthly" | "weekly";
@@ -41,3 +44,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return siteMapUrls;
 }
+
+export const dynamic = "force-static";

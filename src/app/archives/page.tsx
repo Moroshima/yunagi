@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import posts from "@data/posts.json";
+import postsData from "@data/posts.json";
 import toChineseMonth from "@utils/archive/toChineseMonth";
 import toChineseNumeral from "@utils/archive/toChineseNumeral";
+
+const { posts } = postsData;
 
 export const metadata: Metadata = {
   title: "归档 | Moroshima's Blog",
@@ -133,19 +135,21 @@ export default function Archive() {
           常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。
         </p>
         <div>
-          {archiveArray.map((value, index) => (
-            <div key={`archive-year-${value.year}-wrapper`}>
-              <h2 key={`archive-year-${value.year}`}>
+          {archiveArray.map((value) => (
+            <div key={`archive-${value.year}-wrapper`}>
+              <h2 key={`archive-${value.year}`}>
                 {toChineseNumeral(value.year)}
               </h2>
               {value.next.map((subValue) => (
-                <div key={`archive-year-${subValue.month}-wrapper`}>
-                  <h3 key={`archive-year-${subValue.month}`}>
+                <div key={`subarchive-${value.year}-${subValue.month}-wrapper`}>
+                  <h3 key={`subarchive-${value.year}-${subValue.month}`}>
                     {toChineseMonth(subValue.month)}
                   </h3>
                   <ul>
-                    {subValue.posts.map((subSubValue) => (
-                      <li key={`post-${value.year}-${subValue.month}-${index}`}>
+                    {subValue.posts.map((subSubValue, subSubIndex) => (
+                      <li
+                        key={`post-${value.year}-${subValue.month}-${subSubIndex}`}
+                      >
                         <Link href={"post/" + subSubValue.slug}>
                           {subSubValue.title}
                         </Link>

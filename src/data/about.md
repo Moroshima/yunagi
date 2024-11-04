@@ -19,7 +19,6 @@
 - iPad Pro 11″
 - iPhone 12
 - α6400
-- Xbox Series S
 
 ## 本站
 
