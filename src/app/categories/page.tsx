@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
 
+const { title, blurbs } = globalConfig;
 const { posts } = postsData;
 
 export const metadata: Metadata = {
-  title: "分类 | Moroshima's Blog",
+  title: `分类 | ${title}`,
 };
 
 export default function Category() {
@@ -21,7 +23,7 @@ export default function Category() {
     <main>
       <h1>分类</h1>
       <hr />
-      <p>今宵酒醒何处？杨柳岸，晓风残月。 此去经年，应是良辰好景虚设。</p>
+      <p>{blurbs.categories}</p>
       <div>
         {uniqueCategoryArray
           .sort((a, b) => a.localeCompare(b))

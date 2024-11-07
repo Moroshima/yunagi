@@ -1,10 +1,13 @@
 import type { MetadataRoute } from "next";
-import navigationData from "@data/navigation.json";
+import globalConfig from "@data/configs/global.json";
+import navigationConfig from "@data/configs/navigation.json";
 import postsData from "@data/posts.json";
 
-const SITE_URL = `https://${process.env.SITE_DOMAIN}`;
+const { domain } = globalConfig;
 
-const { navigation } = navigationData;
+const siteUrl = `https://${domain}`;
+
+const { navigation } = navigationConfig;
 const { posts } = postsData;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: number;
   }[] = [
     {
-      url: SITE_URL,
+      url: siteUrl,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
@@ -25,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   navigation.forEach((item) => {
     if (item.url && item.url !== "/") {
       siteMapUrls.push({
-        url: `${SITE_URL}/${item.url}`,
+        url: `${siteUrl}/${item.url}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.9,
@@ -35,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   posts.forEach((post) => {
     siteMapUrls.push({
-      url: `${SITE_URL}/post/${post.slug}`,
+      url: `${siteUrl}/post/${post.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,

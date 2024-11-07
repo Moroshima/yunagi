@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "domain": "yunagi.dev",
+  "owner": "Moroshima",
+  "title": "Moroshima's Blog",
+  "description": "却顾所来径，苍苍横翠微。",
+  "blurbs": {
+    "posts": "风消焰蜡，露浥红莲，花市光相射。桂华流瓦。纤云散，耿耿素娥欲下。",
+    "archives": "常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。",
+    "categories": "今宵酒醒何处？杨柳岸，晓风残月。 此去经年，应是良辰好景虚设。",
+    "links": "携手江村。梅雪飘裙。情何限、处处消魂。故人不见，旧曲重闻。向望湖楼，孤山寺，涌金门。",
+    "about": "欲买桂花同载酒，终不似，少年游。"
+  },
+  "notFound": {
+    "title": "/dev/null",
+    "aphorism": {
+      "content": "你說你不想在這裡\n我也不想在這裡\n但天黑的太快想走早就來不及",
+      "author": "草東沒有派對",
+      "lang": "zh-Hant",
+      "source": "瓦合·但"
+    }
+  },
+  "rss": {
+    "imageUrl": "images/Snipaste_2023-05-04_21-03-25.png"
+  }
+}

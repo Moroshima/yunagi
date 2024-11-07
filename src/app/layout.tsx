@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import navigationData from "@data/navigation.json";
+import globalConfig from "@data/configs/global.json";
+import navigationConfig from "@data/configs/navigation.json";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const { navigation } = navigationData;
+const { title, description } = globalConfig;
+const { navigation } = navigationConfig;
 
 export const metadata: Metadata = {
-  title: "Moroshima's Blog",
-  description: "却顾所来径，苍苍横翠微。",
+  title: title,
+  description: description,
 };
 
 export default function RootLayout({
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="zh-Hans">
       <body className={inter.className}>
-        <Link href="/">Moroshima&apos;s Blog</Link>
+        <Link href="/">{title}</Link>
         <div>
           {navigation.map((value, index) => {
             return (

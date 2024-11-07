@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import globalConfig from "@data/configs/global.json";
 import linksData from "@data/links.json";
 
-const { links } = linksData;
+const { title, blurbs } = globalConfig;
+const { introduction, links } = linksData;
 
 export const metadata: Metadata = {
-  title: "友链 | Moroshima's Blog",
+  title: `友链 | ${title}`,
 };
 
 export default function Links() {
@@ -13,11 +15,9 @@ export default function Links() {
     <main>
       <h1>友链</h1>
       <hr />
-      <p>
-        携手江村。梅雪飘裙。情何限、处处消魂。故人不见，旧曲重闻。向望湖楼，孤山寺，涌金门。
-      </p>
+      <p>{blurbs.links}</p>
       <div>
-        <p>我的一些朋友们：</p>
+        <p>{introduction}</p>
         <div>
           {links
             .sort((a, b) => a.name.localeCompare(b.name))

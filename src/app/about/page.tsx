@@ -1,44 +1,37 @@
 import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
-import Image from "next/image";
 import Markdown from "@components/markdown";
+import globalConfig from "@data/configs/global.json";
+
+const { title, blurbs } = globalConfig;
 
 export const metadata: Metadata = {
-  title: "关于 | Moroshima's Blog",
+  title: `关于 | ${title}`,
 };
 
 export default function About() {
-  const filePath = path.join(process.cwd(), "src", "data", "about.md");
-  const source = fs.readFileSync(filePath, { encoding: "utf8" });
+  // if .md file exists, read it; otherwise, read .mdx file
+  const mdFilePath = path.join(process.cwd(), "src", "data", "about.md");
+  const mdxFilePath = path.join(process.cwd(), "src", "data", "about.mdx");
+
+  let source = "";
+
+  if (fs.existsSync(mdFilePath)) {
+    source = fs.readFileSync(mdFilePath, { encoding: "utf8" });
+  } else if (fs.existsSync(mdxFilePath)) {
+    source = fs.readFileSync(mdxFilePath, { encoding: "utf8" });
+  } else {
+    console.error("Neither .md nor .mdx file found.");
+  }
 
   return (
     <main>
       <div>
         <h1>关于</h1>
         <hr />
-        <p>欲买桂花同载酒，终不似，少年游。</p>
+        <p>{blurbs.about}</p>
         <div>
-          <div>
-            <Image
-              width={100}
-              height={100}
-              src="https://q1.qlogo.cn/g?b=qq&s=640&nk=2524332942"
-              alt={"profile-photo"}
-            />
-            <p>
-              <strong>Itsuki Moroshima</strong>
-            </p>
-            <p>一般通过废物 | Anarchist | INFP-T</p>
-          </div>
-          <br />
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <p>渺小的伤感只会把世界引向毁灭，少年！</p>
-            <p>——機動戦士Ζガンダム</p>
-          </div>
           <Markdown source={source} />
         </div>
       </div>

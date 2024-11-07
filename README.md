@@ -79,6 +79,9 @@ related issue: [Turbopack can't locate serverExternalPackages if installed via p
 
 Next.js plans to deprecate the Route Segment Config options used by Route Handles in the future. Since we currently rely on these for Static Site Generation (SSG), we should migrate to `dynamicIO` and `use cache`.
 
+- [ ] Chinese and English switch button
+- [ ] Dark mode switch button
+
 ### References
 
 - [File Conventions: Route Segment Config | Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)

@@ -2,6 +2,7 @@
   "name": "yunagi",
   "version": "2.0.0-alpha",
   "private": true,
+  "license": "MPL-2.0",
   "scripts": {
     "build": "next build",
     "bump": "npm-check-updates -i && pnpm install",

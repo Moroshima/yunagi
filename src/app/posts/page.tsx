@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
 
+const { title, blurbs } = globalConfig;
 const { posts } = postsData;
 
 export const metadata: Metadata = {
-  title: "文章 | Moroshima's Blog",
+  title: `文章 | ${title}`,
 };
 
 export default function Post() {
@@ -17,7 +19,7 @@ export default function Post() {
     <main>
       <h1>文章</h1>
       <hr />
-      <p>风消焰蜡，露浥红莲，花市光相射。桂华流瓦。纤云散，耿耿素娥欲下。</p>
+      <p>{blurbs.posts}</p>
       <div>
         <ul>
           {sortedPosts.map((value, index) => (

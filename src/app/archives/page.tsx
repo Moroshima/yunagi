@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
 import toChineseMonth from "@utils/archive/toChineseMonth";
 import toChineseNumeral from "@utils/archive/toChineseNumeral";
 
+const { title, blurbs } = globalConfig;
 const { posts } = postsData;
 
 export const metadata: Metadata = {
-  title: "归档 | Moroshima's Blog",
+  title: `归档 | ${title}`,
 };
 
 export default function Archive() {
@@ -131,9 +133,7 @@ export default function Archive() {
       <div>
         <h1>归档</h1>
         <hr />
-        <p>
-          常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。
-        </p>
+        <p>{blurbs.archives}</p>
         <div>
           {archiveArray.map((value) => (
             <div key={`archive-${value.year}-wrapper`}>

@@ -2,11 +2,13 @@ import fs from "fs";
 import path from "path";
 import { marked } from "marked";
 import RSS from "rss";
+import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
 
+const { domain, owner, title, description, rss } = globalConfig;
 const { posts } = postsData;
 
-const SITE_URL = `https://${process.env.SITE_DOMAIN}`;
+const siteUrl = `https://${domain}`;
 
 const renderer = {
   image({
@@ -18,7 +20,7 @@ const renderer = {
     title: string | null;
     text: string;
   }) {
-    const newHref = href.replace("./assets", `${SITE_URL}/images`);
+    const newHref = href.replace("./assets", `${siteUrl}/images`);
     return `<img src="${newHref}" alt="${text}" title="${title}">`;
   },
 };
@@ -29,13 +31,13 @@ export async function GET() {
   const postsDirectory = path.join(process.cwd(), "src", "data", "posts");
 
   const feed = new RSS({
-    title: "RSS Feed | Moroshima's Blog",
-    description: "却顾所来径，苍苍横翠微。",
-    site_url: SITE_URL,
-    feed_url: `${SITE_URL}/rss.xml`,
-    image_url: `${SITE_URL}/images/Snipaste_2023-05-04_21-03-25.ico`,
+    title: `RSS Feed | ${title}`,
+    description: description,
+    site_url: siteUrl,
+    feed_url: `${siteUrl}/rss.xml`,
+    image_url: `${siteUrl}/${rss.imageUrl}`,
     pubDate: new Date(),
-    copyright: `Copyright © ${new Date().getFullYear()} Moroshima. Ver.${
+    copyright: `Copyright © ${new Date().getFullYear()} ${owner}. Ver.${
       process.env.VERSION
     }`,
   });
@@ -61,7 +63,7 @@ export async function GET() {
       feed.item({
         title: post?.title,
         date: post?.date,
-        url: `${SITE_URL}/post/${post?.slug}`,
+        url: `${siteUrl}/post/${post?.slug}`,
         description: post?.description,
         custom_elements: [{ "content:encoded": marked.parse(content) }],
       });
