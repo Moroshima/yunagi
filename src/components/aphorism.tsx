@@ -9,6 +9,7 @@ export default function Aphorism() {
   const [aphorism, setAphorism] = useState<{
     aphorism: string;
     author: string;
+    lang: string;
     source: string;
   } | null>(null);
 
@@ -21,7 +22,7 @@ export default function Aphorism() {
   }
 
   return (
-    <div>
+    <div lang={aphorism?.lang}>
       <p>{aphorism?.aphorism}</p>
       <p>
         <span>{aphorism?.author}.</span> <em>{aphorism?.source}.</em>

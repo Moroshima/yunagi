@@ -11,10 +11,10 @@ export default function NotFound() {
   return (
     <main>
       <h1>{notFound.title}</h1>
-      <p>404 Not Found</p>
+      <p>{notFound.subtitle}</p>
       <p>{notFound.aphorism.content}</p>
       <p>
-        <span>{notFound.aphorism.author}</span>{" "}
+        <span>{notFound.aphorism.author}</span>&nbsp;
         <em>{notFound.aphorism.source}</em>
       </p>
     </main>

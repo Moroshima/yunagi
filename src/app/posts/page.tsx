@@ -3,7 +3,7 @@ import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
 
-const { title, blurbs } = globalConfig;
+const { title, subtitles } = globalConfig;
 const { posts } = postsData;
 
 export const metadata: Metadata = {
@@ -18,14 +18,14 @@ export default function Post() {
   return (
     <main>
       <h1>文章</h1>
-      <hr />
-      <p>{blurbs.posts}</p>
+      <p>{subtitles.posts}</p>
       <div>
         <ul>
           {sortedPosts.map((value, index) => (
             <li key={`post-${index}`}>
-              <Link href={"post/" + value.slug}>{value.title}</Link>
-              {value.tags.map((value, index) => (
+              <Link href={`post/${value.slug}`}>{value.title}</Link>
+              <span>{value.lang}</span>
+              {value.keywords.map((value, index) => (
                 <span key={`tag-${index}`}>{value}</span>
               ))}
             </li>

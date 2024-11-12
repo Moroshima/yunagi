@@ -2,15 +2,59 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
-import toChineseMonth from "@utils/archive/toChineseMonth";
-import toChineseNumeral from "@utils/archive/toChineseNumeral";
 
-const { title, blurbs } = globalConfig;
+const { title, subtitles } = globalConfig;
 const { posts } = postsData;
 
 export const metadata: Metadata = {
   title: `归档 | ${title}`,
 };
+
+function toChineseNumeral(num: number): string {
+  const chineseNumeralMap: Record<string, string> = {
+    "0": "〇",
+    "1": "一",
+    "2": "二",
+    "3": "三",
+    "4": "四",
+    "5": "五",
+    "6": "六",
+    "7": "七",
+    "8": "八",
+    "9": "九",
+  };
+
+  const str = num.toString();
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const digit = parseInt(str.charAt(i));
+    result += chineseNumeralMap[digit.toString()];
+  }
+
+  return result;
+}
+
+function toChineseMonth(num: number): string {
+  const chineseMonthMap: Record<string, string> = {
+    "1": "一",
+    "2": "二",
+    "3": "三",
+    "4": "四",
+    "5": "五",
+    "6": "六",
+    "7": "七",
+    "8": "八",
+    "9": "九",
+    "10": "十",
+    "11": "十一",
+    "12": "十二",
+  };
+
+  const result = chineseMonthMap[num.toString()];
+
+  return result;
+}
 
 export default function Archive() {
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -23,12 +67,13 @@ export default function Archive() {
           month: number;
           posts: [
             {
-              title: string;
               slug: string;
-              tags: string[];
+              title: string;
               date: string;
-              updated: string;
-              categories: string[];
+              update: string | null;
+              lang: string;
+              category: string;
+              keywords: string[];
               description: string;
             },
           ];
@@ -43,12 +88,13 @@ export default function Archive() {
           month: new Date(posts[0].date).getMonth() + 1,
           posts: [
             {
-              title: posts[0].title,
               slug: posts[0].slug,
-              tags: posts[0].tags,
+              title: posts[0].title,
               date: posts[0].date,
-              updated: posts[0].updated,
-              categories: posts[0].categories,
+              update: posts[0].update,
+              lang: posts[0].lang,
+              category: posts[0].category,
+              keywords: posts[0].keywords,
               description: posts[0].description,
             },
           ],
@@ -71,12 +117,13 @@ export default function Archive() {
               month: month,
               posts: [
                 {
-                  title: value?.title,
                   slug: value?.slug,
-                  tags: value?.tags,
+                  title: value?.title,
                   date: value?.date,
-                  updated: value?.updated,
-                  categories: value?.categories,
+                  update: value?.update,
+                  lang: value?.lang,
+                  category: value?.category,
+                  keywords: value?.keywords,
                   description: value?.description,
                 },
               ],
@@ -90,12 +137,13 @@ export default function Archive() {
               subValue.next.forEach((subSubValue) => {
                 if (subSubValue?.month === month) {
                   subSubValue.posts.push({
-                    title: value?.title,
                     slug: value?.slug,
-                    tags: value?.tags,
+                    title: value?.title,
                     date: value?.date,
-                    updated: value?.updated,
-                    categories: value?.categories,
+                    update: value?.update,
+                    lang: value?.lang,
+                    category: value?.category,
+                    keywords: value?.keywords,
                     description: value?.description,
                   });
                 }
@@ -109,12 +157,13 @@ export default function Archive() {
                 month: month,
                 posts: [
                   {
-                    title: value?.title,
                     slug: value?.slug,
-                    tags: value?.tags,
+                    title: value?.title,
                     date: value?.date,
-                    updated: value?.updated,
-                    categories: value?.categories,
+                    update: value?.update,
+                    lang: value?.lang,
+                    category: value?.category,
+                    keywords: value?.keywords,
                     description: value?.description,
                   },
                 ],
@@ -132,8 +181,7 @@ export default function Archive() {
     <main>
       <div>
         <h1>归档</h1>
-        <hr />
-        <p>{blurbs.archives}</p>
+        <p>{subtitles.archives}</p>
         <div>
           {archiveArray.map((value) => (
             <div key={`archive-${value.year}-wrapper`}>
@@ -143,16 +191,17 @@ export default function Archive() {
               {value.next.map((subValue) => (
                 <div key={`subarchive-${value.year}-${subValue.month}-wrapper`}>
                   <h3 key={`subarchive-${value.year}-${subValue.month}`}>
-                    {toChineseMonth(subValue.month)}
+                    {toChineseMonth(subValue.month)}月
                   </h3>
                   <ul>
                     {subValue.posts.map((subSubValue, subSubIndex) => (
                       <li
                         key={`post-${value.year}-${subValue.month}-${subSubIndex}`}
                       >
-                        <Link href={"post/" + subSubValue.slug}>
+                        <Link href={`post/${subSubValue.slug}`}>
                           {subSubValue.title}
                         </Link>
+                        <span>{subSubValue.lang}</span>
                         {subSubValue.date.substring(0, 10)}
                       </li>
                     ))}

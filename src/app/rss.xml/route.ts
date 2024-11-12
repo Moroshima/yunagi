@@ -43,16 +43,17 @@ export async function GET() {
   });
 
   posts.forEach(
-    (post: {
-      title: string;
+    (value: {
       slug: string;
-      tags: string[];
+      title: string;
       date: string;
-      updated: string;
-      categories: string[];
+      update: string | null;
+      lang: string;
+      category: string;
+      keywords: string[];
       description: string;
     }) => {
-      const filePath = path.join(postsDirectory, `${post.slug}.md`);
+      const filePath = path.join(postsDirectory, `${value.slug}.md`);
       const rawContent = fs.readFileSync(filePath, { encoding: "utf-8" });
 
       // remove title
@@ -61,10 +62,10 @@ export async function GET() {
       const content = lines.join("\n");
 
       feed.item({
-        title: post?.title,
-        date: post?.date,
-        url: `${siteUrl}/post/${post?.slug}`,
-        description: post?.description,
+        title: value?.title,
+        date: value?.date,
+        url: `${siteUrl}/post/${value?.slug}`,
+        description: value?.description,
         custom_elements: [{ "content:encoded": marked.parse(content) }],
       });
     },

@@ -4,7 +4,7 @@ import path from "path";
 import Markdown from "@components/markdown";
 import globalConfig from "@data/configs/global.json";
 
-const { title, blurbs } = globalConfig;
+const { title, subtitles } = globalConfig;
 
 export const metadata: Metadata = {
   title: `关于 | ${title}`,
@@ -22,15 +22,16 @@ export default function About() {
   } else if (fs.existsSync(mdxFilePath)) {
     source = fs.readFileSync(mdxFilePath, { encoding: "utf8" });
   } else {
-    console.error("Neither .md nor .mdx file found.");
+    console.error(
+      "Neither `about.md` nor `about.mdx` file found in `src/data` directory.",
+    );
   }
 
   return (
     <main>
       <div>
         <h1>关于</h1>
-        <hr />
-        <p>{blurbs.about}</p>
+        <p>{subtitles.about}</p>
         <div>
           <Markdown source={source} />
         </div>

@@ -28,7 +28,11 @@ Packages that should be external need to be installed in the project directory, 
 Try to install it into the project directory by running npm install shiki from the project directory.
 ```
 
-related issue: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · Issue #68805 · vercel/next.js](https://github.com/vercel/next.js/issues/68805)
+Related issue: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · Issue #68805 · vercel/next.js](https://github.com/vercel/next.js/issues/68805)
+
+### Next.js cannot natively handle routing parameters that include UTF-8 characters.
+
+Related issue: [Pages with utf-8 name don't work properly under SSR · Issue #10084 · vercel/next.js](https://github.com/vercel/next.js/issues/10084)
 
 ### unmet peer `react` and `react-dom` with `@giscus/react`
 
@@ -59,6 +63,8 @@ related issue: [Turbopack can't locate serverExternalPackages if installed via p
 - [React 19 RC Upgrade Guide – React](https://react.dev/blog/2024/04/25/react-19-upgrade-guide)
 - [Deploying: Static Exports | Next.js](https://nextjs.org/docs/app/building-your-application/deploying/static-exports#unsupported-features)
 
+- [giscus](https://giscus.app/zh-CN)
+
 ### Stack
 
 - [next.js/packages/create-next-app/templates/index.ts at v15.0.2 · vercel/next.js](https://github.com/vercel/next.js/blob/v15.0.2/packages/create-next-app/templates/index.ts)
@@ -81,6 +87,12 @@ Next.js plans to deprecate the Route Segment Config options used by Route Handle
 
 - [ ] Chinese and English switch button
 - [ ] Dark mode switch button
+
+## Changes
+
+1. Reconstruct the `posts.json` structure to distinguish the difference between "category" and "keyword".
+2. Add `keywords` page to display and index all keywords.
+3. Make categories indexable.
 
 ### References
 

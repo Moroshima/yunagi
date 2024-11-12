@@ -10,25 +10,26 @@
       "items": {
         "type": "object",
         "properties": {
-          "title": {
-            "type": "string"
-          },
           "slug": {
             "type": "string"
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "title": {
+            "type": "string"
           },
           "date": {
             "type": "string"
           },
-          "updated": {
+          "update": {
+            "type": ["string", "null"]
+          },
+          "lang": {
             "type": "string"
           },
-          "categories": {
+          "category": {
+            "type": "string",
+            "enum": ["技术", "备忘", "杂记", "小札", "闲话", "杂项"]
+          },
+          "keywords": {
             "type": "array",
             "items": {
               "type": "string"
@@ -40,12 +41,13 @@
         },
         "additionalProperties": false,
         "required": [
-          "title",
           "slug",
-          "tags",
+          "title",
           "date",
-          "updated",
-          "categories",
+          "update",
+          "lang",
+          "category",
+          "keywords",
           "description"
         ]
       }

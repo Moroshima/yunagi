@@ -27,7 +27,7 @@ export default function RootLayout({
           {navigation.map((value, index) => {
             return (
               <Link key={`header-link-${index}`} href={value.url}>
-                {value.zh_name}
+                {value.name}
               </Link>
             );
           })}

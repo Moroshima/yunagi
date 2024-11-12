@@ -3,7 +3,7 @@ import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
 
-const { title, blurbs } = globalConfig;
+const { title, subtitles, categories } = globalConfig;
 const { posts } = postsData;
 
 export const metadata: Metadata = {
@@ -12,31 +12,36 @@ export const metadata: Metadata = {
 
 export default function Category() {
   // using Set to remove duplicates from array
-  const mergedCategoryArray: string[] = [];
-  posts.forEach((value) => {
-    mergedCategoryArray.push(...value.categories);
-  });
-  const mergedArraySet = new Set(mergedCategoryArray);
-  const uniqueCategoryArray = Array.from(mergedArraySet);
+  const uniqueCategoriesArray = Array.from(
+    new Set(posts.map((value) => value.category)),
+  );
 
   return (
     <main>
       <h1>分类</h1>
-      <hr />
-      <p>{blurbs.categories}</p>
+      <p>{subtitles.categories}</p>
       <div>
-        {uniqueCategoryArray
-          .sort((a, b) => a.localeCompare(b))
+        {uniqueCategoriesArray
+          // sort categories based on specified order configed in `global.json`
+          .filter((value) => {
+            if (categories.indexOf(value) !== -1) return value;
+            else
+              console.error(
+                `Category "${value}" does not exist, please check the \`@data/configs/global.json\` file.`,
+              );
+          })
+          .sort((a, b) => categories.indexOf(a) - categories.indexOf(b))
           .map((value, index) => {
             const category = posts.filter((item) =>
-              item.categories.includes(value),
+              item.category.includes(value),
             );
             const postListItems = category
               .sort((a, b) => a.title.localeCompare(b.title))
               .map((value, index) => (
                 <li key={`post-${index}`}>
-                  <Link href={"post/" + value.slug}>{value.title}</Link>
-                  {value.tags.map((value, index) => (
+                  <Link href={`post/${value.slug}`}>{value.title}</Link>
+                  <span>{value.lang}</span>
+                  {value.keywords.map((value, index) => (
                     <span key={`tag-${index}`}>{value}</span>
                   ))}
                 </li>

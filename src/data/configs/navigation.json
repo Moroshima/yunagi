@@ -1,12 +1,18 @@
 {
   "$schema": "./navigation.schema.json",
   "navigation": [
-    { "url": "/", "zh_name": "首页", "en_name": "Home" },
-    { "url": "/posts", "zh_name": "文章", "en_name": "Posts" },
-    { "url": "/archives", "zh_name": "归档", "en_name": "Archives" },
-    { "url": "/categories", "zh_name": "分类", "en_name": "Categories" },
-    { "url": "/links", "zh_name": "友链", "en_name": "Links" },
-    { "url": "/about", "zh_name": "关于", "en_name": "About" },
-    { "url": "/rss.xml", "zh_name": "订阅", "en_name": "Feed" }
+    { "url": "/", "name": "首页", "en": "Home" },
+    { "url": "/posts", "name": "文章", "en": "Posts" },
+    { "url": "/archives", "name": "归档", "en": "Archives" },
+    { "url": "/categories", "name": "分类", "en": "Categories" },
+    { "url": "/keywords", "name": "关键词", "en": "Keywords" },
+    { "url": "/links", "name": "友链", "en": "Links" },
+    { "url": "/about", "name": "关于", "en": "About" },
+    { "url": "/rss.xml", "name": "订阅", "en": "Feed" },
+    {
+      "url": "https://stats.uptimerobot.com/ZdYHa75MG0",
+      "name": "监控",
+      "en": "Monitor"
+    }
   ]
 }

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
 import linksData from "@data/links.json";
 
-const { title, blurbs } = globalConfig;
+const { title, subtitles } = globalConfig;
 const { introduction, links } = linksData;
 
 export const metadata: Metadata = {
@@ -14,8 +15,7 @@ export default function Links() {
   return (
     <main>
       <h1>友链</h1>
-      <hr />
-      <p>{blurbs.links}</p>
+      <p>{subtitles.links}</p>
       <div>
         <p>{introduction}</p>
         <div>
@@ -31,15 +31,15 @@ export default function Links() {
                 />
                 <div>
                   <h2>
-                    <a href={value?.link} target="_blank">
+                    <Link href={value?.link} target="_blank">
                       {value?.name}
-                    </a>
+                    </Link>
                   </h2>
                   <p>
                     <span>{value.description}</span>
-                    <a href={value?.link} target="_blank">
+                    <Link href={value?.link} target="_blank">
                       Link
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
