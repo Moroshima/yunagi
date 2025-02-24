@@ -4,7 +4,6 @@
     { "url": "/", "name": "首页", "en": "Home" },
     { "url": "/posts", "name": "文章", "en": "Posts" },
     { "url": "/archives", "name": "归档", "en": "Archives" },
-    { "url": "/categories", "name": "分类", "en": "Categories" },
     { "url": "/keywords", "name": "关键词", "en": "Keywords" },
     { "url": "/links", "name": "友链", "en": "Links" },
     { "url": "/about", "name": "关于", "en": "About" },

@@ -1,4 +1,4 @@
-# 夕凪
+# 夕凪 (WIP)
 
 ![Static Badge](https://img.shields.io/badge/version-2.0.0--alpha-blue)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Moroshima/yunagi/.github%2Fworkflows%2Fdeploy.yaml)
