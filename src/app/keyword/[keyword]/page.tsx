@@ -1,6 +1,8 @@
 import { Metadata } from "next";
+import PostPreviewCard from "@components/postPreviewCard";
 import globalConfig from "@data/configs/global.json";
 import postsData from "@data/posts.json";
+import sortPostsByDate from "@utils/sortPostsByDate";
 
 const { title } = globalConfig;
 const { posts } = postsData;
@@ -11,14 +13,10 @@ const uniqueKeywordsArray = Array.from(
 );
 
 export async function generateStaticParams() {
-  try {
-    return uniqueKeywordsArray.map((keyword) => ({
-      // encode keywords to ensure compatibility with Next.js routing
-      keyword: encodeURI(keyword),
-    }));
-  } catch (e) {
-    console.error(e);
-  }
+  return uniqueKeywordsArray.map((keyword) => ({
+    // encode keywords to ensure compatibility with Next.js routing
+    keyword: encodeURI(keyword),
+  }));
 }
 
 let metadata: Metadata = {};
@@ -29,17 +27,26 @@ export default async function Keyword({
   params: Promise<{ keyword: string }>;
 }) {
   let { keyword } = await params;
-  try {
-    keyword = decodeURI(keyword);
-  } catch (e) {
-    console.error(e);
-  }
+  keyword = decodeURI(keyword);
 
   metadata = {
     title: `关键词：${keyword} | ${title}`,
   };
 
-  return <div>keyword: {keyword}</div>;
+  const postList = posts.filter((item: { keywords: string[] }) =>
+    item.keywords.includes(keyword),
+  );
+
+  return (
+    <div>
+      <p>keyword: {keyword}</p>
+      {sortPostsByDate(postList).map((value, index) => (
+        <li key={`post-${index}`}>
+          <PostPreviewCard post={value} />
+        </li>
+      ))}
+    </div>
+  );
 }
 
 export { metadata };

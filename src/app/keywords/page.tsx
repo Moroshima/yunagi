@@ -18,7 +18,7 @@ export default function Keywords() {
       if (keywordCounts[keyword]) {
         keywordCounts[keyword] = keywordCounts[keyword] + 1;
       } else {
-        keywordCounts[keyword] = 1;
+        keywordCounts[keyword] = 1; // create a key-value if it does not exist
       }
     });
   });
