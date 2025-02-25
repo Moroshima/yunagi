@@ -15,9 +15,9 @@
 
 Ranked in descending order of severity.
 
-### `shiki` package should be specifically installed
+### ~~`shiki` package should be specifically installed~~
 
-To avoid the warning below, we have to install `shiki` separately when using `@shikijs/rehype`.
+~~To avoid the warning below, we have to install `shiki` separately when using `@shikijs/rehype`.~~
 
 ```text
  ⚠ ./node_modules/.pnpm/shiki@1.22.2/node_modules/shiki/dist
@@ -28,13 +28,11 @@ Packages that should be external need to be installed in the project directory, 
 Try to install it into the project directory by running npm install shiki from the project directory.
 ```
 
-Related issue: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · Issue #68805 · vercel/next.js](https://github.com/vercel/next.js/issues/68805)
+~~Related issue: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · Issue #68805 · vercel/next.js](https://github.com/vercel/next.js/issues/68805)~~
 
-### Next.js cannot natively handle routing parameters that include UTF-8 characters.
+Temporary(?) solution: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · vercel/next.js · Discussion #76247](https://github.com/vercel/next.js/discussions/76247)
 
-Related issue: [Pages with utf-8 name don't work properly under SSR · Issue #10084 · vercel/next.js](https://github.com/vercel/next.js/issues/10084)
-
-### unmet peer `react` and `react-dom` with `@giscus/react`
+### ~~unmet peer `react` and `react-dom` with `@giscus/react`~~~~
 
 ```text
  WARN  Issues with peer dependencies found
@@ -44,16 +42,20 @@ Related issue: [Pages with utf-8 name don't work properly under SSR · Issue #10
   └── ✕ unmet peer react-dom@"^16 || ^17 || ^18": found 19.0.0-rc-02c0e824-20241028
 ```
 
-### deprecated `eslint@^8` and its subdependencies
+### ~~deprecated `eslint@^8` and its subdependencies~~
 
 ```text
  WARN  deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
  WARN  5 deprecated subdependencies found: @humanwhocodes/config-array@0.13.0, @humanwhocodes/object-schema@2.0.3, glob@7.2.3, inflight@1.0.6, rimraf@3.0.2
 ```
 
-### `react` and `react-dom` have not release stable version for `19`
+### ~~`react` and `react-dom` have not release stable version for `19`~~
 
-### `@types/react` and `@types/react-dom` haven't been updated to `^19`
+### ~~`@types/react` and `@types/react-dom` haven't been updated to `^19`~~
+
+### Next.js cannot natively handle routing parameters that include UTF-8 characters.
+
+Related issue: [Pages with utf-8 name don't work properly under SSR · Issue #10084 · vercel/next.js](https://github.com/vercel/next.js/issues/10084)
 
 ## References
 
