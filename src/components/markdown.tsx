@@ -10,6 +10,13 @@ import rehypeShiki from "@shikijs/rehype";
 export default function Markdown(props: { source: string }) {
   return (
     <MDXRemote
+      components={{
+        img: (props) => {
+          console.log(props);
+          const newSrc = props.src.replace("./assets", `/images`);
+          return <img src={newSrc} alt={props.alt} />;
+        },
+      }}
       source={props.source}
       options={{
         mdxOptions: {
