@@ -19,6 +19,7 @@ export default function PostPreviewCard({
     <div>
       <Link href={href}>{post.title}</Link>
       <span>{post.date}</span>
+      <span>{post.category}</span>
       <span>{post.lang}</span>
       {post.keywords.map((value, index) => (
         <span key={`tag-${index}`}>{value}</span>

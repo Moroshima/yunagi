@@ -13,15 +13,15 @@ const siteUrl = `https://${domain}`;
 const renderer = {
   image({
     href,
-    text,
     title,
+    text,
   }: {
     href: string;
     title: string | null;
     text: string;
   }) {
     const newHref = href.replace("./assets", `${siteUrl}/images`);
-    return `<img src="${newHref}" alt="${text}" title="${title}">`;
+    return `<img src="${newHref}" alt="${text}" title="${title}" />`;
   },
 };
 

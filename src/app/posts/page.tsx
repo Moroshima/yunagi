@@ -24,15 +24,15 @@ function Category() {
   });
 
   return (
-    <>
+    <ul>
       {Object.entries(categoryCounts).map(([key, count]) => (
         <Link href={`category/${key}`} key={key}>
-          <p key={key}>
+          <li key={key}>
             category: {key}, count: {count}
-          </p>
+          </li>
         </Link>
       ))}
-    </>
+    </ul>
   );
 }
 
