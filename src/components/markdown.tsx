@@ -14,7 +14,7 @@ export default function Markdown(props: { source: string }) {
         img: (props) => {
           console.log(props);
           const newSrc = props.src.replace("./assets", `/images`);
-          return <img src={newSrc} alt={props.alt} />;
+          return <img src={newSrc} alt={props.alt} />; //TODO
         },
       }}
       source={props.source}
