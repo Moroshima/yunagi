@@ -32,7 +32,19 @@ Try to install it into the project directory by running npm install shiki from t
 
 Temporary(?) solution: [Turbopack can't locate serverExternalPackages if installed via pnpm and are child dependencies of other installed modules · vercel/next.js · Discussion #76247](https://github.com/vercel/next.js/discussions/76247)
 
-### ~~unmet peer `react` and `react-dom` with `@giscus/react`~~~~
+### pnpm ignored build scripts warning
+
+```text
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: sharp.                                              │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+```
+
+### ~~unmet peer `react` and `react-dom` with `@giscus/react`~~
 
 ```text
  WARN  Issues with peer dependencies found
