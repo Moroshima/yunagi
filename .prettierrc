@@ -3,7 +3,8 @@
   "plugins": [
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-autocorrect",
-    "prettier-plugin-packagejson"
+    "prettier-plugin-packagejson",
+    "prettier-plugin-tailwindcss"
   ],
   "importOrder": [
     "<TYPES>^(node:)",
