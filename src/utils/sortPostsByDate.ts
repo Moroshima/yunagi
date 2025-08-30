@@ -11,6 +11,6 @@ export default function sortPostsByDate(
   }[],
 ) {
   return posts
-    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .sort((a, b) => a.slug.localeCompare(b.slug, "en"))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
