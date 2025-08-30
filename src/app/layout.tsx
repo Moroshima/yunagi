@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import fs from "fs";
+import path from "path";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
@@ -33,6 +35,16 @@ export default function RootLayout({
           })}
         </div>
         {children}
+        <div>
+          {
+            JSON.parse(
+              fs.readFileSync(
+                path.join(process.cwd(), "package.json"),
+                "utf-8",
+              ),
+            ).version
+          }
+        </div>
       </body>
     </html>
   );

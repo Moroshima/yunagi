@@ -28,8 +28,6 @@ const renderer = {
 marked.use({ renderer });
 
 export async function GET() {
-  const postsDirectory = path.join(process.cwd(), "src", "data", "posts");
-
   const feed = new RSS({
     title: `RSS Feed | ${title}`,
     description: description,
@@ -38,7 +36,9 @@ export async function GET() {
     image_url: `${siteUrl}/${rss.imageUrl}`,
     pubDate: new Date(),
     copyright: `Copyright © ${new Date().getFullYear()} ${owner}. Ver.${
-      process.env.VERSION
+      JSON.parse(
+        fs.readFileSync(path.join(process.cwd(), "package.json"), "utf-8"),
+      ).version
     }`,
   });
 
@@ -53,8 +53,14 @@ export async function GET() {
       keywords: string[];
       description: string;
     }) => {
-      const filePath = path.join(postsDirectory, `${value.slug}.md`);
-      const rawContent = fs.readFileSync(filePath, { encoding: "utf-8" });
+      const filePath = path.join(
+        process.cwd(),
+        "src",
+        "data",
+        "posts",
+        `${value.slug}.md`,
+      );
+      const rawContent = fs.readFileSync(filePath, "utf-8");
 
       // remove title
       const lines = rawContent.split("\n");
