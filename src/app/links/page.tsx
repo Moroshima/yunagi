@@ -20,7 +20,7 @@ export default function Links() {
         <p>{introduction}</p>
         <div>
           {links
-            .sort((a, b) => a.name.localeCompare(b.name))
+            .sort((a, b) => a.name.localeCompare(b.name, "en"))
             .map((value, index) => (
               <div key={`friend-${index}`}>
                 <Image
