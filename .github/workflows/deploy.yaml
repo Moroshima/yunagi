@@ -9,8 +9,8 @@ on:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
-  build:
-    name: Build Yunagi
+  deploy:
+    name: Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,4 +38,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy build --project-name=yunagi
+          workingDirectory: build
+          command: pages deploy --project-name=yunagi
