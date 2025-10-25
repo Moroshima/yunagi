@@ -15,7 +15,18 @@ export async function generateStaticParams() {
   }));
 }
 
-let metadata: Metadata = {};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts.find((item) => item.slug === slug);
+
+  return {
+    title: `${post?.title} | ${title}`,
+  };
+}
 
 export default async function PostRender({
   params,
@@ -23,11 +34,6 @@ export default async function PostRender({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = posts.find((item) => item.slug === slug);
-
-  metadata = {
-    title: `${post?.title} | ${title}`,
-  };
 
   const filePath = await path.join(
     process.cwd(),
@@ -45,5 +51,3 @@ export default async function PostRender({
     </main>
   );
 }
-
-export { metadata };

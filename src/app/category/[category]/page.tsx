@@ -16,7 +16,18 @@ export async function generateStaticParams() {
   }));
 }
 
-let metadata: Metadata = {};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> {
+  let { category } = await params;
+  category = decodeURI(category);
+
+  return {
+    title: `分类：${category} | ${title}`,
+  };
+}
 
 export default async function Category({
   params,
@@ -25,10 +36,6 @@ export default async function Category({
 }) {
   let { category } = await params;
   category = decodeURI(category);
-
-  metadata = {
-    title: `分类：${category} | ${title}`,
-  };
 
   const postList = posts.filter((item) => item.category === category);
 
@@ -45,5 +52,3 @@ export default async function Category({
     </div>
   );
 }
-
-export { metadata };
