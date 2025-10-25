@@ -1,15 +1,17 @@
-const path = require("path");
+import path from "path";
 
 const buildEslintCommand = (filenames) =>
-  `next lint --fix --file ${filenames
-    .map((f) => path.relative(process.cwd(), f))
-    .join(" --file ")}`;
+  `eslint --fix ${filenames
+    .map((f) => `"${path.relative(process.cwd(), f)}"`)
+    .join(" ")}`;
 
-module.exports = {
+const config = {
   "README.md": ["prettier --write"],
   "package.json": ["prettier --write"],
-  "src/**/*.{cjs,js,jsx,mjs,ts,tsx}": [buildEslintCommand, "prettier --write"],
+  "src/**/*.{js,jsx,ts,tsx}": [buildEslintCommand, "prettier --write"],
   "src/**/*.css": ["prettier --write"],
   "src/**/*.json": ["prettier --write"],
   "src/**/*.md": ["prettier --write"],
 };
+
+export default config;
