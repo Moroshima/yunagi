@@ -19,7 +19,18 @@ export async function generateStaticParams() {
   }));
 }
 
-let metadata: Metadata = {};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ keyword: string }>;
+}): Promise<Metadata> {
+  let { keyword } = await params;
+  keyword = decodeURI(keyword);
+
+  return {
+    title: `关键词：${keyword} | ${title}`,
+  };
+}
 
 export default async function Keyword({
   params,
@@ -28,10 +39,6 @@ export default async function Keyword({
 }) {
   let { keyword } = await params;
   keyword = decodeURI(keyword);
-
-  metadata = {
-    title: `关键词：${keyword} | ${title}`,
-  };
 
   const postList = posts.filter((item: { keywords: string[] }) =>
     item.keywords.includes(keyword),
@@ -48,5 +55,3 @@ export default async function Keyword({
     </div>
   );
 }
-
-export { metadata };
