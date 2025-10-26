@@ -12,20 +12,17 @@ export const metadata: Metadata = {
 
 export default function About() {
   // if .md file exists, read it; otherwise, read .mdx file
-  const mdFilePath = path.join(process.cwd(), "src", "data", "about.md");
-  const mdxFilePath = path.join(process.cwd(), "src", "data", "about.mdx");
+  const dir = path.join(process.cwd(), "src", "data");
+  const file = ["about.md", "about.mdx"]
+    .map((name) => path.join(dir, name))
+    .find(fs.existsSync);
 
-  let source = "";
-
-  if (fs.existsSync(mdFilePath)) {
-    source = fs.readFileSync(mdFilePath, { encoding: "utf8" });
-  } else if (fs.existsSync(mdxFilePath)) {
-    source = fs.readFileSync(mdxFilePath, { encoding: "utf8" });
-  } else {
-    console.error(
-      "Neither `about.md` nor `about.mdx` file found in `src/data` directory.",
-    );
-  }
+  const source = file
+    ? fs.readFileSync(file, "utf8")
+    : (console.error(
+        "Neither `about.md` nor `about.mdx` file found in `src/data` directory.",
+      ),
+      "");
 
   return (
     <main>
