@@ -1,3 +1,5 @@
+import path from "path";
+import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
@@ -5,16 +7,33 @@ import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import sharp from "sharp";
 import rehypeShiki from "@shikijs/rehype";
 
 export default function Markdown(props: { source: string }) {
   return (
     <MDXRemote
       components={{
-        img: (props) => {
+        img: async (props) => {
           console.log(props);
-          const newSrc = props.src.replace("./assets", `/images`);
-          return <img src={newSrc} alt={props.alt} />; //TODO
+          const src = props.src.replace("./assets", `/images`);
+          const metadata = await sharp(
+            path.join(
+              process.cwd(),
+              "public",
+              "images",
+              props.src.slice("./assets".length),
+            ),
+          ).metadata();
+
+          return (
+            <Image
+              width={metadata.width}
+              height={metadata.height}
+              src={src}
+              alt={props.alt}
+            />
+          );
         },
       }}
       source={props.source}
