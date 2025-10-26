@@ -38,10 +38,7 @@ export default function RootLayout({
         <div>
           {
             JSON.parse(
-              fs.readFileSync(
-                path.join(process.cwd(), "package.json"),
-                "utf-8",
-              ),
+              fs.readFileSync(path.join(process.cwd(), "package.json"), "utf8"),
             ).version
           }
         </div>

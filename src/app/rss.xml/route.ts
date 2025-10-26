@@ -37,7 +37,7 @@ export async function GET() {
     pubDate: new Date(),
     copyright: `Copyright © ${new Date().getFullYear()} ${owner}. Ver.${
       JSON.parse(
-        fs.readFileSync(path.join(process.cwd(), "package.json"), "utf-8"),
+        fs.readFileSync(path.join(process.cwd(), "package.json"), "utf8"),
       ).version
     }`,
   });
@@ -53,17 +53,13 @@ export async function GET() {
       keywords: string[];
       description: string;
     }) => {
-      const filePath = path.join(
-        process.cwd(),
-        "src",
-        "data",
-        "posts",
-        `${value.slug}.md`,
+      const raw = fs.readFileSync(
+        path.join(process.cwd(), "src", "data", "posts", `${value.slug}.md`),
+        "utf8",
       );
-      const rawContent = fs.readFileSync(filePath, "utf-8");
 
       // remove title
-      const lines = rawContent.split("\n");
+      const lines = raw.split("\n");
       lines.splice(0, 2);
       const content = lines.join("\n");
 

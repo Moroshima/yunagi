@@ -35,14 +35,10 @@ export default async function PostRender({
 }) {
   const { slug } = await params;
 
-  const filePath = await path.join(
-    process.cwd(),
-    "src",
-    "data",
-    "posts",
-    `${slug}.md`,
+  const source = fs.readFileSync(
+    path.join(process.cwd(), "src", "data", "posts", `${slug}.md`),
+    "utf8",
   );
-  const source = fs.readFileSync(filePath, { encoding: "utf-8" });
 
   return (
     <main>
