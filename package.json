@@ -19,7 +19,7 @@
   "dependencies": {
     "@giscus/react": "^3.1.0",
     "@primer/octicons-react": "^19.19.0",
-    "@shikijs/rehype": "^3.13.0",
+    "@shikijs/rehype": "^3.14.0",
     "marked": "^16.4.1",
     "next": "16.0.0",
     "next-mdx-remote": "^5.0.0",
@@ -31,7 +31,8 @@
     "rehype-toc": "^3.0.2",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "sharp": "^0.34.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
