@@ -59,7 +59,7 @@
       "lang": "zh-Hans",
       "category": "杂项",
       "keywords": ["文学"],
-      "description": "看看我最近读了些啥书(❁´◡`❁)"
+      "description": "看看我最近读了些啥书 (❁´◡`❁)"
     },
     {
       "slug": "how-to-standardize-commit-messages",
@@ -75,17 +75,17 @@
       "slug": "c-structure-study-notes",
       "title": "结构体学习笔记",
       "date": "2020-12-22T14:52:00",
-      "update": "2020-12-22T14:52:00",
+      "update": null,
       "lang": "zh-Hans",
       "category": "备忘",
       "keywords": ["C", "学习笔记"],
-      "description": "有关于C语言中结构体部分难点的汇总与整理。"
+      "description": "有关于 C 语言中结构体部分难点的汇总与整理。"
     },
     {
       "slug": "cut-through-the-fog",
       "title": "「斬霧破竹」",
       "date": "2022-05-29T13:32:18",
-      "update": "2022-05-29T13:32:18",
+      "update": null,
       "lang": "zh-Hans",
       "category": "闲话",
       "keywords": ["老婆"],
@@ -95,7 +95,7 @@
       "slug": "kazuha",
       "title": "万葉",
       "date": "2022-02-20T03:32:18",
-      "update": "2022-02-20T03:32:18",
+      "update": null,
       "lang": "zh-Hans",
       "category": "闲话",
       "keywords": [],
