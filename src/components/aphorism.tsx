@@ -14,19 +14,16 @@ export default function Aphorism() {
   } | null>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setAphorism(aphorisms[Math.floor(Math.random() * aphorisms.length)]);
   }, []);
 
-  if (!aphorism) {
-    return null;
-  }
-
-  return (
+  return aphorism ? (
     <div lang={aphorism?.lang}>
       <p>{aphorism?.aphorism}</p>
       <p>
         <span>{aphorism?.author}.</span> <em>{aphorism?.source}.</em>
       </p>
     </div>
-  );
+  ) : null;
 }
