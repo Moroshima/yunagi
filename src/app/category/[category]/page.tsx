@@ -11,8 +11,7 @@ const categories = Array.from(new Set(posts.map((value) => value.category)));
 
 export async function generateStaticParams() {
   return categories.map((category) => ({
-    // encode categories to ensure compatibility with Next.js routing
-    category: encodeURI(category),
+    category: category,
   }));
 }
 
