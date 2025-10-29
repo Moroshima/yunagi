@@ -14,8 +14,7 @@ const uniqueKeywordsArray = Array.from(
 
 export async function generateStaticParams() {
   return uniqueKeywordsArray.map((keyword) => ({
-    // encode keywords to ensure compatibility with Next.js routing
-    keyword: encodeURI(keyword),
+    keyword: keyword,
   }));
 }
 
