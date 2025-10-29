@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import semver from "semver";
 import globalConfig from "@data/configs/global.json";
 import navigationConfig from "@data/configs/navigation.json";
-import "./globals.css";
-import { execSync } from "child_process";
-import semver from "semver";
+import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 const { title, description } = globalConfig;
