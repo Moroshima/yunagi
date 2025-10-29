@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   distDir: process.env.NODE_ENV === "production" ? "build" : ".next",
   images: { unoptimized: true },
   reactCompiler: true,
+  sassOptions: {
+    implementation: "sass-embedded",
+  },
 };
 
 export default nextConfig;
