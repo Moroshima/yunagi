@@ -1,0 +1,107 @@
+[
+  {
+    "category": "Search",
+    "websites": [
+      {
+        "url": "https://www.google.com",
+        "name": "Google",
+        "description": ""
+      },
+      {
+        "url": "https://yandex.com/images",
+        "name": "Yandex Images: search for images online, image search",
+        "description": ""
+      },
+      {
+        "url": "https://saucenao.com/",
+        "name": "SauceNAO Reverse Image Search",
+        "description": ""
+      },
+      {
+        "url": "https://trace.moe/",
+        "name": "Anime Scene Search Engine - trace.moe",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "category": "BitTorrent",
+    "websites": [
+      {
+        "url": "hhttps://nyaa.si/",
+        "name": "Browse :: Nyaa",
+        "description": ""
+      },
+      {
+        "url": "https://acg.rip/",
+        "name": "ACG.RIP",
+        "description": ""
+      },
+      {
+        "url": "https://bangumi.moe/",
+        "name": "首页 - 萌番组",
+        "description": ""
+      },
+      {
+        "url": "https://www.dmhy.org/",
+        "name": "首頁 - 動漫花園資源網 - 動漫愛好者的自由交流平台",
+        "description": ""
+      },
+      {
+        "url": "https://share.acgnx.se/",
+        "name": "末日動漫資源庫 - Project AcgnX Torrent Asia",
+        "description": ""
+      },
+      {
+        "url": "https://rutracker.org/forum/index.php",
+        "name": "RuTracker.org",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "category": "Media",
+    "websites": [
+      {
+        "url": "https://www.dlsite.com/index.html",
+        "name": "DLsite:从同人志，同人游戏开始，到PC软件，漫画的二次元综合下载商店 | DLsite综合首页",
+        "description": ""
+      },
+      {
+        "url": "https://kox.moe/",
+        "name": "Kox.moe [Kindle漫畫|Kobo漫畫|epub漫畫] [kox.moe]",
+        "description": ""
+      },
+      {
+        "url": "https://doujinstyle.com/",
+        "name": "Home | DoujinStyle.com - The Home of Doujin Music and Games",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "category": "Blog",
+    "websites": [
+      {
+        "url": "http://7400.me/",
+        "name": "EE Archeology 电子考古学",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "category": "MISC",
+    "websites": [
+      {
+        "url": "https://www.freeroms.com/",
+        "name": "Free ROMS for GBA, NDS, PSP, PSX, N64, SNES and more.",
+        "description": ""
+      },
+      {
+        "url": "https://kidi.ng/wanna-see-a-whiter-white/",
+        "name": "Wanna see a whiter white?",
+        "description": ""
+      }
+    ]
+  }
+]

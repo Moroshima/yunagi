@@ -4,6 +4,7 @@
   { "url": "/archives", "name": "归档", "en": "Archives" },
   { "url": "/keywords", "name": "关键词", "en": "Keywords" },
   { "url": "/links", "name": "友链", "en": "Links" },
+  { "url": "/shortcuts", "name": "捷径", "en": "Shortcuts" },
   { "url": "/about", "name": "关于", "en": "About" },
   { "url": "/rss.xml", "name": "订阅", "en": "Feed" },
   {

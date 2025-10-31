@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["category", "websites"],
+    "properties": {
+      "category": { "type": "string" },
+      "websites": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["url", "name", "description"],
+          "properties": {
+            "url": { "type": "string" },
+            "name": { "type": "string" },
+            "description": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}
