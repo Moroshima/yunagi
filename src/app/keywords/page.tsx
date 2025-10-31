@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
-import postsData from "@data/posts.json";
+import posts from "@data/posts.json";
 
 const { title } = globalConfig;
-const { posts } = postsData;
 
 export const metadata: Metadata = {
   title: `关键词云 | ${title}`,
@@ -25,7 +24,7 @@ export default function Keywords() {
 
   return (
     <div>
-      <p>keywords</p>
+      <h1>关键词云</h1>
       <div>
         {Object.entries(keywordCounts).map(([key, count]) => (
           <Link href={`keyword/${key}`} key={key}>

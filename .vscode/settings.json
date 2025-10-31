@@ -1,5 +1,23 @@
 {
   "search.exclude": {
     "**/pnpm-lock.yaml": true
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["/src/data/configs/navigation.json"],
+      "url": "/src/data/configs/navigation.schema.json"
+    },
+    {
+      "fileMatch": ["/src/data/aphorisms.json"],
+      "url": "/src/data/aphorisms.schema.json"
+    },
+    {
+      "fileMatch": ["/src/data/links.json"],
+      "url": "/src/data/links.schema.json"
+    },
+    {
+      "fileMatch": ["/src/data/posts.json"],
+      "url": "/src/data/posts.schema.json"
+    }
+  ]
 }

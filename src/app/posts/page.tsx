@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PostPreviewCard from "@components/postPreviewCard";
 import globalConfig from "@data/configs/global.json";
-import postsData from "@data/posts.json";
+import posts from "@data/posts.json";
 import sortPostsByDate from "@utils/sortPostsByDate";
 
 const { title, subtitles } = globalConfig;
-const { posts } = postsData;
 
 export const metadata: Metadata = {
   title: `文章 | ${title}`,

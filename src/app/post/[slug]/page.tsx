@@ -4,10 +4,9 @@ import path from "path";
 import Comment from "@components/comment";
 import Markdown from "@components/markdown";
 import globalConfig from "@data/configs/global.json";
-import postsData from "@data/posts.json";
+import posts from "@data/posts.json";
 
 const { title } = globalConfig;
-const { posts } = postsData;
 
 export async function generateStaticParams() {
   return posts.map((post) => ({

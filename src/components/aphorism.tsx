@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import aphorismsData from "@data/aphorisms.json";
-
-const { aphorisms } = aphorismsData;
+import aphorisms from "@data/aphorisms.json";
 
 export default function Aphorism() {
   const [aphorism, setAphorism] = useState<{

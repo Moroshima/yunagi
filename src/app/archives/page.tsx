@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import globalConfig from "@data/configs/global.json";
-import postsData from "@data/posts.json";
+import posts from "@data/posts.json";
 
 const { title, subtitles } = globalConfig;
-const { posts } = postsData;
 
 export const metadata: Metadata = {
   title: `归档 | ${title}`,
