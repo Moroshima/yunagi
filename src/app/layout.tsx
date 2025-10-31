@@ -11,7 +11,6 @@ import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 const { title, description } = globalConfig;
-const { navigation } = navigationConfig;
 
 export const metadata: Metadata = {
   title: title,
@@ -50,7 +49,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Link href="/">{title}</Link>
         <div>
-          {navigation.map((value, index) => {
+          {navigationConfig.map((value, index) => {
             return (
               <Link key={`header-link-${index}`} href={value.url}>
                 {value.name}

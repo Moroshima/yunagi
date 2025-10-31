@@ -1,58 +1,34 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "$schema": {
-      "type": "string"
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "slug",
+      "title",
+      "date",
+      "update",
+      "lang",
+      "category",
+      "keywords",
+      "description"
+    ],
+    "properties": {
+      "slug": { "type": "string" },
+      "title": { "type": "string" },
+      "date": { "type": "string" },
+      "update": { "type": ["string", "null"] },
+      "lang": { "type": "string" },
+      "category": {
+        "type": "string",
+        "enum": ["技术", "备忘", "杂记", "小札", "闲话", "杂项"]
+      },
+      "keywords": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "description": { "type": "string" }
     },
-    "posts": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "slug": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "date": {
-            "type": "string"
-          },
-          "update": {
-            "type": ["string", "null"]
-          },
-          "lang": {
-            "type": "string"
-          },
-          "category": {
-            "type": "string",
-            "enum": ["技术", "备忘", "杂记", "小札", "闲话", "杂项"]
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "description": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "slug",
-          "title",
-          "date",
-          "update",
-          "lang",
-          "category",
-          "keywords",
-          "description"
-        ]
-      }
-    }
-  },
-  "additionalProperties": false,
-  "required": ["$schema", "posts"]
+    "additionalProperties": false
+  }
 }

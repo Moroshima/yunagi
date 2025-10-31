@@ -3,10 +3,9 @@ import path from "path";
 import { marked } from "marked";
 import RSS from "rss";
 import globalConfig from "@data/configs/global.json";
-import postsData from "@data/posts.json";
+import posts from "@data/posts.json";
 
 const { domain, owner, title, description, rss } = globalConfig;
-const { posts } = postsData;
 
 const siteUrl = `https://${domain}`;
 

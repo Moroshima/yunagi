@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 import PostPreviewCard from "@components/postPreviewCard";
 import globalConfig from "@data/configs/global.json";
-import postsData from "@data/posts.json";
+import posts from "@data/posts.json";
 import sortPostsByDate from "@utils/sortPostsByDate";
 
 const { title } = globalConfig;
-const { posts } = postsData;
 
 const categories = Array.from(new Set(posts.map((value) => value.category)));
 

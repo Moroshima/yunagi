@@ -1,33 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "$schema": {
-      "type": "string"
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["aphorism", "author", "lang", "source"],
+    "properties": {
+      "aphorism": { "type": "string" },
+      "author": { "type": "string" },
+      "lang": { "type": "string" },
+      "source": { "type": "string" }
     },
-    "aphorisms": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "aphorism": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "lang": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "required": ["aphorism", "author", "lang", "source"]
-      }
-    }
-  },
-  "additionalProperties": false,
-  "required": ["$schema", "aphorisms"]
+    "additionalProperties": false
+  }
 }
