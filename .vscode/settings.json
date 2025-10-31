@@ -18,6 +18,10 @@
     {
       "fileMatch": ["/src/data/posts.json"],
       "url": "/src/data/posts.schema.json"
+    },
+    {
+      "fileMatch": ["/src/data/shortcuts.json"],
+      "url": "/src/data/shortcuts.schema.json"
     }
   ]
 }
