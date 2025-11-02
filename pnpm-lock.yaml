@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  next:
+    hash: 46fa7f09e8f5a73961e887f725bdee4aa0bb6d2d3caeeb377b74701d864061e4
+    path: patches/next.patch
+
 importers:
 
   .:
@@ -22,7 +27,7 @@ importers:
         version: 16.4.1
       next:
         specifier: 16.0.1
-        version: 16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3)
+        version: 16.0.1(patch_hash=46fa7f09e8f5a73961e887f725bdee4aa0bb6d2d3caeeb377b74701d864061e4)(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3)
       next-mdx-remote:
         specifier: ^5.0.0
         version: 5.0.0(@types/react@19.2.2)(react@19.2.0)
@@ -6457,7 +6462,7 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3):
+  next@16.0.1(patch_hash=46fa7f09e8f5a73961e887f725bdee4aa0bb6d2d3caeeb377b74701d864061e4)(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3):
     dependencies:
       '@next/env': 16.0.1
       '@swc/helpers': 0.5.15

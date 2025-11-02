@@ -1,0 +1,26 @@
+diff --git a/dist/server/dev/log-requests.js b/dist/server/dev/log-requests.js
+index 1471151a2613070f085f1def0a60dcdfbe636715..2067be675a93b71d9f5299dc323095a975dee5b9 100644
+--- a/dist/server/dev/log-requests.js
++++ b/dist/server/dev/log-requests.js
+@@ -51,7 +51,7 @@ function logRequests(request, response, loggingConfig, requestStartTime, request
+ }
+ function logIncomingRequests(request, requestStartTime, requestEndTime, statusCode, devRequestTimingMiddlewareStart, devRequestTimingMiddlewareEnd, devRequestTimingInternalsEnd) {
+     const isRSC = (0, _requestmeta.getRequestMeta)(request, 'isRSCRequest');
+-    const url = isRSC ? (0, _url.stripNextRscUnionQuery)(request.url) : request.url;
++    const url = decodeURIComponent(isRSC ? (0, _url.stripNextRscUnionQuery)(request.url) : request.url);
+     const statusCodeColor = statusCode < 200 ? _picocolors.white : statusCode < 300 ? _picocolors.green : statusCode < 400 ? _picocolors.blue : statusCode < 500 ? _picocolors.yellow : _picocolors.red;
+     const coloredStatus = statusCodeColor(statusCode.toString());
+     const totalRequestTime = requestEndTime - requestStartTime;
+diff --git a/dist/server/dev/next-dev-server.js b/dist/server/dev/next-dev-server.js
+index 9e2cebdfc08a7a8be9e797f88082dc1f0dd38a90..7e8fc4c5dd890f6c1c1cd9f45070de275758b838 100644
+--- a/dist/server/dev/next-dev-server.js
++++ b/dist/server/dev/next-dev-server.js
+@@ -566,7 +566,7 @@ class DevServer extends _nextserver.default {
+                             configurable: true
+                         });
+                     }
+-                    if (!prerenderedRoutes.some((item)=>item.pathname === urlPathname)) {
++                    if (!prerenderedRoutes.some((item)=>item.pathname === decodeURIComponent(urlPathname))) {
+                         throw Object.defineProperty(new Error(`Page "${page}" is missing param "${pathname}" in "generateStaticParams()", which is required with "output: export" config.`), "__NEXT_ERROR_CODE", {
+                             value: "E443",
+                             enumerable: false,
