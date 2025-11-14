@@ -4,28 +4,26 @@ on:
   push:
     branches:
       - master
-      - pull_request
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+  pull_request:
+    branches:
+      - master
 
 jobs:
   deploy:
-    name: Deploy
+    name: Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v5
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: latest
           run_install: false
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: lts/*
+          node-version-file: .node-version
           cache: pnpm
 
       - name: Install dependencies
@@ -33,7 +31,7 @@ jobs:
       - name: Build website
         run: pnpm build
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
