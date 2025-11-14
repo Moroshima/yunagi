@@ -47,13 +47,13 @@ package.json 中的 config 项需要新增 ghook 和 validate-commit-msg 配置�
 
 配置完成后 config 大致如下图
 
-![image-20211019230937498](./assets/image-20211019230937498.png)
+![image-20211019230937498](./assets/how-to-standardize-commit-messages/image-20211019230937498.png)
 
 为什么我没使用 husky？因为 husky6.0 配置 hooks 太麻烦了，参见 [husky使用总结 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/366786798)
 
 配置完成后如下，不规范的 commit 会报错不被执行
 
-![image-20211019222231342](./assets/image-20211019222231342.png)
+![image-20211019222231342](./assets/how-to-standardize-commit-messages/image-20211019222231342.png)
 
 此时我们可以直接使用 `git cz` 来去辅助我们撰写标准的 commit message，当然，我们依旧可以选择继续使用 `git commit -m "commit message"` 命令来去直接提交符合 Angular 规范的 commit message
 

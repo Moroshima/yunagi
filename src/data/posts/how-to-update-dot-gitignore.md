@@ -28,9 +28,9 @@ git push    # 推送提交
 
 关于 git rm 命令，我们可以在 Pro Git 中找到其详细的使用说明
 
-![image.png](./assets/image.png)
+![image.png](./assets/how-to-update-dot-gitignore/image.png)
 
-![image-1.png](./assets/image-1.png)
+![image-1.png](./assets/how-to-update-dot-gitignore/image-1.png)
 
 可以看到，`git rm -r --cached` 命令可以使我们停止对特定文件的追踪，这其实也就意味着，如果我们明确知道我们需要停止对某一文件的追踪，我们实际上也可以不将其写入 .gitignore 中也能实现，只不过不写入 .gitignore 的话如果之后你又使用了 `git add .` 命令 ，那很抱歉，这个文件又会被重新 track。
 

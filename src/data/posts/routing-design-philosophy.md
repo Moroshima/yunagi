@@ -16,7 +16,7 @@
 
 ## \*前端发展简史
 
-![image-20221008195848222](./assets/image-20221008195848222.png)
+![image-20221008195848222](./assets/routing-design-philosophy/image-20221008195848222.png)
 
 ### \*SSR 与 CSR
 
@@ -42,11 +42,11 @@ CSR：Client-Side Rendering
 
 ~~（不过我确实认为这可能是未来技术发展的一个方向/趋势，譬若 GraphQL 种种）~~
 
-![image-20220917205134131](./assets/image-20220917205134131.png)
+![image-20220917205134131](./assets/routing-design-philosophy/image-20220917205134131.png)
 
-![image-20220917205140170](./assets/image-20220917205140170.png)
+![image-20220917205140170](./assets/routing-design-philosophy/image-20220917205140170.png)
 
-![image-20220917205217966](./assets/image-20220917205217966.png)
+![image-20220917205217966](./assets/routing-design-philosophy/image-20220917205217966.png)
 
 ## 什么是路由
 
@@ -58,21 +58,21 @@ CSR：Client-Side Rendering
 
 \*CGI 为提供网络服务而执行控制台应用（CLI）的程序，通常情况下，一次请求对应一个CGI 脚本的执行，生成一个 HTML 文件。
 
-![640](./assets/640.png)
+![640](./assets/routing-design-philosophy/640.png)
 
 2010 年前后，ASP.NET MVC、PHP Laravel、Ruby on Rails 等 **MVC 框架**先后涌现 ~~（虽然此前 MFC、WinForm 等早就已经让 MVC 在桌面端遍地开花了）~~，View 与 Model 逐渐分离，此时一套现代路由机制的出现几乎可以说是呼之欲出的。Laravel 和 ThinkPHP 等框架都提供了一套自己的路由解析方案，在此时路由全权由服务端负责，后端对用户传递的 url 进行正则匹配解析后渲染对应的 HTML 页面返回给客户端。
 
-![image001](./assets/image001.png)
+![image001](./assets/routing-design-philosophy/image001.png)
 
 ### 前端路由
 
 随后前后端紧随桌面开发 WPF 的步伐，也来到了 **MVVM 的时代**。前端领域 jQuery Ajax 的崛起与RESTful API 的广泛应用，使得前后端分离架构成为了一种流行的趋势。经此一役，路由这个概念似乎很少再为后端所提起（@夏昊南），事实上前后端分离同样也带来了前后端路由的分离，不过不同的是前端路由最终进化为了现在的前端单页面应用（SPA）路由，而后端路由则退化为了 API 路由。
 
-![v2-85ba41bb0c53b65081c768752af71574_r](./assets/v2-85ba41bb0c53b65081c768752af71574_r.jpg)
+![v2-85ba41bb0c53b65081c768752af71574_r](./assets/routing-design-philosophy/v2-85ba41bb0c53b65081c768752af71574_r.jpg)
 
 **当下 SPA 所谓的前端路由核心也已不再是通过请求不同的资源来请求不同的页面，而是通过路由映射，在 URL 改变时页面并不进行整体页面的刷新，转而用 JavaScript 操作 DOM 加载对应组件页面作为替代，路由基本上就是路径和组件之间的映射关系了。**
 
-![view](./assets/view.png)
+![view](./assets/routing-design-philosophy/view.png)
 
 ## 路由模式
 
@@ -88,7 +88,7 @@ e.g. https://www.example.com/#/home
 
 一个完整的 URL 包括：协议、域名、端口、虚拟目录、文件名、参数、锚。
 
-![640-1663677946695-5](./assets/640-1663677946695-5.png)
+![640-1663677946695-5](./assets/routing-design-philosophy/640-1663677946695-5.png)
 
 hash 值指的是 URL 地址中的锚部分，也就是 `#` 后面的部分。hash 也称作锚点，是用来做页面定位的，与 hash 值对应的 DOM id 显示在可视区内。在 HTML5 的 history 新特性出现前，基本都是使用监听 hash 值来实现前端路由的。hash 值更新有以下几个特点：
 
@@ -234,17 +234,17 @@ e.g. https://twitter.com/Sco_ttie/status/1574333204076662784/photo/1
 
 通过阅读url我们不难理解这段链接的语义化含义，即编号为1574333204076662784的一条status中编号为1的图片，事实上该网页展示的也确实是该内容：
 
-![image-20220926175655608](./assets/image-20220926175655608.png)
+![image-20220926175655608](./assets/routing-design-philosophy/image-20220926175655608.png)
 
 那么如果我们删除最后指定图片编号的数字只访问 https://twitter.com/Sco_ttie/status/1574333204076662784/photo 会发生什么？这样一个链接在语义上是难以解释的（在路由的逻辑上实际也是如此）：
 
-![image-20220926175924592](./assets/image-20220926175924592.png)
+![image-20220926175924592](./assets/routing-design-philosophy/image-20220926175924592.png)
 
 欸嘿，它跳回了上一级页面
 
 那么我们故技重施删除指定status的编号：
 
-![image-20220926180124437](./assets/image-20220926180124437.png)
+![image-20220926180124437](./assets/routing-design-philosophy/image-20220926180124437.png)
 
 好欸，他返回了一个报错页面
 

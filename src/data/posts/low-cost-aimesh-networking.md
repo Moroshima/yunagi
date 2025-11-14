@@ -24,11 +24,11 @@
 
 原有网络拓扑
 
-![image-20220701143424196](./assets/image-20220701143424196.png)
+![image-20220701143424196](./assets/low-cost-aimesh-networking/image-20220701143424196.png)
 
 更新设备后的网络拓扑
 
-![image-20220701143445997](./assets/image-20220701143445997.png)
+![image-20220701143445997](./assets/low-cost-aimesh-networking/image-20220701143445997.png)
 
 网络结构最大的变化就是用 Mesh 组网模式替代了原有的两个路由器独立工作的模式，此外通过修改桥接的方式把拨号与DHCP分配转移到了性能更为稳定可靠的主路由，同时还放通了公网 ipv6 连接。
 
@@ -44,7 +44,7 @@ IPv6 连通性测试 [IPv6 测试 (test-ipv6.com)](https://test-ipv6.com/index.h
 
 ▲此外需要注意路由器改桥接并关闭 DHCP 服务器功能后一般情况下是无法直接通过IP再去访问光猫的，但同时 192.168.1.1 的地址还是会被光猫占用 [光猫改桥接后，无法进入管理后台 - V2EX](https://www.v2ex.com/t/815332) （文中有解决方案，但需要 OpenWrt 固件才能解决）
 
-![image-20220701152313913](./assets/image-20220701152313913.png)
+![image-20220701152313913](./assets/low-cost-aimesh-networking/image-20220701152313913.png)
 
 ### 梅林固件可能导致的问题
 
@@ -56,7 +56,7 @@ IPv6 连通性测试 [IPv6 测试 (test-ipv6.com)](https://test-ipv6.com/index.h
 
 在 AiMesh 添加节点（AiMesh node）时需要保证主路由处于搜索状态（点击添加 AiMesh 节点按钮并保持在弹出的搜索界面），同时子节点要被配置为 AiMesh node 状态并同样进入到搜索界面，这样才能保证主路由能够搜索到节点。
 
-![image-20220701145152098](./assets/image-20220701145152098.png)
+![image-20220701145152098](./assets/low-cost-aimesh-networking/image-20220701145152098.png)
 
 ### 为什么子路由需要前置一个交换机连接其他设备
 

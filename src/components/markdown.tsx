@@ -15,12 +15,13 @@ export default function Markdown(props: { source: string }) {
     <MDXRemote
       components={{
         img: async (props) => {
-          const src = props.src.replace("./assets", `/images`);
+          const src = props.src.replace("./assets", `/images/assets`);
           const metadata = await sharp(
             path.join(
               process.cwd(),
               "public",
               "images",
+              "assets",
               props.src.slice("./assets".length),
             ),
           ).metadata();

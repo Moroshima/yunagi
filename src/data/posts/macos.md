@@ -225,7 +225,7 @@ https://code.visualstudio.com/docs/editor/codebasics#_how-do-i-turn-on-word-wrap
 
 将 `browser.gesture.swipe.left` 更改为 `cmd_scrollLeft`，将 `browser.gesture.swipe.right` 更改为 `cmd_scrollRight`
 
-![image-20231224215844389](./assets/image-20231224215844389.png)
+![image-20231224215844389](./assets/macos/image-20231224215844389.png)
 
 ## 架构
 

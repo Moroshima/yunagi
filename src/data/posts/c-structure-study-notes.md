@@ -62,7 +62,7 @@ struct
 
 - 关于结构体数组在内存中的存储方式（C Prime Plus）
 
-![image-20201222203330417](./assets/image-20201222203330417.png)
+![image-20201222203330417](./assets/c-structure-study-notes/image-20201222203330417.png)
 
 - 关于箭头的使用：地址->结构成员，其等价于(\*地址).结构成员
 
