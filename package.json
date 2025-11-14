@@ -7,7 +7,8 @@
   "scripts": {
     "build": "next build",
     "build:legacy": "next build --webpack",
-    "bump": "npm-check-updates -i && pnpm install",
+    "bump": "npm-check-updates --interactive && pnpm install",
+    "deploy": "wrangler pages deploy build --project-name=yunagi",
     "dev": "next dev",
     "dev:legacy": "next dev --webpack",
     "lint": "eslint",
@@ -18,10 +19,10 @@
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
-    "@primer/octicons-react": "^19.19.0",
-    "@shikijs/rehype": "^3.14.0",
-    "marked": "^16.4.1",
-    "next": "16.0.1",
+    "@primer/octicons-react": "^19.21.0",
+    "@shikijs/rehype": "^3.15.0",
+    "marked": "^17.0.0",
+    "next": "16.0.3",
     "next-mdx-remote": "^5.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
@@ -33,7 +34,7 @@
     "remark-math": "^6.0.0",
     "rss": "^1.2.2",
     "semver": "^7.7.3",
-    "sharp": "^0.34.4"
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -46,7 +47,7 @@
     "@types/semver": "^7.7.1",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.0.1",
+    "eslint-config-next": "16.0.3",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
@@ -57,6 +58,6 @@
     "sass-embedded": "^1.93.3",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "wrangler": "^4.45.3"
+    "wrangler": "^4.48.0"
   }
 }
