@@ -19,7 +19,7 @@ const renderer = {
     title: string | null;
     text: string;
   }) {
-    const newHref = href.replace("./assets", `${siteUrl}/images`);
+    const newHref = href.replace("./assets", `${siteUrl}/images/assets`);
     return `<img src="${newHref}" alt="${text}" title="${title}" />`;
   },
 };
@@ -72,11 +72,9 @@ export async function GET() {
     },
   );
 
-  return new Response(feed.xml(), {
-    headers: {
-      "content-type": "application/xml",
-    },
-  });
+  const headers = new Headers({ "content-type": "application/xml" });
+
+  return new Response(feed.xml(), { headers });
 }
 
 export const dynamic = "force-static";
