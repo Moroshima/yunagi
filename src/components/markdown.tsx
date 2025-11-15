@@ -35,6 +35,15 @@ export default function Markdown(props: { source: string }) {
             />
           );
         },
+        a: (props) => {
+          return props.href.startsWith("#") ? (
+            <a {...props}>{props.children}</a>
+          ) : (
+            <a {...props} target="_blank">
+              {props.children}
+            </a>
+          );
+        },
       }}
       source={props.source}
       options={{
