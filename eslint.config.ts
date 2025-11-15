@@ -10,6 +10,17 @@ const eslintConfig = defineConfig([
   {
     rules: {
       "no-unused-vars": "warn",
+      "react/jsx-sort-props": [
+        "warn",
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          multiline: "last",
+          ignoreCase: true,
+          reservedFirst: ["key", "ref"],
+          locale: "en",
+        },
+      ],
     },
   },
   // Override default ignores of eslint-config-next.
