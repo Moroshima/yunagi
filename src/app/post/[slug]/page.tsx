@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
+import { Fragment } from "react";
 import Comment from "@components/comment";
 import Markdown from "@components/markdown";
 import globalConfig from "@data/configs/global.json";
@@ -40,9 +41,11 @@ export default async function PostRender({
   );
 
   return (
-    <main>
-      <Markdown source={source} />
+    <Fragment>
+      <main className="markdown">
+        <Markdown source={source} />
+      </main>
       <Comment />
-    </main>
+    </Fragment>
   );
 }

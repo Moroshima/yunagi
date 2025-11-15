@@ -1,5 +1,32 @@
 @use "tailwindcss";
 
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+  h3 {
+    font-size: var(--text-lg);
+  }
+  h4 {
+    font-size: var(--text-base);
+  }
+  h5 {
+    font-size: var(--text-sm);
+  }
+  h6 {
+    font-size: var(--text-xs);
+  }
+  .markdown {
+    :not(h1, h2, h3, h4, h5, h6) a {
+      color: var(--color-blue-600);
+      text-decoration-line: underline;
+    }
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-noto-sans), var(--font-noto-sans-sc), sans-serif;
   --font-serif: var(--font-noto-serif), var(--font-noto-serif-sc), serif;
