@@ -20,3 +20,8 @@
 
 - [如何给你的 Next.js（App 路由）应用添加 RSS | Cali Castle](https://cali.so/blog/how-to-add-rss-to-your-nextjs-app-router)
 - [Ensure description precedes content:encoded](https://validator.w3.org/feed/docs/warning/NeedDescriptionBeforeContent.html)
+
+## favicon
+
+- [How to Favicon in 2025: Three files that fit most needs—Martian Chronicles, Evil Martians’ team blog](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
+- [Configuring Web Applications](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
