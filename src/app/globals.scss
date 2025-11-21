@@ -28,8 +28,12 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-noto-sans), var(--font-noto-sans-sc), sans-serif;
-  --font-serif: var(--font-noto-serif), var(--font-noto-serif-sc), serif;
+  --font-sans:
+    var(--font-noto-sans), var(--font-noto-sans-sc), var(--font-noto-sans-tc),
+    sans-serif;
+  --font-serif:
+    var(--font-noto-serif), var(--font-noto-serif-sc),
+    var(--font-noto-serif-tc), serif;
   --font-allison: var(--font-allison), cursive;
   --font-liu-jian-mao-cao: var(--font-liu-jian-mao-cao), cursive;
   --font-comforter: var(--font-comforter), cursive;

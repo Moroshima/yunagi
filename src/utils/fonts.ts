@@ -5,8 +5,10 @@ import {
   Ms_Madi,
   Noto_Sans,
   Noto_Sans_SC,
+  Noto_Sans_TC,
   Noto_Serif,
   Noto_Serif_SC,
+  Noto_Serif_TC,
 } from "next/font/google";
 
 const allison = Allison({
@@ -37,6 +39,10 @@ const noto_sans_sc = Noto_Sans_SC({
   subsets: ["latin"],
   variable: "--font-noto-sans-sc",
 });
+const noto_sans_tc = Noto_Sans_TC({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-tc",
+});
 const noto_serif = Noto_Serif({
   subsets: ["latin"],
   variable: "--font-noto-serif",
@@ -44,6 +50,10 @@ const noto_serif = Noto_Serif({
 const noto_serif_sc = Noto_Serif_SC({
   subsets: ["latin"],
   variable: "--font-noto-serif-sc",
+});
+const noto_serif_tc = Noto_Serif_TC({
+  subsets: ["latin"],
+  variable: "--font-noto-serif-tc",
 });
 
 export {
@@ -53,6 +63,8 @@ export {
   ms_madi,
   noto_sans,
   noto_sans_sc,
+  noto_sans_tc,
   noto_serif,
   noto_serif_sc,
+  noto_serif_tc,
 };

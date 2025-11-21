@@ -11,8 +11,10 @@ import {
   ms_madi,
   noto_sans,
   noto_sans_sc,
+  noto_sans_tc,
   noto_serif,
   noto_serif_sc,
+  noto_serif_tc,
 } from "@utils/fonts";
 import "./globals.scss";
 
@@ -38,8 +40,10 @@ export default function RootLayout({
           ms_madi.variable,
           noto_sans.variable,
           noto_sans_sc.variable,
+          noto_sans_tc.variable,
           noto_serif.variable,
           noto_serif_sc.variable,
+          noto_serif_tc.variable,
           "antialiased",
         )}
       >
