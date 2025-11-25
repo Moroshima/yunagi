@@ -22,7 +22,7 @@
     "@giscus/react": "^3.1.0",
     "@primer/octicons-react": "^19.21.0",
     "@shikijs/rehype": "^3.15.0",
-    "next": "16.0.3",
+    "next": "16.0.4",
     "next-mdx-remote": "^5.0.0",
     "opencc-js": "^1.0.5",
     "react": "19.2.0",
@@ -56,12 +56,12 @@
     "babel-plugin-react-compiler": "1.0.0",
     "clsx": "^2.1.1",
     "eslint": "^9",
-    "eslint-config-next": "16.0.3",
+    "eslint-config-next": "16.0.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-unicorn": "^62.0.0",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
-    "lint-staged": "^16.2.6",
+    "lint-staged": "^16.2.7",
     "npm-check-updates": "^19.1.2",
     "prettier": "3.6.2",
     "prettier-plugin-packagejson": "^2.5.19",
@@ -69,6 +69,6 @@
     "sass-embedded": "^1.93.3",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "wrangler": "^4.48.0"
+    "wrangler": "^4.50.0"
   }
 }
