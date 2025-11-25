@@ -12,23 +12,19 @@ export const metadata: Metadata = {
 export default function Keywords() {
   const keywordCounts: Record<string, number> = {};
 
-  posts.forEach((post) => {
-    post.keywords.forEach((keyword) => {
-      if (keywordCounts[keyword]) {
-        keywordCounts[keyword] = keywordCounts[keyword] + 1;
-      } else {
-        keywordCounts[keyword] = 1; // create a key-value if it does not exist
-      }
-    });
-  });
+  for (const post of posts) {
+    for (const keyword of post.keywords) {
+      keywordCounts[keyword] = (keywordCounts[keyword] ?? 0) + 1; // create a key-value if it does not exist
+    }
+  }
 
   return (
     <div>
       <h1>关键词云</h1>
       <div>
         {Object.entries(keywordCounts).map(([key, count]) => (
-          <Link href={`keyword/${key}`} key={key}>
-            <p key={key}>
+          <Link key={key} href={`keyword/${key}`}>
+            <p>
               keyword: {key}, count: {count}
             </p>
           </Link>

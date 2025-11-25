@@ -20,14 +20,14 @@ export default function Links() {
         <p>{introduction}</p>
         <div>
           {links
-            .sort((a, b) => a.name.localeCompare(b.name, "en"))
+            .toSorted((a, b) => a.name.localeCompare(b.name, "en"))
             .map((value, index) => (
               <div key={`friend-${index}`}>
                 <Image
-                  width={100}
+                  alt={`friend-photo-${index}`}
                   height={100}
                   src={value.photo}
-                  alt={`friend-photo-${index}`}
+                  width={100}
                 />
                 <div>
                   <h2>

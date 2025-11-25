@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  navigationConfig.forEach((item) => {
+  for (const item of navigationConfig) {
     if (item.url && item.url !== "/") {
       siteMapUrls.push({
         url: `${siteUrl}/${item.url}`,
@@ -31,16 +31,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
       });
     }
-  });
+  }
 
-  posts.forEach((post) => {
+  for (const post of posts) {
     siteMapUrls.push({
       url: `${siteUrl}/post/${post.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     });
-  });
+  }
 
   return siteMapUrls;
 }

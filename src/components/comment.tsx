@@ -1,7 +1,7 @@
 "use client";
 
-import commentConfig from "@data/configs/comment";
 import Giscus from "@giscus/react";
+import commentConfig from "@data/configs/comment";
 
 const {
   repo,
@@ -18,18 +18,18 @@ const {
 export default function Comment() {
   return (
     <Giscus
-      id="comments"
-      repo={repo}
-      repoId={repoId}
       category={category}
       categoryId={categoryId}
-      mapping={mapping}
-      strict={strict}
-      reactionsEnabled={reactionsEnabled}
       emitMetadata={emitMetadata}
+      id="comments"
       inputPosition={inputPosition}
-      theme="light"
       lang="zh-CN"
+      mapping={mapping}
+      reactionsEnabled={reactionsEnabled}
+      repo={repo}
+      repoId={repoId}
+      strict={strict}
+      theme="light"
     />
   );
 }

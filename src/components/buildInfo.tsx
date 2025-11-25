@@ -1,6 +1,6 @@
-import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
+import { execSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import semver from "semver";
 
 const packageJson = JSON.parse(
@@ -12,7 +12,7 @@ const buildInfo: { label: string; value: string }[] = [
     label: "version",
     value: `${packageJson.version}+${
       semver.prerelease(packageJson.version) === null
-        ? null
+        ? undefined
         : execSync("git rev-parse --short HEAD").toString()
     }`,
   },

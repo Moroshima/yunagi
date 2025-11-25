@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import Markdown from "@components/markdown";
 import globalConfig from "@data/configs/global.json";
 
@@ -15,7 +15,7 @@ export default function About() {
   const dir = path.join(process.cwd(), "src", "data");
   const file = ["about.md", "about.mdx"]
     .map((name) => path.join(dir, name))
-    .find(fs.existsSync);
+    .find((filePath) => fs.existsSync(filePath));
 
   const source = file
     ? fs.readFileSync(file, "utf8")

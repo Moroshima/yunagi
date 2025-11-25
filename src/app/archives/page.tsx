@@ -27,7 +27,7 @@ function toChineseNumeral(num: number): string {
   let result = "";
 
   for (let i = 0; i < str.length; i++) {
-    const digit = parseInt(str.charAt(i));
+    const digit = Number.parseInt(str.charAt(i));
     result += chineseNumeralMap[digit.toString()];
   }
 
@@ -69,7 +69,7 @@ export default function Archive() {
               slug: string;
               title: string;
               date: string;
-              update: string | null;
+              update?: string;
               lang: string;
               category: string;
               keywords: string[];
@@ -104,11 +104,52 @@ export default function Archive() {
 
   let beforeYear: number = new Date(posts[0].date).getFullYear();
   let beforeMonth: number = new Date(posts[0].date).getMonth() + 1;
-  posts.forEach((value, index) => {
+  for (const [index, value] of posts.entries()) {
     const year = new Date(value.date).getFullYear();
     const month = new Date(value.date).getMonth() + 1;
     if (index !== 0) {
-      if (year !== beforeYear) {
+      if (year === beforeYear) {
+        if (month === beforeMonth) {
+          for (const subValue of archiveArray) {
+            if (subValue?.year === year) {
+              for (const subSubValue of subValue.next) {
+                if (subSubValue?.month === month) {
+                  subSubValue.posts.push({
+                    slug: value?.slug,
+                    title: value?.title,
+                    date: value?.date,
+                    update: value?.update,
+                    lang: value?.lang,
+                    category: value?.category,
+                    keywords: value?.keywords,
+                    description: value?.description,
+                  });
+                }
+              }
+            }
+          }
+        } else {
+          for (const subValue of archiveArray) {
+            if (subValue?.year === year) {
+              subValue.next.push({
+                month: month,
+                posts: [
+                  {
+                    slug: value?.slug,
+                    title: value?.title,
+                    date: value?.date,
+                    update: value?.update,
+                    lang: value?.lang,
+                    category: value?.category,
+                    keywords: value?.keywords,
+                    description: value?.description,
+                  },
+                ],
+              });
+            }
+          }
+        }
+      } else {
         archiveArray.push({
           year: year,
           next: [
@@ -129,52 +170,11 @@ export default function Archive() {
             },
           ],
         });
-      } else {
-        if (month === beforeMonth) {
-          archiveArray.forEach((subValue) => {
-            if (subValue?.year === year) {
-              subValue.next.forEach((subSubValue) => {
-                if (subSubValue?.month === month) {
-                  subSubValue.posts.push({
-                    slug: value?.slug,
-                    title: value?.title,
-                    date: value?.date,
-                    update: value?.update,
-                    lang: value?.lang,
-                    category: value?.category,
-                    keywords: value?.keywords,
-                    description: value?.description,
-                  });
-                }
-              });
-            }
-          });
-        } else {
-          archiveArray.forEach((subValue) => {
-            if (subValue?.year === year) {
-              subValue.next.push({
-                month: month,
-                posts: [
-                  {
-                    slug: value?.slug,
-                    title: value?.title,
-                    date: value?.date,
-                    update: value?.update,
-                    lang: value?.lang,
-                    category: value?.category,
-                    keywords: value?.keywords,
-                    description: value?.description,
-                  },
-                ],
-              });
-            }
-          });
-        }
       }
       beforeYear = year;
       beforeMonth = month;
     }
-  });
+  }
 
   return (
     <main>
@@ -201,7 +201,7 @@ export default function Archive() {
                           {subSubValue.title}
                         </Link>
                         <span>{subSubValue.lang}</span>
-                        {subSubValue.date.substring(0, 10)}
+                        {subSubValue.date.slice(0, 10)}
                       </li>
                     ))}
                   </ul>

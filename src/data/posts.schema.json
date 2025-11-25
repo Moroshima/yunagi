@@ -7,7 +7,6 @@
       "slug",
       "title",
       "date",
-      "update",
       "lang",
       "category",
       "keywords",
@@ -17,7 +16,7 @@
       "slug": { "type": "string" },
       "title": { "type": "string" },
       "date": { "type": "string" },
-      "update": { "type": ["string", "null"] },
+      "update": { "type": "string" },
       "lang": { "type": "string" },
       "category": {
         "type": "string",

@@ -6,10 +6,10 @@ import sortPostsByDate from "@utils/sortPostsByDate";
 
 const { title } = globalConfig;
 
-const uniqueKeywordsArray = Array.from(
-  // flatten the keywords array and convert it to a Set to remove duplicates
-  new Set(posts.map((value) => value.keywords).flat()),
-);
+// flatten the keywords array and convert it to a Set to remove duplicates
+const uniqueKeywordsArray = [
+  ...new Set(posts.flatMap((value) => value.keywords)),
+];
 
 export async function generateStaticParams() {
   return uniqueKeywordsArray.map((keyword) => ({

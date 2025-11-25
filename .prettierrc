@@ -9,16 +9,19 @@
     "<TYPES>^(node:)",
     "<TYPES>",
     "<TYPES>^[.]",
+    "^eslint$",
+    "^eslint(/.*)$",
+    "^eslint-(.*)(/.*)$",
     "<BUILTIN_MODULES>",
     "^react$",
     "^next$",
     "^next(/.*)$",
     "<THIRD_PARTY_MODULES>",
-    "^@(.*)(/.*)$",
-    "^(@components|@data|@hooks|@styles|@utils)(/.*)$",
+    "^@(?!components|data|hooks|styles|utils)(.*)(/.*)$",
+    "^@(components|data|hooks|styles|utils)(/.*)$",
     "^@(/.*)$",
     "^[.]",
-    "^(?!.*[.]css$)[./].*$",
-    ".css$"
+    "^(?!.*[.]scss$)[./].*$",
+    ".scss$"
   ]
 }

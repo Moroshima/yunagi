@@ -7,7 +7,7 @@ export default function PostPreviewCard({
     slug: string;
     title: string;
     date: string;
-    update: string | null;
+    update?: string;
     lang: string;
     category: string;
     keywords: string[];

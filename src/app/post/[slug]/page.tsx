@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { Fragment } from "react";
 import Comment from "@components/comment";
 import Markdown from "@components/markdown";

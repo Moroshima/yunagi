@@ -3,7 +3,7 @@ export default function sortPostsByDate(
     slug: string;
     title: string;
     date: string;
-    update: string | null;
+    update?: string;
     lang: string;
     category: string;
     keywords: string[];
@@ -11,6 +11,8 @@ export default function sortPostsByDate(
   }[],
 ) {
   return posts
-    .sort((a, b) => a.slug.localeCompare(b.slug, "en"))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .toSorted((a, b) => a.slug.localeCompare(b.slug, "en"))
+    .toSorted(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
 }

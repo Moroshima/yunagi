@@ -6,7 +6,7 @@ import sortPostsByDate from "@utils/sortPostsByDate";
 
 const { title } = globalConfig;
 
-const categories = Array.from(new Set(posts.map((value) => value.category)));
+const categories = [...new Set(posts.map((value) => value.category))];
 
 export async function generateStaticParams() {
   return categories.map((category) => ({

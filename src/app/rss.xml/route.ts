@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { marked } from "marked";
 import RSS from "rss";
 import globalConfig from "@data/configs/global.json";
@@ -41,36 +41,26 @@ export async function GET() {
     }`,
   });
 
-  posts.forEach(
-    (value: {
-      slug: string;
-      title: string;
-      date: string;
-      update: string | null;
-      lang: string;
-      category: string;
-      keywords: string[];
-      description: string;
-    }) => {
-      const raw = fs.readFileSync(
-        path.join(process.cwd(), "src", "data", "posts", `${value.slug}.md`),
-        "utf8",
-      );
+  for (const value of posts) {
+    const content = await processor.process(
+      fs
+        .readFileSync(
+          path.join(process.cwd(), "src", "data", "posts", `${value.slug}.md`),
+          "utf8",
+        )
+        .split("\n")
+        .splice(2) // remove title
+        .join("\n"),
+    );
 
-      // remove title
-      const lines = raw.split("\n");
-      lines.splice(0, 2);
-      const content = lines.join("\n");
-
-      feed.item({
-        title: value?.title,
-        date: value?.date,
-        url: `${siteUrl}/post/${value?.slug}`,
-        description: value?.description,
-        custom_elements: [{ "content:encoded": marked.parse(content) }],
-      });
-    },
-  );
+    feed.item({
+      title: value?.title,
+      date: value?.date,
+      url: `${siteUrl}/post/${value?.slug}`,
+      description: value?.description,
+      custom_elements: [{ "content:encoded": marked.parse(content) }],
+    });
+  }
 
   const headers = new Headers({ "content-type": "application/xml" });
 

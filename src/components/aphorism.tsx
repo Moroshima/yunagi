@@ -15,12 +15,15 @@ const langFontMap: Record<string, string> = {
 };
 
 export default function Aphorism() {
-  const [aphorism, setAphorism] = useState<{
-    aphorism: string;
-    author: string;
-    lang: string;
-    source: string;
-  } | null>(null);
+  const [aphorism, setAphorism] = useState<
+    | {
+        aphorism: string;
+        author: string;
+        lang: string;
+        source: string;
+      }
+    | undefined
+  >();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -37,5 +40,5 @@ export default function Aphorism() {
         <em className="font-serif">{aphorism?.source}.</em>
       </p>
     </div>
-  ) : null;
+  ) : undefined;
 }
