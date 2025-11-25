@@ -23,6 +23,7 @@
       "@data/*": ["./src/data/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@styles/*": ["./src/styles/*"],
+      "@types/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },
@@ -34,7 +35,8 @@
     ".next/dev/types/**/*.ts",
     "build/types/**/*.ts",
     "build/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "src/types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }

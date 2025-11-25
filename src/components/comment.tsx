@@ -1,7 +1,7 @@
 "use client";
 
 import Giscus from "@giscus/react";
-import commentConfig from "@data/configs/comment";
+import commentConfig from "@data/configs/comment.json";
 
 const {
   repo,
