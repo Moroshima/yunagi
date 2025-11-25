@@ -1,30 +1,36 @@
+import type { Root } from "mdast";
 import fs from "node:fs";
 import path from "node:path";
-import { marked } from "marked";
+import rehypeStringify from "rehype-stringify";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
 import RSS from "rss";
+import { unified } from "unified";
+import { visit } from "unist-util-visit";
 import globalConfig from "@data/configs/global.json";
 import posts from "@data/posts.json";
 
 const { domain, owner, title, description, rss } = globalConfig;
 
-const siteUrl = `https://${domain}`;
+const siteUrl =
+  process.env.NODE_ENV === "production"
+    ? `https://${domain}`
+    : `http://localhost:${process.env.PORT}`;
 
-const renderer = {
-  image({
-    href,
-    title,
-    text,
-  }: {
-    href: string;
-    title: string | null;
-    text: string;
-  }) {
-    const newHref = href.replace("./assets", `${siteUrl}/images/assets`);
-    return `<img src="${newHref}" alt="${text}" title="${title}" />`;
-  },
-};
-
-marked.use({ renderer });
+const processor = unified()
+  .use(remarkParse)
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  .use(() => (tree: Root) => {
+    visit(tree, "image", (node) => {
+      if (node.url.startsWith("./assets/")) {
+        node.url.replace("./assets", `${siteUrl}/images/assets`);
+      }
+    });
+  })
+  .use(remarkGfm)
+  .use(remarkRehype)
+  .use(rehypeStringify);
 
 export async function GET() {
   const feed = new RSS({
@@ -58,7 +64,7 @@ export async function GET() {
       date: value?.date,
       url: `${siteUrl}/post/${value?.slug}`,
       description: value?.description,
-      custom_elements: [{ "content:encoded": marked.parse(content) }],
+      custom_elements: [{ "content:encoded": String(content) }],
     });
   }
 
