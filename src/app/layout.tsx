@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import clsx from "clsx";
-import BuildInfo from "@components/buildInfo";
 import config from "@data/config.json";
+import buildInfo from "@utils/build-info";
 import {
   allison,
   comforter,
@@ -17,7 +17,7 @@ import {
 } from "@utils/fonts";
 import "./globals.scss";
 
-const { title, description, navigation } = config;
+const { title, description, navigation, owner } = config;
 
 export const metadata: Metadata = {
   title: title,
@@ -67,24 +67,35 @@ export default function RootLayout({
               );
             })}
           </nav>
-          <p>
-            {navigation.meta.map((value, index) => {
-              return (
-                <Link key={index} href={value.path}>
-                  {value.name}
-                </Link>
-              );
-            })}
-            {navigation.auxiliary.map((value, index) => {
-              return (
-                <Link key={index} href={value.url} target="_blank">
-                  {value.name}
-                </Link>
-              );
-            })}
-          </p>
+          <div>
+            <p>
+              {navigation.meta.map((value, index) => {
+                return (
+                  <Link key={index} href={value.path}>
+                    {value.name}
+                  </Link>
+                );
+              })}
+              {navigation.auxiliary.map((value, index) => {
+                return (
+                  <Link key={index} href={value.url} target="_blank">
+                    {value.name}
+                  </Link>
+                );
+              })}
+            </p>
+            <p>
+              <Link href="https://github.com/Moroshima/yunagi" target="_blank">
+                Yunagi
+              </Link>{" "}
+              {buildInfo.find((item) => item.label === "version")?.value}
+            </p>
+            <p>
+              © {new Date().getFullYear()} <Link href="/about">{owner}</Link>.
+              All rights reserved.
+            </p>
+          </div>
           {children}
-          <BuildInfo />
         </div>
       </body>
     </html>

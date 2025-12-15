@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Markdown from "@components/markdown";
 import config from "@data/config.json";
+import buildInfo from "@utils/build-info";
 
 const { title, navigation } = config;
 
@@ -33,6 +34,14 @@ export default function About() {
           <Markdown source={source} />
         </div>
       </main>
+      <div>
+        <p>build info</p>
+        {buildInfo.map(({ label, value }, index) => (
+          <p key={`build-info-${index}`}>
+            {label}: {value}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }

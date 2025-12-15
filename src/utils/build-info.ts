@@ -25,15 +25,4 @@ const buildInfo: { label: string; value: string }[] = [
   { label: "buildTime", value: new Date().toISOString() },
 ];
 
-export default function BuildInfo() {
-  return (
-    <div>
-      <p>build info</p>
-      {buildInfo.map(({ label, value }, index) => (
-        <p key={`build-info-${index}`}>
-          {label}: {value}
-        </p>
-      ))}
-    </div>
-  );
-}
+export default buildInfo;

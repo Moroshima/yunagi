@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: `文章 | ${title}`,
 };
 
-function Category() {
+export default function Post() {
   const categoryCounts: Record<string, number> = {};
 
   for (const post of posts) {
@@ -19,34 +19,32 @@ function Category() {
   }
 
   return (
-    <ul>
-      {Object.entries(categoryCounts).map(([key, count]) => (
-        <Link key={key} href={`category/${key}`}>
-          <li key={key}>
-            category: {key}, count: {count}
-          </li>
-        </Link>
-      ))}
-    </ul>
-  );
-}
-
-export default function Post() {
-  return (
-    <main>
-      <h1>文章</h1>
-      <p>{navigation.primary.find(({ key }) => key === "posts")?.subtitle}</p>
+    <div>
+      <main>
+        <h1>文章</h1>
+        <p>{navigation.primary.find(({ key }) => key === "posts")?.subtitle}</p>
+        <div>
+          <ul>
+            {sortPostsByDate(posts).map((value, index) => (
+              <li key={`post-${index}`}>
+                <PostCard post={value} />
+              </li>
+            ))}
+          </ul>
+          <p>- MORE -</p>
+        </div>
+      </main>
       <div>
         <ul>
-          {sortPostsByDate(posts).map((value, index) => (
-            <li key={`post-${index}`}>
-              <PostCard post={value} />
-            </li>
+          {Object.entries(categoryCounts).map(([key, count]) => (
+            <Link key={key} href={`category/${key}`}>
+              <li key={key}>
+                Category: {key}, count: {count}
+              </li>
+            </Link>
           ))}
         </ul>
-        <p>- MORE -</p>
       </div>
-      <Category />
-    </main>
+    </div>
   );
 }
