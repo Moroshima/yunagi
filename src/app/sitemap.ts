@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
 import config from "@data/config.json";
 import posts from "@data/posts.json";
+import origin from "@utils/origin";
 
-const { domain, navigation } = config;
-
-const siteUrl = `https://${domain}`;
+const { navigation } = config;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteMapUrls: {
@@ -14,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: number;
   }[] = [
     {
-      url: siteUrl,
+      url: origin,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
@@ -24,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const item of navigation.primary) {
     if (item.path && item.path !== "/") {
       siteMapUrls.push({
-        url: `${siteUrl}/${item.path}`,
+        url: `${origin}/${item.path}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.9,
@@ -34,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const post of posts) {
     siteMapUrls.push({
-      url: `${siteUrl}/post/${post.slug}`,
+      url: `${origin}/post/${post.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,

@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-import config from "@data/config.json";
-
-const { domain } = config;
+import origin from "@utils/origin";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -10,6 +8,8 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: `https://${domain}/sitemap.xml`,
+    sitemap: `${origin}/sitemap.xml`,
   };
 }
+
+export const dynamic = "force-static";

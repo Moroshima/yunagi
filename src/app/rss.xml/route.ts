@@ -10,13 +10,9 @@ import { unified } from "unified";
 import { visit } from "unist-util-visit";
 import config from "@data/config.json";
 import posts from "@data/posts.json";
+import origin from "@utils/origin";
 
-const { domain, owner, title, description, rss } = config;
-
-const siteUrl =
-  process.env.NODE_ENV === "production"
-    ? `https://${domain}`
-    : `http://localhost:${process.env.PORT}`;
+const { owner, title, description, rss } = config;
 
 const processor = unified()
   .use(remarkParse)
@@ -24,7 +20,7 @@ const processor = unified()
   .use(() => (tree: Root) => {
     visit(tree, "image", (node) => {
       if (node.url.startsWith("./assets/")) {
-        node.url.replace("./assets", `${siteUrl}/images/assets`);
+        node.url.replace("./assets", `${origin}/images/assets`);
       }
     });
   })
@@ -36,15 +32,11 @@ export async function GET() {
   const feed = new RSS({
     title: `RSS Feed | ${title}`,
     description: description,
-    site_url: siteUrl,
-    feed_url: `${siteUrl}/rss.xml`,
-    image_url: `${siteUrl}/${rss.image}`,
+    site_url: origin,
+    feed_url: `${origin}/rss.xml`,
+    image_url: `${origin}/${rss.image}`,
     pubDate: new Date(),
-    copyright: `Copyright © ${new Date().getFullYear()} ${owner}. Ver.${
-      JSON.parse(
-        fs.readFileSync(path.join(process.cwd(), "package.json"), "utf8"),
-      ).version
-    }`,
+    copyright: `© ${new Date().getFullYear()} ${owner}. All rights reserved.`,
   });
 
   for (const value of posts) {
@@ -62,15 +54,15 @@ export async function GET() {
     feed.item({
       title: value?.title,
       date: value?.date,
-      url: `${siteUrl}/post/${value?.slug}`,
+      url: `${origin}/post/${value?.slug}`,
       description: value?.description,
       custom_elements: [{ "content:encoded": String(content) }],
     });
   }
 
-  const headers = new Headers({ "content-type": "application/xml" });
-
-  return new Response(feed.xml(), { headers });
+  return new Response(feed.xml(), {
+    headers: new Headers({ "Content-Type": "application/xml" }),
+  });
 }
 
 export const dynamic = "force-static";
