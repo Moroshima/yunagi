@@ -19,6 +19,7 @@
 
 # production
 /build
+/.wrangler
 
 # misc
 .DS_Store
