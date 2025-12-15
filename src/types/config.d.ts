@@ -46,6 +46,10 @@ declare module "@data/config.json" {
       emitMetadata?: BooleanString;
       inputPosition?: InputPosition;
     };
+    security: {
+      contact: string;
+      expires: string;
+    };
   };
   export default config;
 }

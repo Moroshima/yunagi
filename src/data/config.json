@@ -90,5 +90,9 @@
     "reactionsEnabled": "1",
     "emitMetadata": "0",
     "inputPosition": "top"
+  },
+  "security": {
+    "contact": "mailto:admin@yunagi.dev",
+    "expires": "2038-01-19T03:14:07Z"
   }
 }
