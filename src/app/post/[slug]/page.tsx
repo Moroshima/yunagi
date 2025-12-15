@@ -4,10 +4,10 @@ import path from "node:path";
 import { Fragment } from "react";
 import Comment from "@components/comment";
 import Markdown from "@components/markdown";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
 
-const { title } = globalConfig;
+const { title } = config;
 
 export async function generateStaticParams() {
   return posts.map((post) => ({

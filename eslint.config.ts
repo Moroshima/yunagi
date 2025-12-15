@@ -28,7 +28,6 @@ const eslintConfig = defineConfig([
         "error",
         {
           cases: {
-            camelCase: true,
             kebabCase: true,
           },
         },

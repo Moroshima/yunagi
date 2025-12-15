@@ -1,9 +1,8 @@
 import type { MetadataRoute } from "next";
-import globalConfig from "@data/configs/global.json";
-import navigationConfig from "@data/configs/navigation.json";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
 
-const { domain } = globalConfig;
+const { domain, navigation } = config;
 
 const siteUrl = `https://${domain}`;
 
@@ -22,10 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  for (const item of navigationConfig) {
-    if (item.url && item.url !== "/") {
+  for (const item of navigation.primary) {
+    if (item.path && item.path !== "/") {
       siteMapUrls.push({
-        url: `${siteUrl}/${item.url}`,
+        url: `${siteUrl}/${item.path}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.9,

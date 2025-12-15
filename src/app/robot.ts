@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 
-const { domain } = globalConfig;
+const { domain } = config;
 
 export default function robots(): MetadataRoute.Robots {
   return {

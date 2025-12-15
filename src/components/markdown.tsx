@@ -1,5 +1,6 @@
 import path from "node:path";
 import Image from "next/image";
+import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
@@ -37,12 +38,13 @@ export default function Markdown(props: { source: string }) {
           );
         },
         a: (props) => {
-          return props.href.startsWith("#") ? (
-            <a {...props}>{props.children}</a>
-          ) : (
-            <a {...props} target="_blank">
+          return (
+            <Link
+              {...props}
+              target={props.href.startsWith("#") ? "_self" : "_blank"}
+            >
               {props.children}
-            </a>
+            </Link>
           );
         },
       }}

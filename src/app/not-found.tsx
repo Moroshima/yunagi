@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 
-const { title, notFound } = globalConfig;
+const { title, notFound } = config;
 
 export const metadata: Metadata = {
   title: `Not Found | ${title}`,

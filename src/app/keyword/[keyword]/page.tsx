@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import PostPreviewCard from "@components/postPreviewCard";
-import globalConfig from "@data/configs/global.json";
+import PostCard from "@components/post-card";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
-import sortPostsByDate from "@utils/sortPostsByDate";
+import sortPostsByDate from "@utils/sort-posts-by-date";
 
-const { title } = globalConfig;
+const { title } = config;
 
 // flatten the keywords array and convert it to a Set to remove duplicates
 const uniqueKeywordsArray = [
@@ -43,13 +43,15 @@ export default async function Keyword({
   );
 
   return (
-    <div>
+    <main>
       <h1>关键词：{keyword}</h1>
-      {sortPostsByDate(postList).map((value, index) => (
-        <li key={`post-${index}`}>
-          <PostPreviewCard post={value} />
-        </li>
-      ))}
-    </div>
+      <ul>
+        {sortPostsByDate(postList).map((value, index) => (
+          <li key={`post-${index}`}>
+            <PostCard post={value} />
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }

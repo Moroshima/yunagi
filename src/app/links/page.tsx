@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 import linksData from "@data/links.json";
 
-const { title, subtitles } = globalConfig;
+const { title, navigation } = config;
 const { introduction, links } = linksData;
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function Links() {
   return (
     <main>
       <h1>友链</h1>
-      <p>{subtitles.links}</p>
+      <p>{navigation.primary.find(({ key }) => key === "links")?.subtitle}</p>
       <div>
         <p>{introduction}</p>
         <div>

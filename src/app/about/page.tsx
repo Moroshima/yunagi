@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import Markdown from "@components/markdown";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 
-const { title, subtitles } = globalConfig;
+const { title, navigation } = config;
 
 export const metadata: Metadata = {
   title: `关于 | ${title}`,
@@ -25,14 +25,14 @@ export default function About() {
       "");
 
   return (
-    <main>
-      <div>
+    <div>
+      <main>
         <h1>关于</h1>
-        <p>{subtitles.about}</p>
+        <p>{navigation.primary.find(({ key }) => key === "about")?.subtitle}</p>
         <div>
           <Markdown source={source} />
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }

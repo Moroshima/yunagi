@@ -1,9 +1,16 @@
+import Link from "next/link";
+import config from "@data/config.json";
 import shortcuts from "@data/shortcuts.json";
+
+const { navigation } = config;
 
 export default function Shortcuts() {
   return (
-    <div>
+    <main>
       <h1>捷径</h1>
+      <p>
+        {navigation.primary.find(({ key }) => key === "shortcuts")?.subtitle}
+      </p>
       {shortcuts.map((categorySection, categorySectionIndex) => {
         return (
           <div key={`shortcut-category-${categorySectionIndex}`}>
@@ -12,15 +19,19 @@ export default function Shortcuts() {
             </h2>
             {categorySection.websites.map((website, websiteIndex) => (
               <div key={`shortcut-website-${websiteIndex}`}>
-                <a href={website.url} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={website.url}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   {website.name}
-                </a>
+                </Link>
                 <p>{website.description}</p>
               </div>
             ))}
           </div>
         );
       })}
-    </div>
+    </main>
   );
 }

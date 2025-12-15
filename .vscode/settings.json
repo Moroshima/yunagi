@@ -4,10 +4,6 @@
   },
   "json.schemas": [
     {
-      "fileMatch": ["/src/data/configs/navigation.json"],
-      "url": "/src/data/configs/navigation.schema.json"
-    },
-    {
       "fileMatch": ["/src/data/aphorisms.json"],
       "url": "/src/data/aphorisms.schema.json"
     },

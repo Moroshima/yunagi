@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import clsx from "clsx";
 import BuildInfo from "@components/buildInfo";
-import globalConfig from "@data/configs/global.json";
-import navigationConfig from "@data/configs/navigation.json";
+import config from "@data/config.json";
 import {
   allison,
   comforter,
@@ -18,7 +17,7 @@ import {
 } from "@utils/fonts";
 import "./globals.scss";
 
-const { title, description } = globalConfig;
+const { title, description, navigation } = config;
 
 export const metadata: Metadata = {
   title: title,
@@ -59,15 +58,31 @@ export default function RootLayout({
           <Link className="font-allison" href="/">
             {title}
           </Link>
-          <div>
-            {navigationConfig.map((value, index) => {
+          <nav>
+            {navigation.primary.map((value, index) => {
               return (
-                <Link key={`header-link-${index}`} href={value.url}>
+                <Link key={`header-link-${index}`} href={value.path}>
                   {value.name}
                 </Link>
               );
             })}
-          </div>
+          </nav>
+          <p>
+            {navigation.meta.map((value, index) => {
+              return (
+                <Link key={index} href={value.path}>
+                  {value.name}
+                </Link>
+              );
+            })}
+            {navigation.auxiliary.map((value, index) => {
+              return (
+                <Link key={index} href={value.url} target="_blank">
+                  {value.name}
+                </Link>
+              );
+            })}
+          </p>
           {children}
           <BuildInfo />
         </div>

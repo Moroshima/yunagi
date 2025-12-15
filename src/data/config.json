@@ -1,0 +1,94 @@
+{
+  "domain": "yunagi.dev",
+  "owner": "Moroshima",
+  "title": "Moroshima's Blog",
+  "description": "却顾所来径，苍苍横翠微。",
+  "navigation": {
+    "primary": [
+      {
+        "path": "/",
+        "name": "首页",
+        "en": "Home"
+      },
+      {
+        "key": "posts",
+        "path": "/posts",
+        "name": "文章",
+        "en": "Posts",
+        "subtitle": "风消焰蜡，露浥红莲，花市光相射。桂华流瓦。纤云散，耿耿素娥欲下。"
+      },
+      {
+        "key": "archives",
+        "path": "/archives",
+        "name": "归档",
+        "en": "Archives",
+        "subtitle": "常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。"
+      },
+      {
+        "key": "keywords",
+        "path": "/keywords",
+        "name": "关键词",
+        "en": "Keywords",
+        "subtitle": "归梦寄吴樯，水驿江程去路长。想见芳洲初系缆，斜阳，烟树参差认武昌。"
+      },
+      {
+        "key": "links",
+        "path": "/links",
+        "name": "友链",
+        "en": "Links",
+        "subtitle": "携手江村。梅雪飘裙。情何限、处处消魂。故人不见，旧曲重闻。向望湖楼，孤山寺，涌金门。"
+      },
+      {
+        "key": "shortcuts",
+        "path": "/shortcuts",
+        "name": "捷径",
+        "en": "Shortcuts",
+        "subtitle": "清晨入古寺，初日照高林。曲径通幽处，禅房花木深。"
+      },
+      {
+        "key": "about",
+        "path": "/about",
+        "name": "关于",
+        "en": "About",
+        "subtitle": "欲买桂花同载酒，终不似，少年游。"
+      }
+    ],
+    "meta": [{ "path": "/rss.xml", "name": "订阅", "en": "Feed" }],
+    "auxiliary": [
+      {
+        "url": "https://stats.uptimerobot.com/ZdYHa75MG0",
+        "name": "监控",
+        "en": "Monitor"
+      },
+      {
+        "url": "https://r2.yunagi.dev",
+        "name": "对象存储",
+        "en": "OSS"
+      }
+    ]
+  },
+  "notFound": {
+    "title": "/dev/null",
+    "subtitle": "404 Not Found",
+    "aphorism": {
+      "content": "你說你不想在這裡\n我也不想在這裡\n但天黑的太快想走早就來不及",
+      "author": "草東沒有派對",
+      "lang": "zh-Hant",
+      "source": "瓦合·但"
+    }
+  },
+  "rss": {
+    "image": "images/Snipaste_2023-05-04_21-03-25.png"
+  },
+  "comment": {
+    "repo": "Moroshima/open-discussion",
+    "repoId": "R_kgDOJLaQvw",
+    "category": "Announcements",
+    "categoryId": "DIC_kwDOJLaQv84CU-QA",
+    "mapping": "pathname",
+    "strict": "1",
+    "reactionsEnabled": "1",
+    "emitMetadata": "0",
+    "inputPosition": "top"
+  }
+}

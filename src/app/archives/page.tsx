@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
 
-const { title, subtitles } = globalConfig;
+const { title, navigation } = config;
 
 export const metadata: Metadata = {
   title: `归档 | ${title}`,
@@ -178,39 +178,39 @@ export default function Archive() {
 
   return (
     <main>
+      <h1>归档</h1>
+      <p>
+        {navigation.primary.find(({ key }) => key === "archives")?.subtitle}
+      </p>
       <div>
-        <h1>归档</h1>
-        <p>{subtitles.archives}</p>
-        <div>
-          {archiveArray.map((value) => (
-            <div key={`archive-${value.year}-wrapper`}>
-              <h2 key={`archive-${value.year}`}>
-                {toChineseNumeral(value.year)}
-              </h2>
-              {value.next.map((subValue) => (
-                <div key={`subarchive-${value.year}-${subValue.month}-wrapper`}>
-                  <h3 key={`subarchive-${value.year}-${subValue.month}`}>
-                    {toChineseMonth(subValue.month)}月
-                  </h3>
-                  <ul>
-                    {subValue.posts.map((subSubValue, subSubIndex) => (
-                      <li
-                        key={`post-${value.year}-${subValue.month}-${subSubIndex}`}
-                      >
-                        <Link href={`post/${subSubValue.slug}`}>
-                          {subSubValue.title}
-                        </Link>
-                        <span>{subSubValue.lang}</span>
-                        {subSubValue.date.slice(0, 10)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
-          <p>- END -</p>
-        </div>
+        {archiveArray.map((value) => (
+          <div key={`archive-${value.year}-wrapper`}>
+            <h2 key={`archive-${value.year}`}>
+              {toChineseNumeral(value.year)}
+            </h2>
+            {value.next.map((subValue) => (
+              <div key={`subarchive-${value.year}-${subValue.month}-wrapper`}>
+                <h3 key={`subarchive-${value.year}-${subValue.month}`}>
+                  {toChineseMonth(subValue.month)}月
+                </h3>
+                <ul>
+                  {subValue.posts.map((subSubValue, subSubIndex) => (
+                    <li
+                      key={`post-${value.year}-${subValue.month}-${subSubIndex}`}
+                    >
+                      <Link href={`post/${subSubValue.slug}`}>
+                        {subSubValue.title}
+                      </Link>
+                      <span>{subSubValue.lang}</span>
+                      {subSubValue.date.slice(0, 10)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))}
+        <p>- END -</p>
       </div>
     </main>
   );

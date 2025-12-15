@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
 
-const { title } = globalConfig;
+const { title, navigation } = config;
 
 export const metadata: Metadata = {
   title: `关键词云 | ${title}`,
@@ -19,8 +19,11 @@ export default function Keywords() {
   }
 
   return (
-    <div>
+    <main>
       <h1>关键词云</h1>
+      <p>
+        {navigation.primary.find(({ key }) => key === "keywords")?.subtitle}
+      </p>
       <div>
         {Object.entries(keywordCounts).map(([key, count]) => (
           <Link key={key} href={`keyword/${key}`}>
@@ -30,6 +33,6 @@ export default function Keywords() {
           </Link>
         ))}
       </div>
-    </div>
+    </main>
   );
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Aphorism from "@components/aphorism";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 
-const { title } = globalConfig;
+const { title } = config;
 
 export const metadata: Metadata = {
   title: title,

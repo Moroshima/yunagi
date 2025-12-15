@@ -1,7 +1,7 @@
 "use client";
 
 import Giscus from "@giscus/react";
-import commentConfig from "@data/configs/comment.json";
+import config from "@data/config.json";
 
 const {
   repo,
@@ -13,7 +13,7 @@ const {
   reactionsEnabled,
   emitMetadata,
   inputPosition,
-} = commentConfig;
+} = config.comment;
 
 export default function Comment() {
   return (

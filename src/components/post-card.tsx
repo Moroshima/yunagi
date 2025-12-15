@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PostPreviewCard({
+export default function PostCard({
   post,
 }: {
   post: {
@@ -19,12 +19,13 @@ export default function PostPreviewCard({
     <div>
       <Link href={href}>{post.title}</Link>
       <span>{post.date}</span>
-      <span>{post.category}</span>
+      <Link href={"/category/" + post.category}>{post.category}</Link>
       <span>{post.lang}</span>
       {post.keywords.map((value, index) => (
-        <span key={`tag-${index}`}>{value}</span>
+        <Link key={`tag-${index}`} href={"/keyword/" + value}>
+          {value}
+        </Link>
       ))}
-      <Link href={href}>Read more</Link>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import PostPreviewCard from "@components/postPreviewCard";
-import globalConfig from "@data/configs/global.json";
+import PostCard from "@components/post-card";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
-import sortPostsByDate from "@utils/sortPostsByDate";
+import sortPostsByDate from "@utils/sort-posts-by-date";
 
-const { title } = globalConfig;
+const { title } = config;
 
 const categories = [...new Set(posts.map((value) => value.category))];
 
@@ -38,15 +38,15 @@ export default async function Category({
   const postList = posts.filter((item) => item.category === category);
 
   return (
-    <div>
-      <p>category: {category}</p>
-      <div>
+    <main>
+      <h1>分类：{category}</h1>
+      <ul>
         {sortPostsByDate(postList).map((value, index) => (
           <li key={`post-${index}`}>
-            <PostPreviewCard post={value} />
+            <PostCard post={value} />
           </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </main>
   );
 }

@@ -8,10 +8,10 @@ import remarkRehype from "remark-rehype";
 import RSS from "rss";
 import { unified } from "unified";
 import { visit } from "unist-util-visit";
-import globalConfig from "@data/configs/global.json";
+import config from "@data/config.json";
 import posts from "@data/posts.json";
 
-const { domain, owner, title, description, rss } = globalConfig;
+const { domain, owner, title, description, rss } = config;
 
 const siteUrl =
   process.env.NODE_ENV === "production"
@@ -38,7 +38,7 @@ export async function GET() {
     description: description,
     site_url: siteUrl,
     feed_url: `${siteUrl}/rss.xml`,
-    image_url: `${siteUrl}/${rss.imageUrl}`,
+    image_url: `${siteUrl}/${rss.image}`,
     pubDate: new Date(),
     copyright: `Copyright © ${new Date().getFullYear()} ${owner}. Ver.${
       JSON.parse(
