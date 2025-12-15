@@ -1,11 +1,10 @@
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote-client/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
-import rehypeToc from "rehype-toc";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import sharp from "sharp";
@@ -64,7 +63,6 @@ export default function Markdown(props: { source: string }) {
               },
             ],
             rehypeSlug,
-            [rehypeToc, { headings: ["h2", "h3", "h4", "h5", "h6"] }],
             [
               rehypeAutolinkHeadings,
               {
