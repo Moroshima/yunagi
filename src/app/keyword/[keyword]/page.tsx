@@ -43,7 +43,7 @@ export default async function Keyword({
   );
 
   return (
-    <main>
+    <main className="p-4">
       <h1>关键词：{keyword}</h1>
       <ul>
         {sortPostsByDate(postList).map((value, index) => (

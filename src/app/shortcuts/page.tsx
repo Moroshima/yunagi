@@ -6,7 +6,7 @@ const { navigation } = config;
 
 export default function Shortcuts() {
   return (
-    <main>
+    <main className="p-4">
       <h1>捷径</h1>
       <p>
         {navigation.primary.find(({ key }) => key === "shortcuts")?.subtitle}

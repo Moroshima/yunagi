@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-light: var(--color-white);
+  --color-dark: rgb(13, 17, 23);
+}
+
+@theme inline {
+  --font-sans:
+    var(--font-noto-sans), var(--font-noto-sans-sc), var(--font-noto-sans-tc),
+    sans-serif;
+  --font-serif:
+    var(--font-noto-serif), var(--font-noto-serif-sc),
+    var(--font-noto-serif-tc), serif;
+}
+
+@layer base {
+  h1 {
+    font-size: var(--text-4xl);
+  }
+  h2 {
+    font-size: var(--text-3xl);
+  }
+  h3 {
+    font-size: var(--text-2xl);
+  }
+  h4 {
+    font-size: var(--text-xl);
+  }
+  h5 {
+    font-size: var(--text-lg);
+  }
+  h6 {
+    font-size: var(--text-base);
+  }
+  .markdown {
+    :not(h1, h2, h3, h4, h5, h6) a {
+      color: var(--color-blue-600);
+      text-decoration-line: underline;
+    }
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-autospace: normal;
+
+  .markdown {
+    del,
+    del a {
+      text-decoration: none;
+      background-color: var(--color-dark);
+      color: var(--color-dark);
+      transition: color 0.12s linear;
+      &:hover {
+        color: var(--color-light);
+        a {
+          color: var(--color-blue-600);
+          text-decoration-line: underline;
+        }
+      }
+    }
+
+    pre {
+      overflow-x: auto;
+    }
+
+    .katex-display {
+      .katex-mathml {
+        display: block;
+        overflow-x: auto;
+      }
+      .katex-html {
+        display: none;
+      }
+    }
+  }
+}

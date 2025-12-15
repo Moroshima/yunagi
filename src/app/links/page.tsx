@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Links() {
   return (
-    <main>
+    <main className="p-4">
       <h1>友链</h1>
       <p>{navigation.primary.find(({ key }) => key === "links")?.subtitle}</p>
       <div>

@@ -26,15 +26,15 @@ export default function About() {
       "");
 
   return (
-    <div>
-      <main>
+    <div className="flex flex-row">
+      <main className="min-w-0 basis-full p-4">
         <h1>关于</h1>
         <p>{navigation.primary.find(({ key }) => key === "about")?.subtitle}</p>
-        <div>
+        <div className="markdown">
           <Markdown source={source} />
         </div>
       </main>
-      <div>
+      <div className="sticky top-0 hidden h-screen min-w-0 shrink-0 basis-2xs p-4 lg:block">
         <p>build info</p>
         {buildInfo.map(({ label, value }, index) => (
           <p key={`build-info-${index}`}>

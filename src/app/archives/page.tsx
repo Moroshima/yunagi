@@ -177,7 +177,7 @@ export default function Archive() {
   }
 
   return (
-    <main>
+    <main className="p-4">
       <h1>归档</h1>
       <p>
         {navigation.primary.find(({ key }) => key === "archives")?.subtitle}

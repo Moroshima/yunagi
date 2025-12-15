@@ -19,7 +19,7 @@ export default function Keywords() {
   }
 
   return (
-    <main>
+    <main className="p-4">
       <h1>关键词云</h1>
       <p>
         {navigation.primary.find(({ key }) => key === "keywords")?.subtitle}

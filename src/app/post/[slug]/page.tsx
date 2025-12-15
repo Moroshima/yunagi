@@ -30,7 +30,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function PostRender({
+export default async function Post({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -43,14 +43,14 @@ export default async function PostRender({
   );
 
   return (
-    <div>
-      <div>
-        <main>
+    <div className="flex flex-row">
+      <div className="min-w-0 basis-full p-4">
+        <main className="markdown">
           <Markdown source={source} />
         </main>
         <Comment />
       </div>
-      <div>
+      <div className="sticky top-0 hidden h-screen min-w-0 shrink-0 basis-2xs overflow-y-auto p-4 lg:block">
         <MDXRemote
           source={source}
           options={{

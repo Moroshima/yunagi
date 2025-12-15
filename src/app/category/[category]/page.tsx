@@ -38,7 +38,7 @@ export default async function Category({
   const postList = posts.filter((item) => item.category === category);
 
   return (
-    <main>
+    <main className="p-4">
       <h1>分类：{category}</h1>
       <ul>
         {sortPostsByDate(postList).map((value, index) => (

@@ -19,8 +19,8 @@ export default function Post() {
   }
 
   return (
-    <div>
-      <main>
+    <div className="flex flex-row">
+      <main className="min-w-0 basis-full p-4">
         <h1>文章</h1>
         <p>{navigation.primary.find(({ key }) => key === "posts")?.subtitle}</p>
         <div>
@@ -34,7 +34,7 @@ export default function Post() {
           <p>- MORE -</p>
         </div>
       </main>
-      <div>
+      <div className="sticky top-0 hidden h-screen min-w-0 shrink-0 basis-2xs p-4 lg:block">
         <ul>
           {Object.entries(categoryCounts).map(([key, count]) => (
             <Link key={key} href={`category/${key}`}>

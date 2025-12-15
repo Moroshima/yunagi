@@ -1,8 +1,8 @@
 import {
   Allison,
   Comforter,
+  EB_Garamond,
   Liu_Jian_Mao_Cao,
-  Ms_Madi,
   Noto_Sans,
   Noto_Sans_SC,
   Noto_Sans_TC,
@@ -12,55 +12,54 @@ import {
 } from "next/font/google";
 
 const allison = Allison({
-  subsets: ["latin"],
   variable: "--font-allison",
   weight: "400",
 });
 const comforter = Comforter({
-  subsets: ["latin"],
   variable: "--font-comforter",
   weight: "400",
 });
+const eb_garamond = EB_Garamond({
+  style: ["normal", "italic"],
+  variable: "--font-eb-garamond",
+  weight: "variable",
+});
 const liu_jian_mao_cao = Liu_Jian_Mao_Cao({
-  subsets: ["latin"],
   variable: "--font-liu-jian-mao-cao",
   weight: "400",
 });
-const ms_madi = Ms_Madi({
-  subsets: ["latin"],
-  variable: "--font-ms-madi",
-  weight: "400",
-});
 const noto_sans = Noto_Sans({
-  subsets: ["latin"],
+  style: ["normal", "italic"],
   variable: "--font-noto-sans",
+  weight: "variable",
 });
 const noto_sans_sc = Noto_Sans_SC({
-  subsets: ["latin"],
   variable: "--font-noto-sans-sc",
+  weight: "variable",
 });
 const noto_sans_tc = Noto_Sans_TC({
-  subsets: ["latin"],
   variable: "--font-noto-sans-tc",
+  weight: "variable",
 });
 const noto_serif = Noto_Serif({
-  subsets: ["latin"],
+  style: ["normal", "italic"],
   variable: "--font-noto-serif",
+  weight: "variable",
 });
 const noto_serif_sc = Noto_Serif_SC({
-  subsets: ["latin"],
   variable: "--font-noto-serif-sc",
+  weight: "variable",
 });
 const noto_serif_tc = Noto_Serif_TC({
-  subsets: ["latin"],
   variable: "--font-noto-serif-tc",
+  weight: "variable",
 });
 
 export {
   allison,
   comforter,
+  eb_garamond,
   liu_jian_mao_cao,
-  ms_madi,
   noto_sans,
   noto_sans_sc,
   noto_sans_tc,
