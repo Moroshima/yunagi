@@ -60,6 +60,7 @@ export default function Markdown(props: { source: string }) {
                   light: "github-dark-default",
                   dark: "github-light-default",
                 },
+                defaultColor: false,
               },
             ],
             rehypeSlug,

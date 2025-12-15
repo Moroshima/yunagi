@@ -25,3 +25,8 @@
 
 - [How to Favicon in 2025: Three files that fit most needs—Martian Chronicles, Evil Martians’ team blog](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
 - [Configuring Web Applications](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+
+## Dark Mode
+
+- [Implementing a light/dark mode toggle with app router + RSC · vercel/next.js · Discussion #53063](https://github.com/vercel/next.js/discussions/53063)
+- [Next.js by Vercel - The React Framework](https://nextjs.org/)

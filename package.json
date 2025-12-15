@@ -22,6 +22,9 @@
     "@giscus/react": "^3.1.0",
     "@primer/octicons-react": "^19.21.0",
     "@shikijs/rehype": "^3.15.0",
+    "@swc/core": "^1.15.5",
+    "clsx": "^2.1.1",
+    "jotai": "^2.16.0",
     "next": "16.0.4",
     "next-mdx-remote-client": "^2.1.7",
     "opencc-js": "^1.0.5",
@@ -39,6 +42,7 @@
     "rss": "^1.2.2",
     "semver": "^7.7.3",
     "sharp": "^0.34.5",
+    "typescript": "^5",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "unist-util-visit-parents": "^6.0.2"
@@ -55,7 +59,6 @@
     "@types/rss": "^0.0.32",
     "@types/semver": "^7.7.1",
     "babel-plugin-react-compiler": "1.0.0",
-    "clsx": "^2.1.1",
     "eslint": "^9",
     "eslint-config-next": "16.0.4",
     "eslint-config-prettier": "^10.1.8",
@@ -68,7 +71,6 @@
     "prettier-plugin-packagejson": "^2.5.19",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4",
-    "typescript": "^5",
     "wrangler": "^4.50.0"
   }
 }

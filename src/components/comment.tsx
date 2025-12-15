@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
 import Giscus from "@giscus/react";
 import config from "@data/config.json";
+import { themeAtom } from "@utils/store";
 
 const {
   repo,
@@ -16,6 +19,20 @@ const {
 } = config.comment;
 
 export default function Comment() {
+  const [theme] = useAtom(themeAtom);
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    if (
+      theme === "dark" ||
+      (theme === "auto" &&
+        globalThis.matchMedia("(prefers-color-scheme: dark)").matches)
+    )
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setDark(true);
+    else setDark(false);
+  }, [theme]);
+
   return (
     <Giscus
       category={category}
@@ -29,7 +46,7 @@ export default function Comment() {
       repo={repo}
       repoId={repoId}
       strict={strict}
-      theme="light"
+      theme={dark ? "dark" : "light"}
     />
   );
 }

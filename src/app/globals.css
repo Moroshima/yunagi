@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-light: var(--color-white);
   --color-dark: rgb(13, 17, 23);
@@ -75,4 +77,37 @@ body {
       }
     }
   }
+}
+
+html.dark body {
+  .markdown {
+    del,
+    del a {
+      background-color: var(--color-light);
+      color: var(--color-light);
+      &:hover {
+        color: var(--color-dark);
+      }
+    }
+  }
+}
+
+html .shiki,
+html .shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+  /* 可选，如果你还希望同步字体样式 */
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+  /* 可选，如果你还希望同步字体样式 */
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
 }
